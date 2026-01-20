@@ -3,4 +3,5 @@ _reports/
 .venv-e2e/
 .waitfordel/
 .images/
-uploads/
+uploads/claude.md
+CLAUDE.md

@@ -44,6 +44,81 @@
    
    ============================================================================ */
 
+ 
+
+
+/* ============================================================================
+   1. CONTENT BODY DIVS (First Layer)
+   ============================================================================ */
+  .content-body .count-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+
+    width: 100%;
+    min-width: 0;
+
+    flex-shrink: 0; /* never shrink */
+    height: clamp(120px, 16vh, 245px);
+
+    box-sizing: border-box;
+
+    /* border: 1px solid gainsboro !important; */
+  }
+
+
+
+  .content-body .count-card-tabs {
+    flex-shrink: 0; /* fixed height */
+
+    width: 100%;
+
+    background-color: transparent;
+    box-sizing: border-box;
+
+    /* border: 1px solid gainsboro !important; */
+  }
+
+
+  .content-body .count-card-wrapper-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+
+    flex: 1;        /* fill remaining space */
+    min-height: 0;  /* 🔑 REQUIRED FOR OVERFLOW TO WORK */
+
+    width: 100%;
+    min-width: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-surface);
+
+    box-sizing: border-box;
+
+    /* border: 1px solid gainsboro !important; */
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -55,21 +130,9 @@
 /* ================================
    Count Card Wrapper - Container
    ================================ */
-.content-body .count-card-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
-  
-  width: 100%;
-  min-width: 0;
-  
-  flex-shrink: 0;
-  height: clamp(120px, 16vh, 245px);
-  
-  box-sizing: border-box;
-  
-  border: 1px solid gainsboro !important;
-}
+
+
+
 
 /* Grid children fill parent */
 .count-card-wrapper > * {
@@ -362,7 +425,7 @@
   
   box-sizing: border-box;
   
-  border: 1px solid gainsboro !important;
+  /* border: 1px solid gainsboro !important; */
 }
 
 /* ================================
@@ -434,29 +497,22 @@
    4. COUNT CARD WRAPPER BODY (THIRD CHILD - MAIN CONTENT AREA)
    ============================================================================ */
 
+   
 /* ================================
    Count Card Wrapper Body - Container
    ================================ */
-.content-body .count-card-wrapper-body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  
-  flex: 1;
-  min-height: 0;
-  
-  width: 100%;
-  min-width: 0;
-  
-  overflow-y: auto;
-  overflow-x: hidden;
-  
-  background-color: var(--bg-surface);
-  
-  box-sizing: border-box;
-  
-  border: 1px solid gainsboro !important;
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ================================
    Count Card Tab Content - Wrapper
@@ -473,15 +529,32 @@
    Tab Content - Individual Tabs
    ================================ */
 .count-card-tab-content .tab-content {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  
+
+  min-height: 0;
   height: 100%;
   
   padding: 0;
   color: var(--text-primary);
+
   border: 1px solid var(--border-light);
 }
+
+.count-card-tab-content .tab-content.hidden {
+  visibility: hidden;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.count-card-tab-content .tab-content.tab-content.active {
+  visibility: visible;
+  position: relative;
+}
+
+
+
 
 .count-card-tab-content .tab-content.hidden {
   display: none;
@@ -495,7 +568,27 @@
 /* ================================
    Table Wrapper - Base
    ================================ */
-.table-wrapper {
+
+
+
+
+
+
+
+
+/* ================================
+   Table Wrapper - Variants
+   ================================ */
+.table-wrapper.itinerary-table {
+  flex: 1 1 auto;
+}
+
+
+/* ============================================================================
+   5.1. TABLE WRAPPER HEADER
+   ============================================================================ */
+
+  .table-wrapper {
   display: flex;
   flex-direction: column;
   
@@ -511,18 +604,6 @@
 }
 
 /* ================================
-   Table Wrapper - Variants
-   ================================ */
-.table-wrapper.itinerary-table {
-  flex: 1 1 auto;
-}
-
-
-/* ============================================================================
-   5.1. TABLE WRAPPER HEADER
-   ============================================================================ */
-
-/* ================================
    Table Wrapper Header - Base
    ================================ */
 .table-wrapper .table-wrapper-header {
@@ -530,10 +611,9 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--space-md);
-  
   flex: 0 0 auto;
   
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-md);
   background: var(--bg-muted);
   border-bottom: 1px solid var(--border-light);
   
@@ -582,7 +662,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  
   min-height: 0;
   min-width: 0;
   
@@ -595,13 +674,19 @@
 
 
 
+
 /* ================================
    Table Wrapper Body - Sales Statistics Variant
    ================================ */
 .table-wrapper-body.sales-statistics-table {
-  padding: 0;
-  gap: 0;
+  padding: var(--space-md);
+  gap: var(--space-sm);
+
+  overflow: hidden;
 }
+
+
+
 
 
 
@@ -754,6 +839,7 @@
    5.2.1. WRAPPER BODY HEADER (Controls Section)
    ============================================================================ */
 
+
 /* ================================
    Wrapper Body Header - Container
    ================================ */
@@ -766,36 +852,37 @@
   gap: var(--space-md);
   
   width: 100%;
-  padding: var(--space-md);
+  padding: var(--space-xs) 0;
   
   background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
   
   box-sizing: border-box;
 }
 
+
 /* Header Left Section (60%) */
 .wrapper-body-header-left {
-  flex: 1.4;
-  min-width: 0;
+  width: auto;
   
   display: flex;
   align-items: center;
   gap: var(--space-md);
   
   overflow: auto;
+
+  /* border: 1px solid gainsboro; */
 }
 
 /* Header Right Section (40%) */
 .wrapper-body-header-right {
-  flex: 0.6;
-  min-width: 0;
+  width: auto;
   
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   gap: var(--space-sm);
+
+  /* border: 1px solid gainsboro; */
 }
 
 /* ================================
@@ -920,34 +1007,44 @@
 }
 
 
-/* ============================================================================
+/* ==================================================
    5.2.2. WRAPPER MAIN BODY (Chart + Table Section)
-   ============================================================================ */
+   ==================================================*/
 
 /* ================================
    Wrapper Main Body - Container
    ================================ */
 .wrapper-main-body {
   flex: 1;
-  
   display: flex;
-  gap: var(--space-md);
+  min-height: 0;
+  overflow: hidden;
+  
+  gap: var(--space-xs);
   
   width: 100%;
-  min-height: 0;
   min-width: 0;
-  
-  overflow: hidden !important;
-  
   box-sizing: border-box;
   
-  border: 1px solid var(--border-light);
+  /* border: 1px solid var(--border-light); */
 }
+
+
+
 
 /* Alternative styling */
 .table-wrapper-body.sales-statistics-table .wrapper-main-body {
-  padding: var(--space-sm) var(--space-md);
+  padding: 0;
 }
+
+
+
+
+
+
+
+
+
 
 
 /* ============================================================================
@@ -975,9 +1072,9 @@
    Sales Summary Wrapper (20%)
    ================================ */
 .wrapper-main-body > .main-body .sales-summary-wrapper {
-  flex: 0 0 20%;
+  flex: 0 0 10%;
   
-  padding: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
   border-radius: var(--radius-sm);
   background-color: var(--bg-surface);
   
@@ -1035,7 +1132,7 @@
    Body Left Summary Wrapper (20%)
    ================================ */
 .wrapper-main-body .main-body-left .body-left-summary-wrapper {
-  flex: 0 0 20%;
+  flex: 0 0 18%;
   min-height: 0;
   
   display: flex;
@@ -1058,12 +1155,12 @@
   display: flex;
   flex-direction: column;
   
-  padding: var(--space-md) var(--space-md);
+  padding: var(--space-xs) var(--space-md);
   
   box-sizing: border-box;
-  
   border: 1px solid var(--border-light) !important;
 }
+
 
 #sales-chart-horizontal {
   width: 100%;
@@ -1094,14 +1191,15 @@
 
 
 .sales-statistics-content {
-  flex: 1 1 auto;
+  flex: 1;
   min-height: 0;
 
-  padding: var(--space-md);
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
   box-sizing: border-box;
+
 }
 
 
@@ -1113,9 +1211,9 @@
   flex: 1 1 auto;
   min-height: 0;
   overflow: auto;
-
   position: relative;
 }
+
 
 
 /* ================================
@@ -1163,6 +1261,7 @@
   padding: var(--space-md) var(--space-lg);
   color: var(--text-primary);
   vertical-align: middle;
+  white-space: normal; /* allow wrapping */
 }
 
 /* Specific column alignments */

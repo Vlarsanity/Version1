@@ -216,8 +216,7 @@
                                         <div class="table-wrapper-header">
                                             <div class="table-wrapper-header-left">
                                                 <div>
-                                                    <h2 class="table-wrapper-title">Itinerary List</h2>
-
+                                                    <h2 class="table-wrapper-title">Today's Itinerary List</h2>
                                                 </div>
                                             </div>
 
@@ -361,7 +360,6 @@
                                 <!-- Sales Stats by Product (Default Tab) -->
                                 <div id="tab3" class="tab-content hidden">
 
-
                                     <div class="table-wrapper">
 
                                         <!-- Header -->
@@ -386,6 +384,7 @@
 
                                                 <!-- HORIZONTAL CHART CONTROLS -->
                                                 <div class="wrapper-body-header-left">
+
                                                     <!-- Tabs -->
                                                     <div class="tab-buttons second-layer">
                                                         <button class="tab-btn" data-lan-eng="Daily" data-tab="daily" data-chart="horizontal">일간</button>
@@ -442,8 +441,10 @@
                                                 <div class="main-body-right">
 
                                                     <div class="sales-statistics-content">
+
                                                         <!-- Body: table container -->
                                                         <div class="mbr-table-wrapper-body">
+
                                                             <table class="mbr-table-card-table">
                                                                 
                                                                 <colgroup>
@@ -560,6 +561,7 @@
                                                             </table>
 
                                                         </div>
+
                                                     </div>
                                                 </div>
 

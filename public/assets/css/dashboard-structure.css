@@ -58,7 +58,6 @@ body,
 }
 
 
-
 /* ================================
    Sidebar
    ================================ */
@@ -109,7 +108,6 @@ body,
     padding: 5px 100px 5px 100px;
     box-sizing: border-box;
     overflow: hidden;           /* FIX */
-
 
     /* border: 1px solid gainsboro; */
     /* REMOVED: height: 100%; */
@@ -207,25 +205,22 @@ body,
 /* ================================
    Content Body
    ================================ */
-.content-body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  
-  min-width: 0;
-  min-height: 0;
-  
-  overflow-y: auto;
-  overflow-x: hidden;
-  
-  box-sizing: border-box;
-  
-  /* border: 1px solid gainsboro !important; */
-}
+ .content-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 0; /* allow children to shrink */
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+  }
+
 
 
 

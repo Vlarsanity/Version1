@@ -86,11 +86,229 @@
   gap: 12px;
 }
 
+/* =========================================================
+   TABLE SEARCH FIELD (ADAPTED TO ICON ACTION BUTTON STYLES)
+========================================================= */
+
+.table-search-wrapper {
+  position: relative;
+  width: 260px; /* adjustable */
+}
+
+.table-search-input {
+  width: 100%;
+  height: 40px; /* same height as icon-action-btn */
+  padding: 0 12px 0 38px; /* left padding for icon */
+  font-size: 0.875rem;
+
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+/* Hover state — matches icon-action-btn */
+.table-search-input:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--border-interactive);
+}
+
+/* Focus state — clear, accessible */
+.table-search-input:focus {
+  outline: none;
+  background-color: var(--bg-surface);
+  border-color: var(--border-interactive);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15); /* subtle accent glow */
+}
+
+/* Placeholder */
+.table-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Search icon inside input */
+.table-search-wrapper .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   TABLE ACTIONS RIGHT
+========================================================= */
+
 .table-actions-right {
   display: flex;
   align-items: center;
   gap: 8px;
 }
+
+/* =========================================================
+   ACTION DROPDOWN CONTAINER
+========================================================= */
+
+.action-dropdown {
+  position: relative;
+}
+
+/* =========================================================
+   DROPDOWN MENU
+========================================================= */
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 180px;
+
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 8px;
+
+  display: none;
+  z-index: 50;
+
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base);
+}
+
+/* Visible state */
+.action-dropdown.open .dropdown-menu {
+  display: block;
+}
+
+/* =========================================================
+   DROPDOWN ITEMS
+========================================================= */
+
+.dropdown-item {
+  width: 100%;
+  padding: 8px 10px;
+
+  background: none;
+  border: none;
+  text-align: left;
+
+  font-size: 0.875rem;
+  color: var(--text-primary);
+
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+
+  transition: background-color var(--transition-base);
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Destructive actions */
+.dropdown-item.danger {
+  color: #dc2626;
+}
+
+.dropdown-item.danger:hover {
+  background-color: rgba(220, 38, 38, 0.08);
+}
+
+/* Divider */
+.dropdown-menu hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 6px 0;
+}
+
+/* =========================================================
+   DROPDOWN SEARCH / INPUT
+========================================================= */
+
+.dropdown-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+
+  font-size: 0.875rem;
+  color: var(--text-primary);
+
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.dropdown-input::placeholder {
+  color: var(--text-muted);
+}
+
+.dropdown-input:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--border-interactive);
+}
+
+.dropdown-input:focus {
+  outline: none;
+  background-color: var(--bg-surface);
+  border-color: var(--border-interactive);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Bulk Action Dropdown */
 .bulk-action-dropdown {
@@ -455,13 +673,32 @@
   align-items: center;
 }
 
+
+.rows-reset-btn {
+    border: none;
+    background: #e0e0e0;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.rows-reset-btn:hover {
+    background: #d32f2f;
+    color: #fff;
+}
+
+
+
 /* ===============================
    ROWS PER PAGE
    =============================== */
 .rows-per-page {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
 }
 
 .rows-label {
@@ -480,6 +717,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
+  margin-right: 10px;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -500,6 +738,34 @@
   font-size: 0.75rem;
   color: var(--text-muted);
 }
+
+
+
+
+#resetPageSize {
+    border: none;
+    background: #e0e0e0;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#resetPageSize:hover {
+    background: #d32f2f;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
 
 /* ===============================
    TABLE INFO
@@ -603,6 +869,32 @@
   font-weight: var(--font-medium);
   user-select: none;
 }
+
+
+
+
+.pagination-number {
+    border: none;
+    background: #f0f0f0;
+    margin: 0 2px;
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.pagination-number.active {
+    background: #116530;
+    color: #fff;
+    font-weight: bold;
+}
+
+.pagination-number:hover:not(.active) {
+    background: #d4d4d4;
+}
+
+
+
 
 /* ===============================
    DARK MODE SUPPORT

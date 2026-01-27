@@ -185,6 +185,8 @@
   border: none !important;
   border-bottom: 1px solid var(--border-color) !important;
   transition: background-color var(--transition-base) !important;
+
+
 }
 
 .tabulator-row:last-child {
@@ -227,7 +229,7 @@
    =============================== */
 .tabulator-cell {
   flex: 1 1 auto !important;
-  padding: 6px 10px !important;
+  padding: 6px 8px !important;
   box-sizing: border-box !important;
   vertical-align: middle !important;
   color: var(--text-primary) !important;
@@ -238,7 +240,21 @@
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+
+  /* border: 1px solid gainsboro !important; */
 }
+
+.tabulator-cell:not(:first-child) {
+  padding: 6px 13px !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+
+
+
+
+
 
 /* ADDED: Cell alignment classes */
 .tabulator-cell.tabulator-cell-align-left {

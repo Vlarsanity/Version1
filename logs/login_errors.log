@@ -1,0 +1,6 @@
+[2026-01-29 07:02:44] Date: 2026-01-29 | ERROR: Failed to check existing session
+Exception: Unknown column 'device_type' in 'field list'
+Stack trace: #0 C:\xampp\htdocs\Version1\public\functions\login.php(123): mysqli->prepare('\r\n            S...')
+#1 C:\xampp\htdocs\Version1\public\functions\login.php(241): check_existing_session(Object(mysqli), 306, '127.0.0.1')
+#2 {main}
+--------------------------------------------------------------------------------

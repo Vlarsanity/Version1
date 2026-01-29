@@ -1,0 +1,200 @@
+/* ================================
+   BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  transition: background-color var(--transition-base),
+              color var(--transition-base);
+}
+
+
+
+/* ================================
+   TRANSPARENT LOGIN HEADER
+================================ */
+.login-top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  padding: 0 var(--space-md);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: transparent;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* ================================
+   THEME TOGGLE BUTTON
+================================ */
+.theme-toggle-btn {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  background-color: var(--overlay-light);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Hover / Active (Material feel) */
+.theme-toggle-btn:active {
+  transform: scale(0.92);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Icon styling */
+.theme-icon {
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text-primary);
+  transition: transform var(--transition-base),
+              color var(--transition-base);
+}
+
+/* Dark mode visual tweak */
+.dark .theme-toggle-btn {
+  background-color: var(--overlay-dark);
+}
+
+
+
+/* ================================
+   LOGIN PAGE
+================================ */
+.login-container {
+  min-height: 100vh;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.login-header h1 {
+  font-size: 1.5rem;
+  font-weight: var(--font-semibold);
+}
+
+.login-header p {
+  margin-top: var(--space-xs);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ================================
+   LOGIN LOGO
+================================ */
+.login-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.login-logo img {
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+
+
+
+.login-form {
+  background-color: var(--bg-surface);
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: var(--font-medium);
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-muted);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
+  background-color: var(--bg-surface);
+}
+
+/* Primary Button */
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem;
+  margin-top: var(--space-sm);
+  border-radius: var(--radius-lg);
+  border: none;
+  background-color: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.btn-primary:active {
+  background-color: var(--accent-active);
+  transform: scale(0.98);
+}
+
+.login-footer {
+  margin-top: var(--space-md);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.login-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+}
+
+

@@ -1,0 +1,419 @@
+/* ================================
+   DASHBOARD HEADER
+================================ */
+
+.mobile-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  height: 56px;
+  padding: 0 var(--space-md);
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  background-color: var(--bg-elevated);
+  border-bottom: 1px solid var(--divider);
+}
+
+/* Center */
+.header-center {
+  text-align: center;
+}
+
+.header-center h2 {
+  font-size: 0.9rem;
+  font-weight: var(--font-semibold);
+  letter-spacing: 0.5px;
+}
+
+/* ================================
+   HAMBURGER BUTTON
+================================ */
+.sidebar-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.sidebar-toggle span,
+.sidebar-toggle::before,
+.sidebar-toggle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  background-color: var(--text-primary);
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+
+.sidebar-toggle::before {
+  top: 13px;
+}
+
+.sidebar-toggle span {
+  top: 19px;
+}
+
+.sidebar-toggle::after {
+  top: 25px;
+}
+
+.sidebar-toggle:active {
+  background-color: var(--bg-hover);
+}
+
+
+
+
+/* Header groups */
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.mobile-header h2 {
+  font-size: 0.95rem;
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Sidebar toggle (Material icon placeholder) */
+.sidebar-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Simple hamburger */
+.sidebar-toggle::before,
+.sidebar-toggle::after,
+.sidebar-toggle span {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 16px;
+  height: 2px;
+  background-color: var(--text-secondary);
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+
+.sidebar-toggle::before { top: 12px; }
+.sidebar-toggle span { top: 17px; }
+.sidebar-toggle::after { top: 22px; }
+
+.sidebar-toggle:active {
+  background-color: var(--bg-hover);
+}
+
+/* Avatar */
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  background-color: var(--bg-muted);
+  border: 1px solid var(--border-light);
+}
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   SIDEBAR
+================================ */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px; /* hidden by default */
+  width: 260px;
+  height: 94.8%;
+  background-color: var(--bg-elevated);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: left var(--transition-base);
+  z-index: 20;
+}
+
+.mobile-sidebar.open {
+  left: 0;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.sidebar-nav a {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.sidebar-nav a.active {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.sidebar-nav a.danger {
+  color: var(--danger);
+}
+
+.sidebar-theme-toggle {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+#themeToggle {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  border: none;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+#themeToggle:active {
+  background-color: var(--accent-light);
+  transform: scale(0.95);
+}
+
+
+
+
+
+
+
+/* ================================
+   DASHBOARD CONTENT
+================================ */
+.dashboard {
+  padding: var(--space-md);
+  padding-bottom: calc(56px + var(--space-lg));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ================================
+   PACKAGE HEADER & TABS
+================================ */
+.package-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md) var(--space-sm);
+
+  border: 1px solid gainsboro;
+}
+
+.package-title h2 {
+  font-size: 1rem;
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.package-tabs {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.package-tabs .tab-btn {
+  flex: 1;
+  text-align: center;
+  padding: var(--space-xs) 0;
+  border-radius: var(--radius-xl);
+  border: none;
+  background-color: var(--bg-surface);
+  font-size: 0.75rem;
+  font-weight: var(--font-medium);
+  color: var(--text-subtle);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.package-tabs .tab-btn.active {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ================================
+   PACKAGE GRID
+================================ */
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+/* First card spans full width */
+.package-grid .package-card:first-child {
+  grid-column: 1 / -1;
+}
+
+/* ================================
+   PACKAGE CARD
+================================ */
+.package-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-xs);
+
+  transition:
+    box-shadow var(--transition-base),
+    transform var(--transition-fast);
+}
+
+.package-card:active {
+  transform: scale(0.97);
+  box-shadow: var(--shadow-sm);
+}
+
+.package-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.package-info {
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.package-info h3 {
+  font-size: 0.85rem;
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.package-info p {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.price {
+  font-size: 0.8rem;
+  font-weight: var(--font-bold);
+  color: var(--accent);
+}
+
+.package-info button {
+  margin-top: var(--space-xs);
+  height: 34px;
+
+  border-radius: var(--radius-md);
+  border: none;
+
+  background-color: var(--accent-soft);
+  color: var(--accent);
+
+  font-size: 0.7rem;
+  font-weight: var(--font-medium);
+
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.package-info button:active {
+  background-color: var(--accent-light);
+}
+
+
+
+
+
+
+/* ================================
+   BOTTOM NAVIGATION (Tabs)
+================================ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 60px;
+  background-color: var(--bg-elevated);
+  border-top: 1px solid var(--divider);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: var(--shadow-xs);
+  z-index: 100;
+}
+
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: var(--font-medium);
+  color: var(--text-subtle);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-fast);
+}
+
+.bottom-nav a i {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+/* Active tab */
+.bottom-nav a.active {
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Hover */
+.bottom-nav a:hover {
+  background-color: var(--accent-softer);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.bottom-nav a:hover:not(.active) {
+  background-color: var(--accent-softer);
+  color: var(--accent);
+}
+

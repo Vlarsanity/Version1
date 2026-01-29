@@ -1,4 +1,4 @@
-<link href="../../dist/styles.css?v=<?= time(); ?>" rel="stylesheet">
+<!-- <link href="../../dist/styles.css?v=<?= time(); ?>" rel="stylesheet"> -->
 <link href="../../public/assets/css/dashboard-structure.css?v=<?= time(); ?>" rel="stylesheet">
 <link href="../../public/assets/css/sidebar.css?v=<?= time(); ?>" rel="stylesheet">
 

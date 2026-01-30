@@ -10,8 +10,8 @@
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="../mobile/assets/css/root.css">
-  <link rel="stylesheet" href="../mobile/assets/css/mobile.css">
+  <link rel="stylesheet" href="../mobile/assets/css/root.css?v=<?= time(); ?>">
+  <link rel="stylesheet" href="../mobile/assets/css/mobile.css?v=<?= time(); ?>">
 
 </head>
 
@@ -32,8 +32,6 @@
         <span class="theme-icon">🌙</span>
       </button>
     </header>
-
-
 
 
     <div class="login-header">

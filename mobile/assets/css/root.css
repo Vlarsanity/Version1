@@ -30,7 +30,7 @@
   --divider: #e5e7eb;
 
   /* ================================
-     Primary/Accent Colors
+     Primary/Accent Colors (with warm touches)
      ================================ */
   --accent: #4f46e5;
   --accent-hover: #4338ca;
@@ -326,34 +326,14 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--scrollbar-thumb-hover);
 }
-/* ================================
-   Scrollbar Styling
-   ================================ */
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--scrollbar-track);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
-  border-radius: 5px;
-  transition: background-color var(--transition-base);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-thumb-hover);
-}
 
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
+
+
 
 /* ================================
    Flatpickr Calendar Styles

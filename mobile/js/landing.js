@@ -163,19 +163,21 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
+
+
 // ================================
 // NAVIGATION FUNCTIONALITY
 // ================================
-function switchPage(pageName) {
+function switchPage(pageName, packageId = null) {
+    
     // Hide all pages
     pageContents.forEach(page => page.classList.remove('active'));
-
     // Show selected page
     const selectedPage = document.getElementById(`${pageName}Page`);
     if (selectedPage) {
         selectedPage.classList.add('active');
     }
-
     // Update bottom nav active state
     bottomNavLinks.forEach(link => {
         link.classList.remove('active');
@@ -183,7 +185,6 @@ function switchPage(pageName) {
             link.classList.add('active');
         }
     });
-
     // Update sidebar nav active state
     sidebarNavLinks.forEach(link => {
         link.classList.remove('active');
@@ -191,13 +192,28 @@ function switchPage(pageName) {
             link.classList.add('active');
         }
     });
-
     // Close sidebar after navigation
     closeSidebar();
-
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (pageName === 'package-detail' && packageId) {
+    localStorage.setItem('currentPackageId', packageId);
+    // Load package data dynamically
+    loadPackageData();
+  }
 }
+
+// Update card click handlers
+document.querySelectorAll('.btn-details').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    const card = this.closest('.package-card');
+    const packageId = card.dataset.packageId;
+    switchPage('package-detail', packageId);
+  });
+});
+
 
 // Bottom navigation click events
 bottomNavLinks.forEach(link => {
@@ -237,6 +253,31 @@ if (logoutLink) {
 }
 
 // ================================
+// PROFILE AVATAR NAVIGATION
+// ================================
+const profileAvatar = document.querySelector('.profile-avatar');
+if (profileAvatar) {
+    profileAvatar.addEventListener('click', () => {
+        switchPage('profile');
+    });
+}
+
+// ================================
+// "SEE ALL" BUTTON NAVIGATION
+// ================================
+const seeAllButton = document.querySelector('.package-see-all');
+if (seeAllButton) {
+    seeAllButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        switchPage('packages');
+    });
+}
+
+
+
+
+
+// ================================
 // PACKAGE FILTERING
 // ================================
 tabButtons.forEach(btn => {
@@ -266,6 +307,7 @@ tabButtons.forEach(btn => {
     });
 });
 
+
 // ================================
 // FAVORITE FUNCTIONALITY
 // ================================
@@ -293,6 +335,7 @@ favoriteButtons.forEach(button => {
         }
     });
 });
+
 
 // ================================
 // THEME TOGGLE FUNCTIONALITY
@@ -335,21 +378,41 @@ themeToggleBtn.addEventListener('click', () => {
 // Initialize theme on page load
 initTheme();
 
+
+
 // ================================
 // VIEW DETAILS FUNCTIONALITY
 // ================================
-const detailButtons = document.querySelectorAll('.btn-details');
+document.querySelectorAll('.btn-details').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault(); // prevent default link behavior
+        e.stopPropagation(); // stop bubbling if needed
 
-detailButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const card = button.closest('.package-card');
-        const packageName = card.querySelector('h3').textContent;
-        
-        // Add your detail view logic here
+        // Get the package card
+        const card = this.closest('.package-card');
+
+        // Get package ID from data attribute (add data-package-id to your cards)
+        const packageId = card.dataset.packageId || 'default-package';
+
+        // Get package name (for detail view or alert)
+        const packageName = card.querySelector('h3')?.textContent || 'Unnamed Package';
+
+        // Store package ID in localStorage
+        localStorage.setItem('currentPackageId', packageId);
+
+        // Trigger detail view logic (alert for now)
         alert(`Viewing details for: ${packageName}\n\nThis would open a detailed package view.`);
+
+        // Navigate to details page
+        window.location.href = `package-details.html#package/${packageId}`;
     });
 });
+
+
+
+
+
+
 
 // ================================
 // SMOOTH SCROLL ENHANCEMENTS
@@ -372,6 +435,7 @@ const observer = new IntersectionObserver((entries) => {
 packageCards.forEach(card => {
     observer.observe(card);
 });
+
 
 // ================================
 // PULL TO REFRESH (Optional)

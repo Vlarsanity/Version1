@@ -77,13 +77,15 @@ body {
   letter-spacing: 1.3px;
 
   /* Strong red → yellow gradient */
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
-    #dc2626,  /* deep red */
-    #ef4444,  /* bright red */
-    #f59e0b,  /* orange */
-    #fde047   /* yellow */
-  );
+    #dc2626,  
+    #ef4444,  /
+    #f59e0b,  
+    #fde047   
+  ); */
+
+  background: var(--text-primary);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -171,6 +173,8 @@ body {
   transform: scale(0.95);
 }
 
+
+
 /* ================================
    SIDEBAR OVERLAY (iOS Backdrop)
 ================================ */
@@ -205,8 +209,11 @@ body {
   top: 0;
   left: -280px;
   width: 280px;
-  height: calc(100vh - 60px); /* Stops before bottom nav */
+
+  /* Mobile default: avoid bottom nav */
+  height: calc(100vh - 60px);
   max-height: calc(100vh - 60px);
+
   background-color: var(--bg-elevated);
   box-shadow: var(--shadow-xl);
   padding: var(--space-md);
@@ -215,9 +222,33 @@ body {
   transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 60;
   overflow-y: auto;
-  border-top-right-radius: var(--radius-xl);
-  border-bottom-right-radius: var(--radius-xl);
+
+
 }
+
+/* Desktop / full width */
+@media (min-width: 1024px) {
+  .mobile-sidebar {
+    height: 100vh;
+    max-height: 100vh;
+
+    /* Optional: desktop feel */
+    border-bottom-right-radius: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .mobile-sidebar.open {
   left: 0;
@@ -561,16 +592,7 @@ input:checked + .toggle-slider::before {
 
 
 
-/* ================================
-   DASHBOARD CONTENT
-================================ */
-.dashboard {
-  padding: var(--space-lg) var(--space-md);
-  padding-bottom: calc(60px + var(--space-xl));
-  min-height: calc(100vh - 56px);
-  display: flex;
-  flex-direction: column;
-}
+
 
 /* ================================
    BOTTOM NAVIGATION (iOS-Inspired)

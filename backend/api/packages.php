@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
-require __DIR__ . "/../conn.php";
+require_once __DIR__ . '/../conn.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 

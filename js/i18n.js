@@ -1293,10 +1293,7 @@ function getText(key, lang = null) {
 
 // API 경로 결정 함수
 function getApiPath() {
-    if (window.location.pathname.includes('/user/')) {
-        return '../backend/api/i18n.php';
-    }
-    return 'backend/api/i18n.php';
+    return '../backend/api/i18n.php';
 }
 
 // 서버에서 다국어 텍스트 로드

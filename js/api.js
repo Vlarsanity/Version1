@@ -34,6 +34,7 @@ class SmartTravelAPI {
             payments: `${this.baseURL}/payment.php`,
             visa: `${this.baseURL}/visa.php`,
             profile: `${this.baseURL}/profile.php`,
+            i18n: `${this.baseURL}/i18n.php`, // ✅ ADD THIS
             // App(WebView) push token + Expo push sender
             pushToken: `${this.baseURL}/push-token.php`,
             expoPush: `${this.baseURL}/expo-push.php`
@@ -85,7 +86,10 @@ class SmartTravelAPI {
             } catch (e) {
                 // JSON
                 console.error('API Error response (non-JSON):', responseText);
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error(
+                    `Invalid JSON response (status ${response.status}). Check PHP error logs.`
+                );
+
             }
 
             // 404  HTTP   JSON   ( success )

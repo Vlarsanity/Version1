@@ -1,0 +1,276 @@
+
+.content-wrapper.member-list-main-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--bg-secondary);
+    padding-bottom: 15px;
+    padding-top: 10px;
+    border: none;
+
+    /* border: 1px solid gainsboro; */
+
+}
+
+
+
+.content-header.member-list-main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: var(--space-xs) 0 var(--space-xs) var(--space-xs);
+    height: 60px;
+    flex-shrink: 0;
+
+    border: none;
+    
+    /* border: 1px solid gainsboro; */
+
+}
+
+
+.content-body.member-list-main-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: 0;
+    flex: 1;                    /* FIX */
+    overflow-y: auto;           /* scroll only body */
+
+    border: none;
+
+    /* border: 1px solid gainsboro; */
+    /* REMOVED: min-height */
+}
+
+
+
+
+
+
+
+/* =========================================================
+   CUSTOMER TABLE - PAGE SPECIFIC STYLES
+========================================================= */
+
+/* =========================================================
+   COLUMN SPECIFIC CELL COLORS
+========================================================= */
+.tabulator-cell[tabulator-field="email"],
+.tabulator-cell[tabulator-field="phone"],
+.tabulator-cell[tabulator-field="company"],
+.tabulator-cell[tabulator-field="regDate"] {
+    color: var(--text-secondary) !important;
+}
+
+/* =========================================================
+   CUSTOMER COLUMN
+========================================================= */
+.customer-info {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.customer-avatar {
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: var(--radius-full) !important;
+    color: white !important;
+    font-weight: var(--font-semibold) !important;
+    font-size: 0.875rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.customer-avatar-img {
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: var(--radius-full) !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+}
+
+.customer-name {
+    font-weight: var(--font-medium) !important;
+    color: var(--text-primary) !important;
+}
+
+/* =========================================================
+   MEMBER TYPE BADGES
+========================================================= */
+.member-type-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 4px 12px !important;
+    border-radius: var(--radius-full) !important;
+    font-size: 0.75rem !important;
+    font-weight: var(--font-semibold) !important;
+    text-transform: capitalize !important;
+}
+
+.member-type-badge.premium {
+    background-color: rgba(168, 85, 247, 0.1) !important;
+    color: #9333ea !important;
+}
+
+.member-type-badge.standard {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    color: #2563eb !important;
+}
+
+.member-type-badge.basic {
+    background-color: rgba(148, 163, 184, 0.1) !important;
+    color: #64748b !important;
+}
+
+/* =========================================================
+   STATUS BADGES (if needed)
+========================================================= */
+.status-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 4px 12px !important;
+    border-radius: var(--radius-full) !important;
+    font-size: 0.75rem !important;
+    font-weight: var(--font-semibold) !important;
+    text-transform: capitalize !important;
+}
+
+.status-badge.active {
+    background-color: rgba(34, 197, 94, 0.1) !important;
+    color: #16a34a !important;
+}
+
+.status-badge.inactive {
+    background-color: rgba(251, 146, 60, 0.1) !important;
+    color: #ea580c !important;
+}
+
+.status-badge.suspended {
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    color: #dc2626 !important;
+}
+
+/* =========================================================
+   PAYMENT METHOD (if needed)
+========================================================= */
+.payment-method {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.payment-icon {
+    width: 32px !important;
+    height: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 3px !important;
+    font-size: 1rem !important;
+}
+
+.payment-icon.visa {
+    background-color: #1a1f71 !important;
+    color: #f7b600 !important;
+}
+
+.payment-icon.mastercard {
+    background-color: #eb001b !important;
+    color: white !important;
+}
+
+.payment-icon.amex {
+    background-color: #006fcf !important;
+    color: white !important;
+}
+
+.payment-number {
+    font-size: 0.875rem !important;
+    color: var(--text-secondary) !important;
+    font-family: 'Courier New', monospace !important;
+}
+
+/* =========================================================
+   ACTIONS COLUMN
+========================================================= */
+.actions-btn {
+    width: 32px !important;
+    height: 32px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-muted) !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    transition: background-color var(--transition-base), color var(--transition-base) !important;
+}
+
+.actions-btn:hover {
+    background-color: var(--bg-hover) !important;
+    color: var(--text-primary) !important;
+}
+
+/* =========================================================
+   DARK MODE SUPPORT - PAGE SPECIFIC
+========================================================= */
+.dark .tabulator-cell[tabulator-field="email"],
+.dark .tabulator-cell[tabulator-field="phone"],
+.dark .tabulator-cell[tabulator-field="company"],
+.dark .tabulator-cell[tabulator-field="regDate"] {
+    color: var(--text-secondary) !important;
+}
+
+.dark .customer-name {
+    color: var(--text-primary) !important;
+}
+
+.dark .member-type-badge.premium {
+    background-color: rgba(168, 85, 247, 0.15) !important;
+    color: #a855f7 !important;
+}
+
+.dark .member-type-badge.standard {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+    color: #3b82f6 !important;
+}
+
+.dark .member-type-badge.basic {
+    background-color: rgba(148, 163, 184, 0.15) !important;
+    color: #94a3b8 !important;
+}
+
+.dark .payment-number {
+    color: var(--text-secondary) !important;
+}
+
+.dark .actions-btn {
+    color: var(--text-muted) !important;
+}
+
+.dark .actions-btn:hover {
+    background-color: var(--bg-hover) !important;
+    color: var(--text-primary) !important;
+}
+
+/* =========================================================
+   RESPONSIVE ADJUSTMENTS - PAGE SPECIFIC
+========================================================= */
+@media (max-width: 768px) {
+    .customer-avatar,
+    .customer-avatar-img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .customer-info {
+        gap: 8px !important;
+    }
+}

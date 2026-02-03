@@ -475,6 +475,7 @@
     background: var(--white);
   }
 }
+
 @layer Typography {
   .text.fz12 {
     font-size: 12px;
@@ -668,6 +669,8 @@
     transform: rotate(0deg);
   }
 }
+
+
 :root {
   /* Colors */
   --primary: #ED1B23;
@@ -768,6 +771,10 @@
 .relative {
   position: relative;
 }
+
+
+
+
 
 @layer Button {
   .btn {
@@ -1192,6 +1199,7 @@
     z-index: 0;
   }
 }
+
 @layer Card {
   .card-type {
     box-shadow: 0 0 4px 0 rgba(87, 87, 87, 0.03), 0 0 20px 0 rgba(198, 198, 198, 0.18);
@@ -1453,6 +1461,7 @@
     display: block;
   }
 }
+
 @layer Header {
   .header-type1 {
     display: flex;
@@ -1520,6 +1529,7 @@
     margin: 0 auto;
   }
 }
+
 @layer Input {
   .label-input {
     display: block;
@@ -2006,6 +2016,7 @@
     gap: 8px;
   }
 }
+
 @layer List {
   .list-type1 li {
     color: var(--black12);
@@ -2279,6 +2290,7 @@
     border-bottom: none;
   }
 }
+
 @layer Modal {
   .layer {
     opacity: 0;
@@ -2643,6 +2655,7 @@
     border-radius: 6px;
   }
 }
+
 @layer Pagination {
   .pagination {
     display: flex;
@@ -2687,6 +2700,7 @@
     color: var(--white);
   }
 }
+
 @layer Table {
   .table-type1 {
     max-width: 1500px;
@@ -2721,6 +2735,7 @@
     text-align: left;
   }
 }
+
 @layer Tab {
   .tab-type1 {
     display: flex;
@@ -2808,6 +2823,7 @@
     box-shadow: 0 0 3px 0 rgba(55, 55, 55, 0.04), 0 0 20px 0 rgba(169, 169, 169, 0.3);
   }
 }
+
 @layer Banner {
   .partnership-banner {
     position: relative;
@@ -2819,6 +2835,7 @@
     transform: translate(-50%, -50%);
   }
 }
+
 @layer Filter {
   .filter-bx {
     border-radius: 6px;
@@ -2915,44 +2932,57 @@
     background: url(../../images/ico_close_gray.svg);
   }
 }
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @layer Font {
   @font-face {
-    font-family: "LEMON MILK";
-    src: url("../font/LemonMilk.otf") format("opentype");
-    font-weight: normal;
+    font-family: "Poppins";
     font-style: normal;
-  }
-  @font-face {
-    font-family: "LEMON MILK";
-    src: url("../font/LemonMilkbold.otf") format("opentype");
-    font-weight: bold;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "LEMON MILK";
-    src: url("../font/LemonMilkbolditalic.otf") format("opentype");
-    font-weight: bold;
-    font-style: italic;
-  }
-  @font-face {
-    font-family: "LEMON MILK";
-    src: url("../font/LemonMilkitalic.otf") format("opentype");
-    font-weight: normal;
-    font-style: italic;
-  }
-  @font-face {
-    font-family: "LEMON MILK";
-    src: url("../font/LemonMilklight.otf") format("opentype");
-    font-weight: 300; /* light weight */
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "LEMON MILK";
-    src: url("../font/LemonMilklightitalic.otf") format("opentype");
     font-weight: 300;
-    font-style: italic;
+    src: local('Poppins Light'), local('Poppins-Light'), 
+         url('https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFVrJJfedw.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    src: local('Poppins Regular'), local('Poppins-Regular'), 
+         url('https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFVrJJfedw.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    src: local('Poppins Medium'), local('Poppins-Medium'), 
+         url('https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFVrJJfedw.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    src: local('Poppins SemiBold'), local('Poppins-SemiBold'), 
+         url('https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFVrJJfedw.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    src: local('Poppins Bold'), local('Poppins-Bold'), 
+         url('https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFVrJJfedw.woff2') format('woff2');
   }
 }
+
+
+
+
+
+
 @layer Form {
   .form-group {
     display: flex;

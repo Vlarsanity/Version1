@@ -1,0 +1,28 @@
+[23-Jan-2026 03:04:27 Europe/Berlin] PHP Warning:  require_once(../../configs/conn.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\Version1\public\functions\login.php on line 22
+[23-Jan-2026 03:04:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required '../../configs/conn.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Version1\public\functions\login.php:22
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Version1\public\functions\login.php on line 22
+[23-Jan-2026 03:05:51 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[23-Jan-2026 03:05:55 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[23-Jan-2026 03:05:58 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[23-Jan-2026 03:05:59 Europe/Berlin] PHP Warning:  Undefined variable $deviceType in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[23-Jan-2026 03:05:59 Europe/Berlin] PHP Warning:  Undefined variable $browser in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[23-Jan-2026 03:08:29 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[23-Jan-2026 03:08:29 Europe/Berlin] LOGOUT: session_id=v4hdg3okdkpe23o9nb08nu6q1o, accountId=306, username=employee1, mode=ajax, IP=127.0.0.1
+[23-Jan-2026 03:14:20 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[23-Jan-2026 03:14:21 Europe/Berlin] PHP Warning:  Undefined variable $deviceType in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[23-Jan-2026 03:14:21 Europe/Berlin] PHP Warning:  Undefined variable $browser in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[26-Jan-2026 02:09:42 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[26-Jan-2026 02:09:45 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[26-Jan-2026 02:09:45 Europe/Berlin] PHP Warning:  Undefined variable $deviceType in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[26-Jan-2026 02:09:45 Europe/Berlin] PHP Warning:  Undefined variable $browser in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[26-Jan-2026 02:45:44 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[26-Jan-2026 02:45:45 Europe/Berlin] PHP Warning:  Undefined variable $deviceType in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[26-Jan-2026 02:45:45 Europe/Berlin] PHP Warning:  Undefined variable $browser in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[29-Jan-2026 07:01:20 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[29-Jan-2026 07:02:44 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local
+[29-Jan-2026 07:02:44 Europe/Berlin] PHP Warning:  Undefined variable $deviceType in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[29-Jan-2026 07:02:44 Europe/Berlin] PHP Warning:  Undefined variable $browser in C:\xampp\htdocs\Version1\public\functions\login.php on line 381
+[29-Jan-2026 07:02:44 Europe/Berlin] Activity log DB error: Unknown column 'level' in 'field list'
+[29-Jan-2026 09:50:34 Europe/Berlin] Environment loaded: local from C:\xampp\htdocs\Version1/.env.local

@@ -1,0 +1,409 @@
+/* =========================================================
+   FULLCALENDAR DEFAULT OVERRIDES
+   This file contains custom styling for FullCalendar
+   to match your design system
+========================================================= */
+
+/* ================================
+   FullCalendar Height Fixes & Container
+   ================================ */
+.fc {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+
+.fc-view-harness {
+  flex: 1;
+  min-height: 0;
+}
+
+.fc-daygrid {
+  height: 100%;
+}
+
+.fc-scrollgrid {
+  height: 100%;
+}
+
+/* ================================
+   Day Grid Cells
+   ================================ */
+.fc-daygrid-day {
+  background: var(--bg-surface);
+  border-color: var(--border-light) !important;
+  transition: background-color var(--transition-fast);
+}
+
+.fc-daygrid-day:hover {
+  background: var(--bg-muted);
+  cursor: pointer;
+}
+
+.fc-daygrid-day.fc-day-today {
+  background: var(--accent-softer) !important;
+}
+
+.fc-daygrid-day.fc-day-other {
+  background: var(--bg-sunken);
+  opacity: 0.6;
+}
+
+/* ================================
+   Day Numbers
+   ================================ */
+.fc-daygrid-day-number {
+  color: var(--text-primary);
+  font-weight: var(--font-medium);
+  font-size: 0.875rem;
+  padding: 8px;
+}
+
+.fc-day-today .fc-daygrid-day-number {
+  background: var(--accent);
+  color: white;
+  border-radius: var(--radius-md);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-semibold);
+}
+
+.fc-day-other .fc-daygrid-day-number {
+  color: var(--text-disabled);
+}
+
+/* ================================
+   Day Headers (Weekdays)
+   ================================ */
+.fc-col-header-cell {
+  background: var(--bg-muted);
+  border-color: var(--border-light) !important;
+  padding: 12px 8px;
+}
+
+.fc-col-header-cell-cushion {
+  color: var(--text-muted);
+  font-weight: var(--font-semibold);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+/* ================================
+   Events
+   ================================ */
+.fc-event {
+  border: none !important;
+  border-left: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 3px;
+  padding: 3px 6px;
+  margin: 2px 4px;
+  font-size: 0.6875rem;
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.fc-event:hover {
+  opacity: 0.9;
+}
+
+.fc-event-title {
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fc-event-time {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: var(--font-normal);
+}
+
+/* ================================
+   More Link ("+X more" text)
+   ================================ */
+.fc-daygrid-more-link {
+  color: var(--text-muted);
+  font-size: 0.6875rem;
+  font-weight: var(--font-medium);
+  margin: 2px 4px;
+  padding: 2px 6px;
+  text-decoration: none;
+}
+
+.fc-daygrid-more-link:hover {
+  color: var(--accent);
+  background: var(--bg-hover);
+  border-radius: 3px;
+}
+
+/* ================================
+   Popover (for "more" events)
+   ================================ */
+.fc-popover {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+.fc-popover-header {
+  background: var(--bg-muted);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-light);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.fc-popover-close {
+  color: var(--text-secondary);
+  opacity: 1;
+  transition: color var(--transition-fast);
+}
+
+.fc-popover-close:hover {
+  color: var(--text-primary);
+}
+
+.fc-popover-body {
+  padding: 8px;
+}
+
+/* ================================
+   Day Grid Events Container
+   ================================ */
+.fc-daygrid-event-harness {
+  margin: 0 !important;
+}
+
+.fc-daygrid-day-events {
+  margin-top: 6px;
+}
+
+/* ================================
+   Scrolling
+   ================================ */
+.fc-scroller {
+  overflow-y: auto !important;
+}
+
+.fc-scroller::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.fc-scroller::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+.fc-scroller::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+.fc-scroller::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ================================
+   Selection
+   ================================ */
+.fc-highlight {
+  background: var(--accent-soft);
+}
+
+/* ================================
+   Day Grid Frame
+   ================================ */
+.fc-daygrid-body {
+  width: 100% !important;
+}
+
+.fc-scrollgrid {
+  border-color: var(--border-light) !important;
+}
+
+.fc-scrollgrid-section > * {
+  border-color: var(--border-light) !important;
+}
+
+/* ================================
+   Remove Default Shadows
+   ================================ */
+.fc-event,
+.fc-event:hover {
+  box-shadow: none !important;
+}
+
+/* ================================
+   Day Cell Top Area
+   ================================ */
+.fc-daygrid-day-top {
+  display: flex;
+  justify-content: flex-start;
+  padding: 4px;
+}
+
+/* ================================
+   Background Events
+   ================================ */
+.fc-daygrid-bg-harness {
+  background: transparent;
+}
+
+/* ================================
+   Non-Business Hours
+   ================================ */
+.fc-non-business {
+  background: var(--bg-sunken);
+}
+
+/* ================================
+   Focus State
+   ================================ */
+.fc-event:focus,
+.fc-daygrid-day:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ================================
+   Disabled State
+   ================================ */
+.fc-day-disabled {
+  background: var(--bg-sunken);
+  opacity: 0.5;
+}
+
+/* ================================
+   Dark Mode Specific Adjustments
+   ================================ */
+.dark .fc-daygrid-day {
+  background: var(--bg-surface);
+}
+
+.dark .fc-daygrid-day.fc-day-today {
+  background: var(--accent-softer) !important;
+}
+
+.dark .fc-col-header-cell {
+  background: var(--bg-muted);
+}
+
+.dark .fc-popover {
+  background: var(--bg-surface);
+  border-color: var(--border-color);
+}
+
+.dark .fc-popover-header {
+  background: var(--bg-muted);
+  border-bottom-color: var(--border-color);
+}
+
+/* ================================
+   Responsive Adjustments
+   ================================ */
+@media (max-width: 767px) {
+  .fc-daygrid-day-number {
+    font-size: 0.75rem;
+    padding: 4px;
+  }
+
+  .fc-event {
+    font-size: 0.625rem;
+    padding: 2px 4px;
+  }
+
+  .fc-col-header-cell-cushion {
+    font-size: 0.6875rem;
+  }
+}
+
+/* ================================
+   Fix for Day Grid Height
+   ================================ */
+.fc-daygrid-day-frame {
+  min-height: 100px;
+}
+
+/* ================================
+   Event Dot (for list view compatibility)
+   ================================ */
+.fc-daygrid-event-dot {
+  border-color: inherit;
+}
+
+/* ================================
+   View-Specific Adjustments
+   ================================ */
+.fc-view-harness {
+  height: 100% !important;
+  flex: 1;
+}
+
+.fc-daygrid {
+  height: 100%;
+}
+
+/* ================================
+   Calendar Toolbar (Hidden - using custom)
+   ================================ */
+.fc-toolbar {
+  display: none;
+}
+
+/* ================================
+   Week Numbers (if enabled)
+   ================================ */
+.fc-daygrid-week-number {
+  background: var(--bg-muted);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 8px;
+}
+
+/* ================================
+   Selected Day Highlight
+   ================================ */
+.fc-day-selected {
+  background: var(--accent-light) !important;
+  position: relative;
+}
+
+.fc-day-selected::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--accent);
+  pointer-events: none;
+  border-radius: 0;
+}
+
+/* ================================
+   Event Resizing and Dragging
+   ================================ */
+.fc-event-dragging {
+  opacity: 0.75;
+}
+
+.fc-event-resizing {
+  opacity: 0.75;
+}
+
+/* ================================
+   Now Indicator (if enabled)
+   ================================ */
+.fc-timegrid-now-indicator-line {
+  border-color: var(--danger);
+}
+
+.fc-timegrid-now-indicator-arrow { 
+  border-color: var(--danger);
+}

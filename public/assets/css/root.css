@@ -1,0 +1,1747 @@
+:root {
+  /* ================================
+     Backgrounds
+     ================================ */
+  --bg-main: #fafbfc;
+  --bg-surface: #ffffff;
+  --bg-muted: #f3f4f6;
+  --bg-hover: #e8eaed;
+  --bg-active: #dfe1e5;
+  --bg-elevated: #ffffff;
+  
+  --bg-sunken: #f8f9fa;
+
+  /* ================================
+     Text Colors (Enhanced for Visibility)
+     ================================ */
+  --text-primary: #0f1419;
+  --text-secondary: #3d4451;
+  --text-muted: #5f6b7a;
+  --text-subtle: #8691a0;
+  --text-disabled: #b0b8c1;
+
+  /* ================================
+     Borders & Dividers (Enhanced Contrast)
+     ================================ */
+  --border-color: #d1d5db;
+  --border-light: #e5e7eb;
+  --border-strong: #9ca3af;
+  --border-interactive: #b4b9c2;
+  --divider: #e5e7eb;
+
+  /* ================================
+     Primary/Accent Colors
+     ================================ */
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-active: #3730a3;
+  --accent-soft: rgba(79, 70, 229, 0.08);
+  --accent-softer: rgba(79, 70, 229, 0.04);
+  --accent-border: rgba(79, 70, 229, 0.3);
+  --accent-light: rgba(79, 70, 229, 0.1);
+
+  /* ================================
+     SUCCESS Colors
+     ================================ */
+  --success: #16a34a;
+  --success-hover: #15803d;
+  --success-active: #14532d;
+  --success-soft: rgba(22, 163, 74, 0.1);
+  --success-softer: rgba(22, 163, 74, 0.05);
+  --success-text: #15803d;
+  --success-text-emphasis: #166534;
+  --success-border: rgba(22, 163, 74, 0.3);
+  --success-border-strong: rgba(22, 163, 74, 0.5);
+
+  /* ================================
+     WARNING Colors
+     ================================ */
+  --warning: #ea580c;
+  --warning-hover: #c2410c;
+  --warning-active: #9a3412;
+  --warning-soft: rgba(234, 88, 12, 0.1);
+  --warning-softer: rgba(234, 88, 12, 0.05);
+  --warning-text: #c2410c;
+  --warning-text-emphasis: #9a3412;
+  --warning-border: rgba(234, 88, 12, 0.3);
+  --warning-border-strong: rgba(234, 88, 12, 0.5);
+
+  /* ================================
+     DANGER Colors
+     ================================ */
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+  --danger-active: #991b1b;
+  --danger-soft: rgba(220, 38, 38, 0.1);
+  --danger-softer: rgba(220, 38, 38, 0.05);
+  --danger-text: #b91c1c;
+  --danger-text-emphasis: #991b1b;
+  --danger-border: rgba(220, 38, 38, 0.3);
+  --danger-border-strong: rgba(220, 38, 38, 0.5);
+
+  /* ================================
+     INFO Colors
+     ================================ */
+  --info: #2563eb;
+  --info-hover: #1d4ed8;
+  --info-active: #1e40af;
+  --info-soft: rgba(37, 99, 235, 0.1);
+  --info-softer: rgba(37, 99, 235, 0.05);
+  --info-text: #1d4ed8;
+  --info-text-emphasis: #1e40af;
+  --info-border: rgba(37, 99, 235, 0.3);
+  --info-border-strong: rgba(37, 99, 235, 0.5);
+
+  /* ================================
+     Interactive States
+     ================================ */
+  --focus-ring: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  --focus-ring-success: 0 0 0 3px rgba(22, 163, 74, 0.2);
+  --focus-ring-warning: 0 0 0 3px rgba(234, 88, 12, 0.2);
+  --focus-ring-danger: 0 0 0 3px rgba(220, 38, 38, 0.2);
+  --focus-ring-info: 0 0 0 3px rgba(37, 99, 235, 0.2);
+
+  /* ================================
+     Scrollbar
+     ================================ */
+  --scrollbar-track: #f3f4f6;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
+
+  /* ================================
+     Shadows
+     ================================ */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 
+               0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1),
+               0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1),
+               0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15),
+               0 8px 10px rgba(0, 0, 0, 0.06);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.2);
+
+  /* ================================
+     Overlays
+     ================================ */
+  --overlay-light: rgba(255, 255, 255, 0.85);
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  --overlay-darker: rgba(0, 0, 0, 0.7);
+
+  /* ================================
+     Spacing
+     ================================ */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* ================================
+     Border Radius
+     ================================ */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ================================
+     Typography
+     ================================ */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* ================================
+     Transitions
+     ================================ */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+}
+
+/* ================================
+   Dark Mode Variables
+   ================================ */
+
+.dark {
+  /* ================================
+     Backgrounds
+     ================================ */
+  --bg-main: #0a0e14;
+  --bg-surface: #151920;
+  --bg-muted: #1d2128;
+  --bg-hover: #252a33;
+  --bg-active: #2d323d;
+  --bg-elevated: #1d2128;
+  --bg-sunken: #080b10;
+
+  /* ================================
+     Text Colors (Enhanced Brightness)
+     ================================ */
+  --text-primary: #f0f2f5;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --text-subtle: #6b7280;
+  --text-disabled: #4b5563;
+
+  /* ================================
+     Borders & Dividers (Enhanced Contrast)
+     ================================ */
+  --border-color: #2d323d;
+  --border-light: #252a33;
+  --border-strong: #3d444f;
+  --border-interactive: #4b5563;
+  --divider: #2d323d;
+
+  /* ================================
+     Primary/Accent Colors
+     ================================ */
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-active: #c7d2fe;
+  --accent-soft: rgba(129, 140, 248, 0.15);
+  --accent-softer: rgba(129, 140, 248, 0.08);
+  --accent-border: rgba(129, 140, 248, 0.4);
+  --accent-light: rgba(129, 140, 248, 0.15);
+
+  /* ================================
+     SUCCESS Colors (Dark Mode)
+     ================================ */
+  --success: #34d399;
+  --success-hover: #6ee7b7;
+  --success-active: #a7f3d0;
+  --success-soft: rgba(52, 211, 153, 0.15);
+  --success-softer: rgba(52, 211, 153, 0.08);
+  --success-text: #6ee7b7;
+  --success-text-emphasis: #a7f3d0;
+  --success-border: rgba(52, 211, 153, 0.4);
+  --success-border-strong: rgba(52, 211, 153, 0.6);
+
+  /* ================================
+     WARNING Colors (Dark Mode)
+     ================================ */
+  --warning: #fb923c;
+  --warning-hover: #fdba74;
+  --warning-active: #fed7aa;
+  --warning-soft: rgba(251, 146, 60, 0.15);
+  --warning-softer: rgba(251, 146, 60, 0.08);
+  --warning-text: #fdba74;
+  --warning-text-emphasis: #fed7aa;
+  --warning-border: rgba(251, 146, 60, 0.4);
+  --warning-border-strong: rgba(251, 146, 60, 0.6);
+
+  /* ================================
+     DANGER Colors (Dark Mode)
+     ================================ */
+  --danger: #f87171;
+  --danger-hover: #fca5a5;
+  --danger-active: #fecaca;
+  --danger-soft: rgba(248, 113, 113, 0.15);
+  --danger-softer: rgba(248, 113, 113, 0.08);
+  --danger-text: #fca5a5;
+  --danger-text-emphasis: #fecaca;
+  --danger-border: rgba(248, 113, 113, 0.4);
+  --danger-border-strong: rgba(248, 113, 113, 0.6);
+
+  /* ================================
+     INFO Colors (Dark Mode)
+     ================================ */
+  --info: #60a5fa;
+  --info-hover: #93c5fd;
+  --info-active: #bfdbfe;
+  --info-soft: rgba(96, 165, 250, 0.15);
+  --info-softer: rgba(96, 165, 250, 0.08);
+  --info-text: #93c5fd;
+  --info-text-emphasis: #bfdbfe;
+  --info-border: rgba(96, 165, 250, 0.4);
+  --info-border-strong: rgba(96, 165, 250, 0.6);
+
+  /* ================================
+     Interactive States
+     ================================ */
+  --focus-ring: 0 0 0 3px rgba(129, 140, 248, 0.4);
+  --focus-ring-success: 0 0 0 3px rgba(52, 211, 153, 0.4);
+  --focus-ring-warning: 0 0 0 3px rgba(251, 146, 60, 0.4);
+  --focus-ring-danger: 0 0 0 3px rgba(248, 113, 113, 0.4);
+  --focus-ring-info: 0 0 0 3px rgba(96, 165, 250, 0.4);
+
+  /* ================================
+     Scrollbar
+     ================================ */
+  --scrollbar-track: #151920;
+  --scrollbar-thumb: #3d444f;
+  --scrollbar-thumb-hover: #4b5563;
+
+  /* ================================
+     Shadows (Enhanced for Dark Mode)
+     ================================ */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.6), 
+               0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.6),
+               0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.7),
+               0 4px 6px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.8),
+               0 8px 10px rgba(0, 0, 0, 0.6);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.9);
+
+  /* ================================
+     Overlays
+     ================================ */
+  --overlay-light: rgba(255, 255, 255, 0.08);
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+  --overlay-darker: rgba(0, 0, 0, 0.85);
+}
+
+
+/* ================================
+   Scrollbar Styling
+   ================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 5px;
+  transition: background-color var(--transition-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+/* ================================
+   Scrollbar Styling
+   ================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 5px;
+  transition: background-color var(--transition-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* ================================
+   Flatpickr Calendar Styles
+   ================================ */
+
+.flatpickr-calendar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  font-family: inherit;
+  color: var(--text-primary);
+  overflow: hidden;
+  width: 320px !important;
+  max-width: 320px !important;
+}
+
+.flatpickr-calendar.open {
+  display: block;
+  z-index: 9999;
+}
+
+.flatpickr-calendar.inline {
+  position: relative;
+  top: 0;
+  display: block;
+}
+
+.flatpickr-calendar.static {
+  position: absolute;
+  top: calc(100% + 2px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   HEADER SECTION - Top navigation area
+   ======================================== */
+
+.flatpickr-months {
+  background: var(--bg-surface) !important;
+  padding: var(--space-md) var(--space-sm) !important;
+ 
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  position: relative !important;
+
+  min-height: 40px !important;
+  height: 40px !important;
+  width: 100% !important;
+
+  gap: var(--space-sm) !important;
+  flex-wrap: nowrap !important;
+
+  margin-bottom: var(--space-sm) !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+
+/* ========================================
+   Month container (wrapper)
+   ======================================== */
+
+.flatpickr-months .flatpickr-month {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+  fill: var(--text-primary) !important;
+
+  height: 28px !important;
+  line-height: 1 !important;
+
+  position: relative !important;
+  overflow: visible !important;
+
+  flex: 1 1 auto !important;
+  max-width: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: var(--space-sm) !important;
+  white-space: nowrap !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+
+/* =========================
+   Month Arrows (RESTORED OLD FORMAT)
+   ========================= */
+
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 30px !important;
+  height: 30px !important;
+
+  margin: 0 !important;
+
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--border-color) !important;
+  background: var(--bg-surface) !important;
+
+  color: var(--text-secondary) !important;
+  fill: var(--text-secondary) !important;
+
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+
+  text-decoration: none !important;
+  line-height: 1 !important;
+  box-shadow: var(--shadow-xs) !important;
+  transition: all var(--transition-base) !important;
+
+  position: relative !important;
+}
+
+/* keep arrows on BOTH ENDS */
+.flatpickr-prev-month {
+  order: 0 !important;
+}
+
+.flatpickr-next-month {
+  order: 2 !important;
+}
+
+.flatpickr-prev-month:hover,
+.flatpickr-next-month:hover {
+  color: var(--accent) !important;
+  fill: var(--accent) !important;
+  background: var(--accent-soft) !important;
+  border-color: var(--accent-border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+  width: 12px !important;
+  height: 12px !important;
+  fill: inherit !important;
+}
+
+.flatpickr-prev-month.flatpickr-disabled,
+.flatpickr-next-month.flatpickr-disabled {
+  opacity: 0.35 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+
+/* ========================================
+   Current month (TEXT + YEAR)
+   ======================================== */
+
+.flatpickr-current-month {
+  color: var(--text-primary) !important;
+  font-weight: var(--font-semibold) !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+  height: 28px !important;
+
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+
+  gap: 6px !important;
+
+  font-size: 0.8rem !important;
+  line-height: 1 !important;
+
+  width: auto !important;
+  max-width: 100% !important;
+
+  position: relative !important;
+  margin: 0 !important;
+
+  margin-left: -50px !important;
+
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+
+
+/* ========================================
+   Month dropdown (shortened + constrained)
+   ======================================== */
+
+.flatpickr-current-month .flatpickr-monthDropdown-month {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  cursor: pointer !important;
+  font-weight: var(--font-semibold) !important;
+  outline: none !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  font-size: 0.78rem !important;
+  height: 30px !important;
+  padding: 4px 7px !important;
+
+  width: 82px !important;
+  min-width: 82px !important;
+  max-width: 82px !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+
+  flex-shrink: 1 !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+/* ========================================
+   Actual <select> element
+   ======================================== */
+
+.flatpickr-monthDropdown-months {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+
+  font-size: 0.78rem !important;
+  font-weight: var(--font-medium) !important;
+
+  height: 25px !important;
+  line-height: 1.15 !important;
+  padding: 2px 7px !important;
+
+  width: 95px !important;
+  min-width: 95px !important;
+  max-width: 95px !important;
+
+  margin-right: 6px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  cursor: pointer !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+
+  flex-shrink: 1 !important;
+  outline: none !important;
+  transition: all var(--transition-base) !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+.flatpickr-monthDropdown-months:hover {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-strong) !important;
+}
+
+.flatpickr-monthDropdown-months:focus {
+  border-color: var(--accent) !important;
+  box-shadow: var(--focus-ring) !important;
+}
+
+.flatpickr-monthDropdown-months option {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  padding: 6px 8px !important;
+  font-weight: var(--font-normal) !important;
+  font-size: 0.88rem !important;
+}
+
+.flatpickr-monthDropdown-months option:hover,
+.flatpickr-monthDropdown-months option:checked {
+  background: var(--accent-soft) !important;
+  color: var(--text-primary) !important;
+}
+
+
+
+/* ========================================
+   YEAR & MONTH INPUTS (NUM INPUT WRAPPER)
+   ======================================== */
+
+.numInputWrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+
+  width: 82px !important;
+  min-width: 82px !important;
+  max-width: 82px !important;
+
+  margin: 0 !important;
+  margin-top: 0px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+
+  transition: all var(--transition-base) !important;
+  box-sizing: border-box !important;
+  background: var(--bg-surface) !important;
+}
+
+/* Year input */
+.numInputWrapper input,
+.numInput,
+.cur-year {
+  font-weight: var(--font-semibold) !important;
+  padding: 4px 7px !important;
+  line-height: 1 !important;
+
+  border-radius: var(--radius-sm) !important;
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  text-align: center !important;
+  cursor: pointer !important;
+
+  font-size: 0.8rem !important;
+
+  width: 82px !important;
+  min-width: 82px !important;
+  max-width: 82px !important;
+
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  border: none !important;
+
+  transition: all var(--transition-base) !important;
+}
+
+/* Month select dropdown */
+.numInputWrapper select {
+  font-weight: var(--font-semibold) !important;
+  padding: 6px 8px !important;
+
+  border-radius: var(--radius-sm) !important;
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  text-align: center !important;
+  cursor: pointer !important;
+
+  font-size: 0.9rem !important;
+
+  width: 82px !important;
+  min-width: 82px !important;
+  max-width: 82px !important;
+
+  appearance: auto !important;
+  border: none !important;
+  transition: all var(--transition-base) !important;
+}
+
+/* Month select options */
+.numInputWrapper select option {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  padding: 4px 8px !important;
+  font-size: 0.88rem !important;
+  border: none !important;
+}
+
+/* Hover states */
+.numInputWrapper select:hover,
+.numInputWrapper input:hover,
+.cur-year:hover,
+.numInput:hover {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-strong) !important;
+}
+
+/* Focus states */
+.numInputWrapper select:focus,
+.numInputWrapper input:focus,
+.cur-year:focus,
+.numInput:focus {
+  outline: none !important;
+  border-color: var(--accent) !important;
+  box-shadow: var(--focus-ring) !important;
+}
+
+/* Remove number arrows */
+.numInputWrapper input[type="number"] {
+  -moz-appearance: textfield !important;
+}
+
+.numInputWrapper input[type="number"]::-webkit-outer-spin-button,
+.numInputWrapper input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+  display: none !important;
+}
+
+/* Remove increment/decrement arrows */
+.arrowUp,
+.arrowDown,
+.numInputWrapper span {
+  display: none !important;
+}
+
+
+
+
+
+
+/* ========================================
+   WEEKDAYS ROW (Aligned to day numbers)
+   ======================================== */
+
+.flatpickr-weekdays {
+  background: transparent !important;
+  padding: 0 var(--space-sm) !important;  /* match .flatpickr-days padding */
+  margin: 0 !important;
+  width: 100% !important;
+  overflow: hidden !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important; /* 7 columns for 7 days */
+  text-align: center !important;
+  align-items: center !important;
+  justify-items: center !important;
+
+  border: none !important; /* remove extra border to match day grid */
+}
+
+.flatpickr-weekdaycontainer {
+  display: contents !important; /* allow children to inherit grid alignment */
+  width: 100% !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.flatpickr-weekday {
+  color: var(--text-muted) !important;
+  font-weight: var(--font-semibold) !important;
+  font-size: 0.70rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+
+  text-align: center !important;
+  line-height: 1 !important;
+  cursor: default !important;
+
+  padding: 2px 0 !important; /* small vertical padding for alignment */
+}
+
+span.flatpickr-weekday {
+  background: transparent !important;
+  margin: 0 !important;
+  display: block !important;
+}
+
+
+
+/* ========================================
+   CALENDAR DAYS GRID
+   ======================================== */
+
+.flatpickr-days {
+  padding: 0 var(--space-sm) var(--space-sm) var(--space-sm) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap !important;
+
+  /* border: 1px solid gainsboro !important; */
+
+  margin-right: 14px !important;
+
+}
+
+.flatpickr-days:focus {
+  outline: none !important;
+}
+
+.dayContainer {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr) !important;
+  gap: 6px !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  padding: 0 !important;
+  margin-top: var(--space-xs) !important;
+
+  justify-items: center !important;
+  box-sizing: border-box !important;
+}
+
+
+/* ===============================
+   Flatpickr Day Cells
+   =============================== */
+
+.flatpickr-day {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+
+  font-size: 0.875rem !important;
+  font-weight: var(--font-normal) !important;
+  color: var(--text-primary) !important;
+
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid transparent !important;
+  background: transparent !important;
+
+  line-height: 0.7 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+
+  transition: all var(--transition-fast) !important;
+  transform: translateY(0px) !important;
+}
+
+.flatpickr-day:hover {
+  background: var(--accent-soft) !important;
+  color: var(--text-primary) !important;
+  border-color: transparent !important;
+}
+
+.flatpickr-day:focus {
+  outline: none !important;
+  background: var(--accent-soft) !important;
+  border-color: transparent !important;
+}
+
+
+/* ===============================
+   TODAY (Current Date)
+   =============================== */
+
+.flatpickr-day.today:not(.selected):not(.startRange):not(.endRange) {
+  background: var(--info-soft) !important;
+  border: 2px solid var(--info-border) !important;
+  color: var(--info-text) !important;
+  font-weight: var(--font-semibold) !important;
+  position: relative !important;
+}
+
+.flatpickr-day.today:not(.selected):not(.startRange):not(.endRange):hover {
+  background: var(--info-hover) !important;
+  border-color: var(--info-border-strong) !important;
+}
+
+.flatpickr-day.today.inRange:not(.startRange):not(.endRange) {
+  background: var(--accent-softer) !important;
+  border: 2px solid var(--info-border) !important;
+  color: var(--info-text) !important;
+  font-weight: var(--font-semibold) !important;
+}
+
+.flatpickr-day.today.selected {
+  background: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
+  color: #fff !important;
+  font-weight: var(--font-semibold) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.flatpickr-day.today.startRange {
+  background: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
+  color: #fff !important;
+  font-weight: var(--font-semibold) !important;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm) !important;
+}
+
+.flatpickr-day.today.endRange {
+  background: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
+  color: #fff !important;
+  font-weight: var(--font-semibold) !important;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0 !important;
+}
+
+.flatpickr-day.today.startRange.endRange {
+  border-radius: var(--radius-sm) !important;
+}
+
+
+/* ===============================
+   Selected Day (Not Today)
+   =============================== */
+
+.flatpickr-day.selected:not(.today) {
+  background: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  color: #fff !important;
+  font-weight: var(--font-semibold) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.flatpickr-day.selected:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+
+/* ===============================
+   Disabled / Adjacent Days
+   =============================== */
+
+.flatpickr-day.disabled,
+.flatpickr-day.disabled:hover,
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.flatpickr-disabled:hover {
+  color: var(--text-disabled) !important;
+  background: transparent !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  transform: none !important;
+  opacity: 0.4 !important;
+}
+
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+  color: var(--text-subtle) !important;
+  opacity: 0.4 !important;
+  cursor: default !important;
+  border-color: transparent !important;
+}
+
+.flatpickr-day.prevMonthDay:hover,
+.flatpickr-day.nextMonthDay:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  transform: none !important;
+  cursor: default !important;
+}
+
+
+/* ===============================
+   DATE RANGE STYLING
+   =============================== */
+
+.flatpickr-day.inRange:not(.today) {
+  background: var(--accent-softer) !important;
+  border-color: transparent !important;
+  box-shadow: -5px 0 0 var(--accent-softer),
+              5px 0 0 var(--accent-softer) !important;
+  border-radius: 0 !important;
+  color: var(--text-primary) !important;
+}
+
+.flatpickr-day.inRange:hover {
+  background: var(--accent-soft) !important;
+  border-color: transparent !important;
+}
+
+.flatpickr-day.startRange:not(.today),
+.flatpickr-day.endRange:not(.today) {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: 1px solid var(--accent) !important;
+  font-weight: var(--font-semibold) !important;
+}
+
+.flatpickr-day.startRange:not(.today) {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm) !important;
+}
+
+.flatpickr-day.endRange:not(.today) {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0 !important;
+}
+
+.flatpickr-day.startRange.endRange:not(.today),
+.flatpickr-day.selected.startRange,
+.flatpickr-day.selected.endRange {
+  border-radius: var(--radius-sm) !important;
+}
+
+
+
+/* ===============================
+   TIME PICKER
+   =============================== */
+
+.flatpickr-time {
+  border-top: 1px solid var(--border-light) !important;
+  background: var(--bg-surface) !important;
+  padding: var(--space-md) !important;
+  margin-top: var(--space-sm) !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--space-sm) !important;
+
+  overflow: auto !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  max-height: 40px !important;
+
+  box-sizing: border-box !important;
+}
+
+.flatpickr-time input,
+.flatpickr-am-pm {
+  transition: all var(--transition-base) !important;
+}
+
+
+
+
+
+
+
+
+/* ========================================
+   DARK MODE
+   ======================================== */
+
+.dark .flatpickr-calendar {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-xl) !important;
+}
+
+.dark .flatpickr-months {
+  background: var(--bg-surface) !important;
+
+}
+
+.dark .flatpickr-month,
+.dark .flatpickr-current-month {
+  color: var(--text-primary) !important;
+  fill: var(--text-primary) !important;
+}
+
+.dark .flatpickr-current-month .flatpickr-monthDropdown-month {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1.5px solid var(--border-color) !important;
+}
+
+.dark .flatpickr-monthDropdown-months {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1.5px solid var(--border-color) !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 8px center !important;
+  background-size: 16px !important;
+}
+
+.dark .flatpickr-monthDropdown-months:hover {
+  background-color: var(--bg-hover) !important;
+  border-color: var(--border-strong) !important;
+}
+
+.dark .flatpickr-monthDropdown-months:focus {
+  border-color: var(--accent) !important;
+  box-shadow: var(--focus-ring) !important;
+}
+
+.dark .flatpickr-monthDropdown-months option {
+  background-color: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .flatpickr-monthDropdown-months option:checked,
+.dark .flatpickr-monthDropdown-months option:hover {
+  background-color: var(--accent-soft) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .numInputWrapper {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark .numInputWrapper select,
+.dark .numInputWrapper input,
+.dark .cur-year,
+.dark .numInput {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1.5px solid var(--border-color) !important;
+}
+
+.dark .numInputWrapper select:hover,
+.dark .numInputWrapper input:hover,
+.dark .cur-year:hover,
+.dark .numInput:hover {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-strong) !important;
+}
+
+.dark .numInputWrapper select:focus,
+.dark .numInputWrapper input:focus,
+.dark .cur-year:focus,
+.dark .numInput:focus {
+  border-color: var(--accent) !important;
+  box-shadow: var(--focus-ring) !important;
+  background: var(--bg-surface) !important;
+}
+
+.dark .numInputWrapper select option {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .numInputWrapper select option:hover,
+.dark .numInputWrapper select option:checked {
+  background: var(--accent-soft) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .arrowUp,
+.dark .arrowDown,
+.dark .numInputWrapper span.arrowUp,
+.dark .numInputWrapper span.arrowDown {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  color: transparent !important;
+  background: transparent !important;
+  fill: transparent !important;
+  stroke: transparent !important;
+}
+
+.dark .flatpickr-prev-month,
+.dark .flatpickr-next-month {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  fill: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dark .flatpickr-prev-month:hover,
+.dark .flatpickr-next-month:hover {
+  color: var(--accent) !important;
+  fill: var(--accent) !important;
+  background: var(--accent-softer) !important;
+  border-color: var(--accent-border) !important;
+}
+
+.dark .flatpickr-prev-month svg,
+.dark .flatpickr-next-month svg {
+  fill: var(--text-primary) !important;
+  stroke: var(--text-primary) !important;
+}
+
+.dark .flatpickr-prev-month:hover svg,
+.dark .flatpickr-next-month:hover svg {
+  fill: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+
+.dark .flatpickr-weekdays {
+  background: var(--bg-surface) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.dark .flatpickr-weekday {
+  color: var(--text-muted) !important;
+  background: transparent !important;
+}
+
+.dark .flatpickr-days {
+  background: var(--bg-surface) !important;
+}
+
+.dark .dayContainer {
+  background: var(--bg-surface) !important;
+}
+
+.dark .flatpickr-day {
+  color: var(--text-primary) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.dark .flatpickr-day:hover {
+  background: var(--accent-softer) !important;
+  color: var(--text-primary) !important;
+  border-color: transparent !important;
+}
+
+.dark .flatpickr-day:focus {
+  background: var(--accent-softer) !important;
+  border-color: transparent !important;
+}
+
+.dark .flatpickr-day.today:not(.selected):not(.startRange):not(.endRange) {
+  background: var(--info-soft) !important;
+  color: var(--info-text) !important;
+  border-color: var(--info-border) !important;
+}
+
+.dark .flatpickr-day.today:not(.selected):not(.startRange):not(.endRange):hover {
+  background: var(--info-hover) !important;
+  border-color: var(--info-border-strong) !important;
+}
+
+.dark .flatpickr-day.selected {
+  background: var(--accent) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--accent) !important;
+}
+
+.dark .flatpickr-day.selected:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+.dark .flatpickr-day.inRange:not(.today) {
+  background: var(--accent-softer) !important;
+  border-color: transparent !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
+}
+
+.dark .flatpickr-day.inRange:hover {
+  background: var(--accent-soft) !important;
+  border-color: transparent !important;
+}
+
+.dark .flatpickr-day.startRange:not(.today) {
+  background: var(--accent) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--accent) !important;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm) !important;
+}
+
+.dark .flatpickr-day.startRange:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+.dark .flatpickr-day.endRange:not(.today) {
+  background: var(--accent) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--accent) !important;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0 !important;
+}
+
+.dark .flatpickr-day.endRange:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+.dark .flatpickr-day.startRange.endRange {
+  border-radius: var(--radius-sm) !important;
+}
+
+.dark .flatpickr-day.selected.startRange,
+.dark .flatpickr-day.selected.endRange {
+  background: var(--accent) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .flatpickr-day.prevMonthDay,
+.dark .flatpickr-day.nextMonthDay {
+  color: var(--text-subtle) !important;
+  opacity: 0.3 !important;
+  background: transparent !important;
+}
+
+.dark .flatpickr-day.prevMonthDay:hover,
+.dark .flatpickr-day.nextMonthDay:hover {
+  background: transparent !important;
+}
+
+.dark .flatpickr-day.flatpickr-disabled,
+.dark .flatpickr-day.disabled {
+  color: var(--text-disabled) !important;
+  opacity: 0.2 !important;
+  background: transparent !important;
+  cursor: not-allowed !important;
+}
+
+.dark .flatpickr-day.flatpickr-disabled:hover,
+.dark .flatpickr-day.disabled:hover {
+  background: transparent !important;
+}
+
+.dark .flatpickr-time {
+  border-top: 1px solid var(--border-color) !important;
+  background: var(--bg-surface) !important;
+}
+
+.dark .flatpickr-time-separator {
+  color: var(--text-primary) !important;
+}
+
+.dark .flatpickr-time input {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.dark .flatpickr-time input:hover {
+  background: var(--bg-hover) !important;
+  border-color: var(--accent-border) !important;
+}
+
+.dark .flatpickr-time input:focus {
+  border-color: var(--accent) !important;
+  background: var(--bg-surface) !important;
+  box-shadow: var(--focus-ring) !important;
+}
+
+.dark .flatpickr-am-pm {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.dark .flatpickr-am-pm:hover {
+  background: var(--accent-softer) !important;
+  color: var(--accent) !important;
+  border-color: var(--accent-border) !important;
+}
+
+.dark .flatpickr-am-pm:focus {
+  border-color: var(--accent) !important;
+  box-shadow: var(--focus-ring) !important;
+}
+
+.dark .flatpickr-weekwrapper {
+  background: var(--bg-surface) !important;
+}
+
+.dark .flatpickr-weekwrapper .flatpickr-weeks {
+  background: var(--bg-surface) !important;
+  border-left: 1px solid var(--border-color) !important;
+}
+
+.dark .flatpickr-weekwrapper span.flatpickr-day {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+}
+
+
+
+
+
+
+
+
+
+/* ================================
+   ApexCharts Base Styles
+   ================================ */
+
+.apexcharts-canvas {
+  background: transparent !important;
+}
+
+/* ================================
+   Axis Labels & Titles
+   ================================ */
+
+.apexcharts-xaxis text,
+.apexcharts-yaxis text {
+  fill: var(--text-muted) !important;
+  font-size: 0.75rem;
+  font-weight: var(--font-medium);
+}
+
+.apexcharts-xaxis-title text,
+.apexcharts-yaxis-title text {
+  fill: var(--text-secondary) !important;
+  font-weight: var(--font-semibold);
+  font-size: 0.8125rem;
+}
+
+/* ================================
+   Grid Lines
+   ================================ */
+
+.apexcharts-gridline {
+  stroke: var(--border-light) !important;
+  stroke-width: 1;
+}
+
+.apexcharts-grid-borders line {
+  stroke: var(--border-color) !important;
+  stroke-width: 1;
+}
+
+/* Hide zero line if it's too prominent */
+.apexcharts-gridline:first-child {
+  stroke: var(--border-color) !important;
+}
+
+/* ================================
+   Bars
+   ================================ */
+
+.apexcharts-bar-series path {
+  fill: var(--accent) !important;
+  transition: fill var(--transition-base);
+}
+
+.apexcharts-bar-series path:hover {
+  fill: var(--accent-hover) !important;
+}
+
+.apexcharts-bar-area {
+  rx: 6;
+  ry: 6;
+}
+
+/* ================================
+   Lines & Areas
+   ================================ */
+
+.apexcharts-line-series path {
+  stroke: var(--accent) !important;
+  stroke-width: 2.5;
+}
+
+.apexcharts-area-series path {
+  fill: var(--accent-soft) !important;
+}
+
+/* ================================
+   Data Points/Markers
+   ================================ */
+
+.apexcharts-marker {
+  fill: var(--accent) !important;
+  stroke: var(--bg-surface) !important;
+  stroke-width: 2;
+}
+
+.apexcharts-marker:hover {
+  fill: var(--accent-hover) !important;
+  stroke-width: 3;
+}
+
+/* ================================
+   Tooltip
+   ================================ */
+
+.apexcharts-tooltip {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-radius: var(--radius-md) !important;
+  font-size: 0.8125rem;
+  padding: var(--space-sm);
+}
+
+.apexcharts-tooltip-title {
+  background: var(--bg-muted) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  color: var(--text-secondary) !important;
+  font-weight: var(--font-semibold);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-xs);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.apexcharts-tooltip-text,
+.apexcharts-tooltip-text-y-label,
+.apexcharts-tooltip-text-y-value {
+  color: var(--text-primary) !important;
+}
+
+.apexcharts-tooltip-marker {
+  background: var(--accent) !important;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  margin-right: var(--space-xs);
+}
+
+/* ================================
+   Legend
+   ================================ */
+
+.apexcharts-legend {
+  padding: var(--space-sm) !important;
+}
+
+.apexcharts-legend-text {
+  color: var(--text-muted) !important;
+  font-size: 0.8125rem;
+  font-weight: var(--font-medium);
+}
+
+.apexcharts-legend-marker {
+  background: var(--accent) !important;
+  border-radius: var(--radius-sm) !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin-right: var(--space-xs) !important;
+}
+
+/* ================================
+   Data Labels
+   ================================ */
+
+.apexcharts-datalabel {
+  fill: var(--text-primary) !important;
+  font-size: 0.75rem;
+  font-weight: var(--font-medium);
+}
+
+.apexcharts-datalabel-label {
+  fill: var(--text-secondary) !important;
+}
+
+.apexcharts-datalabel-value {
+  fill: var(--text-primary) !important;
+  font-weight: var(--font-semibold);
+}
+
+/* ================================
+   No Data / Empty State
+   ================================ */
+
+.apexcharts-text.apexcharts-no-data-text {
+  fill: var(--text-muted) !important;
+  font-size: 0.875rem;
+  font-weight: var(--font-medium);
+}
+
+/* ================================
+   Selection / Active States
+   ================================ */
+
+.apexcharts-selection-rect {
+  fill: var(--accent-soft) !important;
+  stroke: var(--accent-border) !important;
+  stroke-width: 1;
+}
+
+.apexcharts-active {
+  filter: brightness(1.1);
+}
+
+/* ================================
+   Zoom & Pan Controls
+   ================================ */
+
+.apexcharts-zoom-icon,
+.apexcharts-pan-icon,
+.apexcharts-reset-icon,
+.apexcharts-menu-icon {
+  fill: var(--text-muted) !important;
+  transition: fill var(--transition-base);
+}
+
+.apexcharts-zoom-icon:hover,
+.apexcharts-pan-icon:hover,
+.apexcharts-reset-icon:hover,
+.apexcharts-menu-icon:hover {
+  fill: var(--accent) !important;
+}
+
+.apexcharts-zoom-icon.apexcharts-selected,
+.apexcharts-pan-icon.apexcharts-selected {
+  fill: var(--accent) !important;
+}
+
+/* ================================
+   Radial/Pie Charts
+   ================================ */
+
+.apexcharts-radialbar-track path {
+  stroke: var(--bg-muted) !important;
+}
+
+.apexcharts-radialbar-area path {
+  stroke: var(--accent) !important;
+}
+
+.apexcharts-pie-series path {
+  stroke: var(--bg-surface) !important;
+  stroke-width: 2;
+}
+
+/* ================================
+   Dark Mode - ApexCharts
+   ================================ */
+
+.dark .apexcharts-tooltip {
+  background: var(--bg-elevated) !important;
+  border-color: var(--border-strong) !important;
+  box-shadow: var(--shadow-xl) !important;
+}
+
+.dark .apexcharts-tooltip-title {
+  background: var(--bg-muted) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.dark .apexcharts-gridline {
+  stroke: var(--border-light) !important;
+}
+
+.dark .apexcharts-grid-borders line {
+  stroke: var(--border-color) !important;
+}
+
+.dark .apexcharts-xaxis text,
+.dark .apexcharts-yaxis text {
+  fill: var(--text-muted) !important;
+}
+
+.dark .apexcharts-xaxis-title text,
+.dark .apexcharts-yaxis-title text {
+  fill: var(--text-secondary) !important;
+}
+
+.dark .apexcharts-legend-text {
+  color: var(--text-muted) !important;
+}
+
+.dark .apexcharts-datalabel,
+.dark .apexcharts-datalabel-value {
+  fill: var(--text-primary) !important;
+}
+
+.dark .apexcharts-datalabel-label {
+  fill: var(--text-secondary) !important;
+}
+
+.dark .apexcharts-radialbar-track path {
+  stroke: var(--bg-active) !important;
+}
+
+.dark .apexcharts-pie-series path {
+  stroke: var(--bg-surface) !important;
+}
+
+.dark .apexcharts-zoom-icon,
+.dark .apexcharts-pan-icon,
+.dark .apexcharts-reset-icon,
+.dark .apexcharts-menu-icon {
+  fill: var(--text-subtle) !important;
+}
+
+.dark .apexcharts-zoom-icon:hover,
+.dark .apexcharts-pan-icon:hover,
+.dark .apexcharts-reset-icon:hover,
+.dark .apexcharts-menu-icon:hover {
+  fill: var(--accent) !important;
+}

@@ -1,0 +1,304 @@
+
+
+/* ================================
+   ApexCharts Base Styles
+   ================================ */
+
+.apexcharts-canvas {
+  background: transparent !important;
+}
+
+/* ================================
+   Axis Labels & Titles
+   ================================ */
+
+.apexcharts-xaxis text,
+.apexcharts-yaxis text {
+  fill: var(--text-muted) !important;
+  font-size: 0.75rem;
+  font-weight: var(--font-medium);
+}
+
+.apexcharts-xaxis-title text,
+.apexcharts-yaxis-title text {
+  fill: var(--text-secondary) !important;
+  font-weight: var(--font-semibold);
+  font-size: 0.8125rem;
+}
+
+/* ================================
+   Grid Lines
+   ================================ */
+
+.apexcharts-gridline {
+  stroke: var(--border-light) !important;
+  stroke-width: 1;
+}
+
+.apexcharts-grid-borders line {
+  stroke: var(--border-color) !important;
+  stroke-width: 1;
+}
+
+/* Hide zero line if it's too prominent */
+.apexcharts-gridline:first-child {
+  stroke: var(--border-color) !important;
+}
+
+/* ================================
+   Bars
+   ================================ */
+
+.apexcharts-bar-series path {
+  fill: var(--accent) !important;
+  transition: fill var(--transition-base);
+}
+
+.apexcharts-bar-series path:hover {
+  fill: var(--accent-hover) !important;
+}
+
+.apexcharts-bar-area {
+  rx: 6;
+  ry: 6;
+}
+
+/* ================================
+   Lines & Areas
+   ================================ */
+
+.apexcharts-line-series path {
+  stroke: var(--accent) !important;
+  stroke-width: 2.5;
+}
+
+.apexcharts-area-series path {
+  fill: var(--accent-soft) !important;
+}
+
+/* ================================
+   Data Points/Markers
+   ================================ */
+
+.apexcharts-marker {
+  fill: var(--accent) !important;
+  stroke: var(--bg-surface) !important;
+  stroke-width: 2;
+}
+
+.apexcharts-marker:hover {
+  fill: var(--accent-hover) !important;
+  stroke-width: 3;
+}
+
+/* ================================
+   Tooltip
+   ================================ */
+
+.apexcharts-tooltip {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-radius: var(--radius-md) !important;
+  font-size: 0.8125rem;
+  padding: var(--space-sm);
+}
+
+.apexcharts-tooltip-title {
+  background: var(--bg-muted) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  color: var(--text-secondary) !important;
+  font-weight: var(--font-semibold);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-xs);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.apexcharts-tooltip-text,
+.apexcharts-tooltip-text-y-label,
+.apexcharts-tooltip-text-y-value {
+  color: var(--text-primary) !important;
+}
+
+.apexcharts-tooltip-marker {
+  background: var(--accent) !important;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  margin-right: var(--space-xs);
+}
+
+/* ================================
+   Legend
+   ================================ */
+
+.apexcharts-legend {
+  padding: var(--space-sm) !important;
+}
+
+.apexcharts-legend-text {
+  color: var(--text-muted) !important;
+  font-size: 0.8125rem;
+  font-weight: var(--font-medium);
+}
+
+.apexcharts-legend-marker {
+  background: var(--accent) !important;
+  border-radius: var(--radius-sm) !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin-right: var(--space-xs) !important;
+}
+
+/* ================================
+   Data Labels
+   ================================ */
+
+.apexcharts-datalabel {
+  fill: var(--text-primary) !important;
+  font-size: 0.75rem;
+  font-weight: var(--font-medium);
+}
+
+.apexcharts-datalabel-label {
+  fill: var(--text-secondary) !important;
+}
+
+.apexcharts-datalabel-value {
+  fill: var(--text-primary) !important;
+  font-weight: var(--font-semibold);
+}
+
+/* ================================
+   No Data / Empty State
+   ================================ */
+
+.apexcharts-text.apexcharts-no-data-text {
+  fill: var(--text-muted) !important;
+  font-size: 0.875rem;
+  font-weight: var(--font-medium);
+}
+
+/* ================================
+   Selection / Active States
+   ================================ */
+
+.apexcharts-selection-rect {
+  fill: var(--accent-soft) !important;
+  stroke: var(--accent-border) !important;
+  stroke-width: 1;
+}
+
+.apexcharts-active {
+  filter: brightness(1.1);
+}
+
+/* ================================
+   Zoom & Pan Controls
+   ================================ */
+
+.apexcharts-zoom-icon,
+.apexcharts-pan-icon,
+.apexcharts-reset-icon,
+.apexcharts-menu-icon {
+  fill: var(--text-muted) !important;
+  transition: fill var(--transition-base);
+}
+
+.apexcharts-zoom-icon:hover,
+.apexcharts-pan-icon:hover,
+.apexcharts-reset-icon:hover,
+.apexcharts-menu-icon:hover {
+  fill: var(--accent) !important;
+}
+
+.apexcharts-zoom-icon.apexcharts-selected,
+.apexcharts-pan-icon.apexcharts-selected {
+  fill: var(--accent) !important;
+}
+
+/* ================================
+   Radial/Pie Charts
+   ================================ */
+
+.apexcharts-radialbar-track path {
+  stroke: var(--bg-muted) !important;
+}
+
+.apexcharts-radialbar-area path {
+  stroke: var(--accent) !important;
+}
+
+.apexcharts-pie-series path {
+  stroke: var(--bg-surface) !important;
+  stroke-width: 2;
+}
+
+/* ================================
+   Dark Mode - ApexCharts
+   ================================ */
+
+.dark .apexcharts-tooltip {
+  background: var(--bg-elevated) !important;
+  border-color: var(--border-strong) !important;
+  box-shadow: var(--shadow-xl) !important;
+}
+
+.dark .apexcharts-tooltip-title {
+  background: var(--bg-muted) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.dark .apexcharts-gridline {
+  stroke: var(--border-light) !important;
+}
+
+.dark .apexcharts-grid-borders line {
+  stroke: var(--border-color) !important;
+}
+
+.dark .apexcharts-xaxis text,
+.dark .apexcharts-yaxis text {
+  fill: var(--text-muted) !important;
+}
+
+.dark .apexcharts-xaxis-title text,
+.dark .apexcharts-yaxis-title text {
+  fill: var(--text-secondary) !important;
+}
+
+.dark .apexcharts-legend-text {
+  color: var(--text-muted) !important;
+}
+
+.dark .apexcharts-datalabel,
+.dark .apexcharts-datalabel-value {
+  fill: var(--text-primary) !important;
+}
+
+.dark .apexcharts-datalabel-label {
+  fill: var(--text-secondary) !important;
+}
+
+.dark .apexcharts-radialbar-track path {
+  stroke: var(--bg-active) !important;
+}
+
+.dark .apexcharts-pie-series path {
+  stroke: var(--bg-surface) !important;
+}
+
+.dark .apexcharts-zoom-icon,
+.dark .apexcharts-pan-icon,
+.dark .apexcharts-reset-icon,
+.dark .apexcharts-menu-icon {
+  fill: var(--text-subtle) !important;
+}
+
+.dark .apexcharts-zoom-icon:hover,
+.dark .apexcharts-pan-icon:hover,
+.dark .apexcharts-reset-icon:hover,
+.dark .apexcharts-menu-icon:hover {
+  fill: var(--accent) !important;
+}

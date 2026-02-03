@@ -1,0 +1,1028 @@
+/* ================================
+   BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family:
+    'Poppins',
+    'Inter',
+    'DM Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  transition: background-color var(--transition-base),
+              color var(--transition-base);
+  overflow-x: hidden;
+}
+
+
+
+/* ================================
+   MOBILE HEADER (iOS-Inspired)
+================================ */
+.mobile-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 56px;
+  padding: 0 var(--space-md);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  background-color: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-light);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-xs);
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keeps it centered */
+  gap: 10px; /* space between logo and text */
+}
+
+.header-logo {
+  height: 32px; /* adjust as needed */
+  width: auto;
+}
+
+
+
+.header-center h2 {
+  font-size: 0.8rem; /* slightly larger for clarity */
+  font-weight: var(--font-bold);
+  letter-spacing: 1.3px;
+
+  /* Strong red → yellow gradient */
+  /* background: linear-gradient(
+    90deg,
+    #dc2626,  
+    #ef4444,  /
+    #f59e0b,  
+    #fde047   
+  ); */
+
+  background: var(--text-primary);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* Visibility enhancement */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ================================
+   HAMBURGER BUTTON (iOS-Inspired)
+================================ */
+.sidebar-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.sidebar-toggle span,
+.sidebar-toggle::before,
+.sidebar-toggle::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  background-color: var(--text-primary);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+}
+
+.sidebar-toggle::before {
+  top: 13px;
+}
+
+.sidebar-toggle span {
+  top: 19px;
+}
+
+.sidebar-toggle::after {
+  top: 25px;
+}
+
+.sidebar-toggle:active {
+  background-color: var(--bg-hover);
+  transform: scale(0.95);
+}
+
+/* Animated hamburger when sidebar is open */
+.sidebar-toggle.active::before {
+  transform: translateX(-50%) rotate(45deg);
+  top: 19px;
+}
+
+.sidebar-toggle.active span {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.5);
+}
+
+.sidebar-toggle.active::after {
+  transform: translateX(-50%) rotate(-45deg);
+  top: 19px;
+}
+
+/* Profile Avatar */
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  background-color: var(--bg-muted);
+  border: 2px solid var(--border-light);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.profile-avatar:active {
+  transform: scale(0.95);
+}
+
+
+
+/* ================================
+   SIDEBAR OVERLAY (iOS Backdrop)
+================================ */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+  z-index: 45;
+}
+
+.sidebar-overlay.active {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ================================
+   MOBILE SIDEBAR (iOS-Inspired)
+================================ */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+
+  /* Mobile default: avoid bottom nav */
+  height: calc(100vh - 60px);
+  max-height: calc(100vh - 60px);
+
+  background-color: var(--bg-elevated);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 60;
+  overflow-y: auto;
+
+
+}
+
+/* Desktop / full width */
+@media (min-width: 1024px) {
+  .mobile-sidebar {
+    height: 100vh;
+    max-height: 100vh;
+
+    /* Optional: desktop feel */
+    border-bottom-right-radius: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mobile-sidebar.open {
+  left: 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex: 1;
+}
+
+.sidebar-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 2px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-profile-info h3 {
+  font-size: 0.95rem;
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.sidebar-profile-info p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Close Button */
+.sidebar-close {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-lg);
+  border: none;
+  background-color: var(--bg-hover);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.sidebar-close:active {
+  transform: scale(0.9);
+  background-color: var(--bg-active);
+}
+
+.sidebar-close i {
+  font-size: 1rem;
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  flex: 1;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.sidebar-nav a i {
+  width: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-base);
+}
+
+.sidebar-nav a:active {
+  transform: scale(0.98);
+}
+
+.sidebar-nav a.active {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.sidebar-nav a.active i {
+  color: var(--accent);
+}
+
+.sidebar-nav a:not(.active):hover {
+  background-color: var(--bg-hover);
+}
+
+.sidebar-nav a.danger {
+  color: var(--danger-text);
+}
+
+.sidebar-nav a.danger i {
+  color: var(--danger);
+}
+
+/* Sidebar Divider */
+.sidebar-divider {
+  height: 1px;
+  background-color: var(--border-light);
+  margin: var(--space-sm) 0;
+}
+
+
+
+/* ================================
+   SIDEBAR FOOTER - MINIMALIST TOGGLE
+   ================================ */
+
+/* Sidebar Footer */
+.sidebar-footer {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border-light);
+}
+
+/* Theme Toggle Container */
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-base);
+}
+
+.theme-toggle-container:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Theme Label */
+.theme-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.9rem;
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+.theme-label-icon {
+  font-size: 1rem;
+  color: var(--accent);
+  transition: all var(--transition-base);
+}
+
+
+
+/* ================================
+   ULTRA-SMOOTH TOGGLE - NO GLITCHING
+   ================================ */
+
+/* Toggle Switch – Compact */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Toggle Track - Smooth transitions */
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-muted);
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border-color);
+  
+  /* Smooth, synchronized transitions */
+  transition: 
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Prevent layout shifts */
+  will-change: background-color, border-color;
+}
+
+/* Toggle Knob – perfectly centered, smooth movement */
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  top: 50%;
+  
+  /* Single transform for smoothness */
+  transform: translateY(-50%);
+  
+  background-color: var(--text-primary);
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+  /* Optimized transition - smoother than before */
+  transition: 
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* GPU acceleration for smooth animation */
+  will-change: transform;
+}
+
+/* Active State - Checked */
+input:checked + .toggle-slider {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+input:checked + .toggle-slider::before {
+  /* Smooth slide with subtle scale */
+  transform: translate(20px, -50%);
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover State - Subtle feedback */
+.toggle-switch:hover .toggle-slider {
+  border-color: var(--accent);
+}
+
+.toggle-switch:hover .toggle-slider::before {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Active/Press State - Stretch effect */
+.toggle-switch:active .toggle-slider::before {
+  /* Smooth stretch animation */
+  width: 20px;
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus State for Accessibility */
+.toggle-switch input:focus-visible + .toggle-slider {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  transition: outline-offset 0.2s ease;
+}
+
+/* ================================
+   DARK MODE - SMOOTH TRANSITIONS
+   ================================ */
+
+.dark .theme-toggle-container {
+  background-color: var(--bg-muted);
+  border-color: var(--border-light);
+}
+
+.dark .theme-toggle-container:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Dark mode slider background */
+.dark .toggle-slider {
+  background-color: var(--bg-hover);
+  border-color: var(--border-strong);
+}
+
+/* Dark mode slider circle - SMOOTH COLOR TRANSITION */
+.dark .toggle-slider::before {
+  background-color: var(--text-muted);
+}
+
+/* Dark mode active state - NO GLITCHING */
+.dark input:checked + .toggle-slider {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.dark input:checked + .toggle-slider::before {
+  background-color: white;
+}
+
+/* ================================
+   PREVENT GLITCHING FIXES
+   ================================ */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .toggle-slider,
+  .toggle-slider::before {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Prevent flickering during theme change */
+.toggle-switch,
+.toggle-slider,
+.toggle-slider::before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+/* Smooth rendering */
+.toggle-slider {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+
+
+
+/* ================================
+   BOTTOM NAVIGATION (iOS-Inspired)
+================================ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--bg-elevated);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.bottom-nav a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 0.7rem;
+  font-weight: var(--font-medium);
+  color: var(--text-subtle);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-lg);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.bottom-nav a i {
+  font-size: 1.2rem;
+  transition: all var(--transition-base);
+}
+
+/* iOS-style indicator pill */
+/* .nav-indicator {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 24px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--accent), #f59e0b);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base);
+} */
+
+.bottom-nav a.active .nav-indicator {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.bottom-nav a.active {
+  color: var(--accent);
+}
+
+.bottom-nav a.active i {
+  transform: scale(1.1);
+}
+
+.bottom-nav a:active {
+  transform: scale(0.95);
+}
+
+/* ================================
+   UTILITY CLASSES
+================================ */
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   LOADING STATES
+================================ */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-light);
+  border-top-color: var(--accent);
+  border-radius: var(--radius-full);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================================
+   SCROLLBAR STYLING (iOS-like)
+================================ */
+.mobile-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mobile-sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: var(--radius-full);
+}
+
+/* ================================
+   TOUCH INTERACTIONS
+================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover states on touch devices */
+  .sidebar-nav a:not(.active):hover {
+    background-color: transparent;
+  }
+  
+  .bottom-nav a:hover {
+    background-color: transparent;
+  }
+}
+
+/* ================================
+   SAFE AREA INSETS (iOS Notch Support)
+================================ */
+@supports (padding: max(0px)) {
+  .mobile-header {
+    padding-left: max(var(--space-md), env(safe-area-inset-left));
+    padding-right: max(var(--space-md), env(safe-area-inset-right));
+  }
+
+  .bottom-nav {
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+    height: calc(60px + max(0px, env(safe-area-inset-bottom)));
+  }
+
+  .dashboard {
+    padding-bottom: calc(60px + var(--space-xl) + max(0px, env(safe-area-inset-bottom)));
+  }
+}
+
+/* ================================
+   DARK MODE ADJUSTMENTS
+================================ */
+.dark .mobile-header,
+.dark .bottom-nav,
+.dark .mobile-sidebar {
+  border-color: var(--border-light);
+}
+
+.dark .sidebar-overlay.active {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* ================================
+   RESPONSIVE BREAKPOINTS
+================================ */
+@media (min-width: 768px) {
+  .mobile-header {
+    padding: 0 var(--space-xl);
+  }
+
+  .dashboard {
+    padding: var(--space-xl) var(--space-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .mobile-sidebar {
+    width: 320px;
+    left: -320px;
+  }
+
+  .bottom-nav {
+    display: none; /* Hide on larger screens */
+  }
+}
+
+/* ================================
+   ACCESSIBILITY
+================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+
+/* ================================
+   BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  transition: background-color var(--transition-base),
+              color var(--transition-base);
+}
+
+
+
+/* ================================
+   TRANSPARENT LOGIN HEADER
+================================ */
+.login-top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  padding: 0 var(--space-md);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: transparent;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* ================================
+   THEME TOGGLE BUTTON
+================================ */
+.theme-toggle-btn {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: none;
+  background-color: var(--overlay-light);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Hover / Active (Material feel) */
+.theme-toggle-btn:active {
+  transform: scale(0.92);
+  box-shadow: var(--shadow-xs);
+}
+
+/* Icon styling */
+.theme-icon {
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text-primary);
+  transition: transform var(--transition-base),
+              color var(--transition-base);
+}
+
+/* Dark mode visual tweak */
+.dark .theme-toggle-btn {
+  background-color: var(--overlay-dark);
+}
+
+
+
+/* ================================
+   LOGIN PAGE
+================================ */
+.login-container {
+  min-height: 100vh;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.login-header h1 {
+  font-size: 1.5rem;
+  font-weight: var(--font-semibold);
+}
+
+.login-header p {
+  margin-top: var(--space-xs);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ================================
+   LOGIN LOGO
+================================ */
+.login-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.login-logo img {
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+
+
+
+.login-form {
+  background-color: var(--bg-surface);
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: var(--font-medium);
+  margin-bottom: var(--space-xs);
+  color: var(--text-secondary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-muted);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring);
+  background-color: var(--bg-surface);
+}
+
+/* Primary Button */
+.btn-primary {
+  width: 100%;
+  padding: 0.875rem;
+  margin-top: var(--space-sm);
+  border-radius: var(--radius-lg);
+  border: none;
+  background-color: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.btn-primary:active {
+  background-color: var(--accent-active);
+  transform: scale(0.98);
+}
+
+.login-footer {
+  margin-top: var(--space-md);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.login-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+}
+
+

@@ -1,0 +1,831 @@
+/* =========================================================
+   TABULATOR CUSTOM STYLES
+   Organized and comprehensive version
+========================================================= */
+
+/* ===============================
+   1. BASE SETUP & RESET
+   =============================== */
+.tabulator,
+.tabulator * {
+  box-sizing: border-box;
+}
+
+.tabulator {
+  position: relative;
+  height: 100% !important;
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-primary) !important;
+}
+
+/* ===============================
+   2. TABLE HOLDER / CONTAINER
+   =============================== */
+.tabulator-tableHolder {
+  height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  border: none !important;
+}
+
+/* ADDED: Custom scrollbar styling */
+.tabulator-tableHolder::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.tabulator-tableHolder::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.tabulator-tableHolder::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.tabulator-tableHolder::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ===============================
+   3. HEADER SECTION
+   =============================== */
+.tabulator-header {
+  background: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* ADDED: Header background filter */
+.tabulator-headers {
+  border-bottom: none !important;
+}
+
+/* ===============================
+   4. COLUMNS / HEADER CELLS
+   =============================== */
+.tabulator-col {
+  background: transparent !important;
+  padding: 3px 0 0 0 !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+/* Remove padding from first column */
+.tabulator-col:first-child {
+  padding: 0 !important;
+  padding-left: 5px !important;
+}
+
+.tabulator-col:first-child .tabulator-col-title-holder {
+  padding: 6px 0 !important;
+}
+
+.tabulator-col-title-holder {
+  padding: 6px 12px !important;
+}
+
+.tabulator-col-title {
+  font-weight: var(--font-semibold) !important;
+  font-size: 0.7rem !important;
+  color: var(--text-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  white-space: nowrap !important;
+
+  padding-top: 5px !important;
+  /* border: 1px solid gainsboro !important; */
+}
+
+.tabulator-col-title:first-child {
+  padding-top: 0px !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+/* Sortable Columns */
+.tabulator-col.tabulator-sortable {
+  cursor: pointer !important;
+}
+
+.tabulator-col.tabulator-sortable:hover {
+  background-color: var(--bg-hover) !important;
+}
+
+.tabulator-col.tabulator-sortable .tabulator-col-title {
+  padding-right: 20px !important;
+}
+
+/* ADDED: Active sort column styling */
+.tabulator-col.tabulator-sortable[aria-sort="ascending"],
+.tabulator-col.tabulator-sortable[aria-sort="descending"] {
+  background-color: var(--bg-hover) !important;
+}
+
+.tabulator-col.tabulator-sortable[aria-sort="ascending"] .tabulator-col-title,
+.tabulator-col.tabulator-sortable[aria-sort="descending"] .tabulator-col-title {
+  color: var(--accent) !important;
+}
+
+/* Sort Arrow */
+.tabulator-arrow {
+  border-bottom-color: var(--text-muted) !important;
+  border-top-color: var(--text-muted) !important;
+}
+
+/* ADDED: Column content alignment helpers */
+.tabulator-col-content {
+  display: flex;
+  align-items: center;
+
+  padding-top: 5px !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+
+
+
+/* ===============================
+   5. FROZEN COLUMNS
+   =============================== */
+.tabulator-frozen,
+.tabulator-frozen-left,
+.tabulator-frozen-right {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+/* ADDED: Frozen column shadow for visual separation */
+.tabulator-frozen-left {
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.tabulator-frozen-right {
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ===============================
+   6. TABLE ROWS
+   =============================== */
+.tabulator-row {
+  display: flex !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  min-height: auto !important;
+  background: var(--bg-surface) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  transition: background-color var(--transition-base) !important;
+
+
+}
+
+.tabulator-row:last-child {
+  border-bottom: none !important;
+}
+
+/* Row Hover State */
+.tabulator-row:hover {
+  background: var(--bg-hover) !important;
+}
+
+/* Row Selection State */
+.tabulator-row.tabulator-selected {
+  background-color: var(--accent-softer) !important;
+}
+
+.tabulator-row.tabulator-selected:hover {
+  background-color: var(--accent-soft) !important;
+}
+
+/* ADDED: Row focus state for keyboard navigation */
+.tabulator-row.tabulator-row-focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* ADDED: Odd/Even row styling option (commented out by default) */
+/* 
+.tabulator-row.tabulator-row-odd {
+  background: var(--bg-surface) !important;
+}
+
+.tabulator-row.tabulator-row-even {
+  background: var(--bg-secondary) !important;
+}
+*/
+
+/* ===============================
+   7. TABLE CELLS
+   =============================== */
+.tabulator-cell {
+  flex: 1 1 auto !important;
+  padding: 6px 8px !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+  color: var(--text-primary) !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-overflow: ellipsis !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+.tabulator-cell:not(:first-child) {
+  padding: 6px 13px !important;
+
+  /* border: 1px solid gainsboro !important; */
+}
+
+
+
+
+
+
+
+/* ADDED: Cell alignment classes */
+.tabulator-cell.tabulator-cell-align-left {
+  text-align: left !important;
+}
+
+.tabulator-cell.tabulator-cell-align-center {
+  text-align: center !important;
+}
+
+.tabulator-cell.tabulator-cell-align-right {
+  text-align: right !important;
+}
+
+/* ADDED: Vertical alignment */
+.tabulator-cell {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* ===============================
+   8. SELECTION COLUMN (CHECKBOX)
+   =============================== */
+.tabulator-row .tabulator-cell:first-child {
+  text-align: center !important;
+  width: 40px !important;
+  flex: 0 0 40px !important;
+  justify-content: center !important;
+}
+
+input[type="checkbox"].tabulator-checkbox {
+  width: 14px !important;
+  height: 14px !important;
+  cursor: pointer !important;
+  accent-color: var(--accent) !important;
+  margin: 0 !important;
+}
+
+/* ADDED: Header checkbox alignment */
+.tabulator-col-content input[type="checkbox"].tabulator-checkbox {
+  margin: 0 auto !important;
+}
+
+/* ===============================
+   9. CUSTOM CELL CONTENT
+   =============================== */
+
+/* Customer Info Column */
+.customer-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.customer-avatar,
+.customer-avatar-img {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  font-size: 0.8rem !important;
+  line-height: 32px !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+}
+
+.customer-name {
+  font-size: 0.8rem !important;
+  font-weight: var(--font-normal) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Badge Styles */
+.member-type-badge {
+  font-size: 0.7rem !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  color: #fff !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+  font-weight: var(--font-medium) !important;
+  white-space: nowrap !important;
+}
+
+/* ADDED: Status badge variants */
+.status-badge {
+  font-size: 0.7rem !important;
+  padding: 3px 8px !important;
+  border-radius: 12px !important;
+  font-weight: var(--font-medium) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.status-badge.status-active {
+  background: #10b981 !important;
+  color: white !important;
+}
+
+.status-badge.status-inactive {
+  background: #6b7280 !important;
+  color: white !important;
+}
+
+.status-badge.status-pending {
+  background: #f59e0b !important;
+  color: white !important;
+}
+
+/* ADDED: Icon in cells */
+.cell-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 6px !important;
+}
+
+/* ===============================
+   10. COLUMN RESIZE HANDLE
+   =============================== */
+.tabulator-col-resize-handle {
+  width: 4px !important;
+  background-color: transparent !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.tabulator-col-resize-handle:hover {
+  background-color: var(--accent) !important;
+}
+
+/* ADDED: Active resize state */
+.tabulator-col-resize-handle.tabulator-col-resize-handle-active {
+  background-color: var(--accent) !important;
+}
+
+/* ===============================
+   11. INLINE EDITING
+   =============================== */
+.tabulator-editing input,
+.tabulator-editing select,
+.tabulator-editing textarea {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 4px 8px !important;
+  font-size: 0.875rem !important;
+  width: 100% !important;
+}
+
+.tabulator-editing input:focus,
+.tabulator-editing select:focus,
+.tabulator-editing textarea:focus {
+  outline: none !important;
+  box-shadow: var(--focus-ring) !important;
+}
+
+/* ADDED: Editing cell highlight */
+.tabulator-cell.tabulator-editing {
+  background: var(--bg-hover) !important;
+  padding: 4px !important;
+}
+
+/* ===============================
+   12. FOOTER
+   =============================== */
+.tabulator-footer {
+  display: none !important;
+}
+
+/* ADDED: Show footer if needed (uncomment to enable) */
+/*
+.tabulator-footer {
+  display: block !important;
+  background: var(--bg-secondary) !important;
+  border-top: 1px solid var(--border-color) !important;
+  padding: 8px 12px !important;
+}
+
+.tabulator-footer-contents {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  font-size: 0.8rem !important;
+  color: var(--text-muted) !important;
+}
+*/
+
+/* ===============================
+   13. PAGINATION
+   =============================== */
+/* ADDED: Pagination styling (if footer is enabled) */
+/*
+.tabulator-paginator {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.tabulator-page {
+  padding: 4px 8px !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.tabulator-page:hover {
+  background: var(--bg-hover) !important;
+}
+
+.tabulator-page.active {
+  background: var(--accent) !important;
+  color: white !important;
+  border-color: var(--accent) !important;
+}
+
+.tabulator-page.disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+*/
+
+/* ===============================
+   14. LOADING STATE
+   =============================== */
+.tabulator-loader {
+  background: var(--bg-surface) !important;
+  border: none !important;
+}
+
+.tabulator-loader-msg {
+  color: var(--text-primary) !important;
+  font-weight: var(--font-medium) !important;
+  font-size: 0.875rem !important;
+}
+
+/* ADDED: Loading spinner animation */
+.tabulator-loader-msg::after {
+  content: '';
+  animation: tabulator-spin 1s linear infinite;
+}
+
+@keyframes tabulator-spin {
+  0% { content: '.'; }
+  33% { content: '..'; }
+  66% { content: '...'; }
+  100% { content: '.'; }
+}
+
+/* ===============================
+   15. EMPTY STATE
+   =============================== */
+.tabulator-placeholder {
+  color: var(--text-muted) !important;
+  padding: 40px 20px !important;
+  text-align: center !important;
+  background: var(--bg-surface) !important;
+}
+
+.tabulator-placeholder-contents {
+  font-size: 0.875rem !important;
+  font-weight: var(--font-medium) !important;
+}
+
+/* ADDED: Empty state icon */
+.tabulator-placeholder::before {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+/* ===============================
+   16. CONTEXT MENU
+   =============================== */
+.tabulator-menu {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+  padding: 4px !important;
+}
+
+/* ADDED: Menu item styling */
+.tabulator-menu-item {
+  padding: 8px 12px !important;
+  border-radius: var(--radius-sm) !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+  font-size: 0.875rem !important;
+  color: var(--text-primary) !important;
+}
+
+.tabulator-menu-item:hover {
+  background: var(--bg-hover) !important;
+}
+
+.tabulator-menu-item.tabulator-menu-item-disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+.tabulator-menu-separator {
+  height: 1px !important;
+  background: var(--border-color) !important;
+  margin: 4px 0 !important;
+}
+
+/* ===============================
+   17. FILTER HEADER
+   =============================== */
+/* ADDED: Filter header row styling */
+.tabulator-header-filter {
+  padding: 4px !important;
+}
+
+.tabulator-header-filter input,
+.tabulator-header-filter select {
+  width: 100% !important;
+  padding: 4px 8px !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  font-size: 0.8rem !important;
+}
+
+.tabulator-header-filter input:focus,
+.tabulator-header-filter select:focus {
+  outline: none !important;
+  border-color: var(--accent) !important;
+  box-shadow: var(--focus-ring) !important;
+}
+
+/* ===============================
+   18. GROUPED ROWS
+   =============================== */
+/* ADDED: Group row styling */
+.tabulator-group {
+  background: var(--bg-secondary) !important;
+  font-weight: var(--font-semibold) !important;
+  color: var(--text-primary) !important;
+  border-bottom: 2px solid var(--border-color) !important;
+}
+
+.tabulator-group:hover {
+  background: var(--bg-hover) !important;
+}
+
+.tabulator-group-toggle {
+  margin-right: 8px !important;
+  cursor: pointer !important;
+}
+
+.tabulator-group-label {
+  font-size: 0.875rem !important;
+}
+
+/* ===============================
+   19. TREE STRUCTURE
+   =============================== */
+/* ADDED: Tree/hierarchical data styling */
+.tabulator-tree-level-0 {
+  padding-left: 0 !important;
+}
+
+.tabulator-tree-level-1 {
+  padding-left: 20px !important;
+}
+
+.tabulator-tree-level-2 {
+  padding-left: 40px !important;
+}
+
+.tabulator-tree-level-3 {
+  padding-left: 60px !important;
+}
+
+.tabulator-data-tree-control {
+  cursor: pointer !important;
+  margin-right: 8px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* ===============================
+   20. RESPONSIVE TABLES
+   =============================== */
+@media (max-width: 768px) {
+  .tabulator-cell {
+    padding: 12px 8px !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .tabulator-col-title {
+    font-size: 0.6875rem !important;
+  }
+
+  .customer-avatar,
+  .customer-avatar-img {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.7rem !important;
+    line-height: 28px !important;
+  }
+
+  .customer-name {
+    font-size: 0.75rem !important;
+  }
+
+  .member-type-badge,
+  .status-badge {
+    font-size: 0.65rem !important;
+    padding: 2px 4px !important;
+  }
+}
+
+/* ADDED: Mobile responsive collapse mode */
+@media (max-width: 640px) {
+  .tabulator-col-title-holder {
+    padding: 4px 8px !important;
+  }
+
+  .tabulator-cell {
+    padding: 8px 6px !important;
+  }
+}
+
+/* ===============================
+   21. DARK MODE OVERRIDES
+   =============================== */
+.dark .tabulator {
+  background: transparent !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .tabulator-header {
+  background: var(--bg-secondary) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.dark .tabulator-row {
+  background: var(--bg-surface) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+.dark .tabulator-row:hover {
+  background: var(--bg-hover) !important;
+}
+
+.dark .tabulator-cell {
+  color: var(--text-primary) !important;
+}
+
+/* ADDED: Dark mode for scrollbar */
+.dark .tabulator-tableHolder::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.dark .tabulator-tableHolder::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}
+
+.dark .tabulator-tableHolder::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ===============================
+   22. PRINT STYLES
+   =============================== */
+/* ADDED: Print-friendly styles */
+@media print {
+  .tabulator {
+    border: 1px solid #ddd !important;
+  }
+
+  .tabulator-row {
+    page-break-inside: avoid !important;
+  }
+
+  .tabulator-col-resize-handle {
+    display: none !important;
+  }
+
+  .tabulator-header {
+    background: #f5f5f5 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* ===============================
+   23. ACCESSIBILITY
+   =============================== */
+/* ADDED: Focus visible for keyboard navigation */
+.tabulator-cell:focus-visible,
+.tabulator-col:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: -2px !important;
+}
+
+/* ADDED: Screen reader only content */
+.tabulator-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+}
+
+/* ===============================
+   24. UTILITY CLASSES
+   =============================== */
+/* ADDED: Text truncation helper */
+.tabulator-cell-truncate {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* ADDED: Wrap text helper */
+.tabulator-cell-wrap {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+/* ADDED: Monospace font for numbers/code */
+.tabulator-cell-mono {
+  font-family: 'Monaco', 'Courier New', monospace !important;
+  font-variant-numeric: tabular-nums !important;
+}
+
+/* ===============================
+   25. PERFORMANCE OPTIMIZATIONS
+   =============================== */
+/* ADDED: GPU acceleration for smoother scrolling */
+.tabulator-tableHolder {
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+.tabulator-row {
+  contain: layout style paint;
+}
+
+
+
+
+
+
+
+
+/* Allow hover content to escape Tabulator cells */
+.tabulator,
+.tabulator-tableHolder,
+.tabulator-table,
+.tabulator-row,
+.tabulator-cell {
+  overflow: visible !important;
+}

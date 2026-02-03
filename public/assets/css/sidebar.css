@@ -1,0 +1,596 @@
+/* ================================
+   Sidebar Styles (Unified & Stable)
+   ================================ */
+
+
+/* Sidebar container */
+.sidebar {
+  width: 280px;
+  background-color: var(--bg-surface);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: width 250ms ease, background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  position: relative;
+  z-index: 100;
+  /* Remove overflow-x: hidden when collapsed to allow flyouts */
+}
+
+
+/* Dark-mode subtle divider */
+.dark .sidebar {
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Collapsed width */
+.sidebar.is-collapsed {
+  width: 88px;
+  overflow: visible;
+}
+
+/* ================================
+   Sidebar Header / Logo
+   ================================ */
+
+.sidebar-header {
+  height: 72px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  transition: padding 200ms ease;
+}
+
+.sidebar.is-collapsed .sidebar-header {
+  padding: 0;
+  justify-content: center;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo-icon .logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  transition: opacity 150ms ease;
+}
+
+.sidebar.is-collapsed .logo-text {
+  display: none;
+}
+
+/* ================================
+   Navigation Wrapper
+   ================================ */
+
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px 16px;
+}
+
+.nav-section {
+  margin-bottom: 32px;
+}
+
+.nav-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 12px;
+  margin-bottom: 12px;
+}
+
+.sidebar.is-collapsed .nav-section-title {
+  display: none;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ================================
+   Navigation Item Base
+   ================================ */
+
+.nav-item,
+.nav-dropdown-toggle {
+  position: relative;
+  height: 44px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+
+  transition: background-color 180ms ease, color 180ms ease,
+    border-radius 180ms ease;
+  overflow: hidden;
+}
+
+/* Icon column */
+.nav-item i:first-child,
+.nav-dropdown-toggle i:first-child {
+  width: 18px;
+  font-size: 15px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+/* Label text */
+.nav-item span,
+.nav-dropdown-toggle span {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 24px;
+}
+
+/* Hover state */
+.nav-item:hover,
+.nav-dropdown-toggle:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Active state for regular nav item */
+.nav-item.active {
+  background-color: var(--bg-active);
+  color: var(--accent);
+}
+
+/* Active indicator for regular nav item */
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background-color: var(--accent);
+  border-radius: 0 2px 2px 0;
+  z-index: 1;
+}
+
+/* Dropdown arrow */
+.nav-dropdown-toggle .dropdown-icon {
+  position: absolute;
+  right: 12px;
+  width: 16px;
+  font-size: 8px;
+  text-align: center;
+  flex-shrink: 0;
+  pointer-events: none;
+  line-height: 1;
+  transition: transform 200ms ease;
+}
+
+/* Rotate arrow when open */
+.nav-dropdown.open .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* ================================
+   Sub Navigation / Dropdown (Expanded State)
+   ================================ */
+
+.nav-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: auto;
+}
+
+/* Only hide overflow when NOT collapsed */
+.sidebar:not(.is-collapsed) {
+  overflow-x: hidden;
+}
+
+/* Increase z-index when collapsed to ensure flyouts are on top */
+.sidebar.is-collapsed .nav-dropdown {
+  position: relative;
+  z-index: 150;
+}
+
+/* ================================
+   Parent Toggle States (Expanded Mode)
+   ================================ */
+
+/* Persistent active state - when parent has active child (NOT open) */
+.nav-dropdown-toggle.has-active-child {
+  background-color: var(--bg-active);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Active indicator for parent with active child - ALWAYS SHOW */
+.nav-dropdown-toggle.has-active-child::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background-color: var(--accent);
+  border-radius: 0 2px 2px 0;
+  z-index: 10;
+}
+
+/* Hover state for active parent */
+.nav-dropdown-toggle.has-active-child:hover {
+  background-color: var(--bg-active);
+  color: var(--accent);
+}
+
+/* Temporary open state (when dropdown is expanded, NO active child) */
+.nav-dropdown-toggle.open:not(.has-active-child) {
+  border: 1px solid var(--border-color);
+  border-bottom: 0;
+  background-color: var(--bg-active);
+  color: var(--text-primary);
+  border-radius: 8px 8px 0 0;
+}
+
+/* When parent has active child AND is open - unified style with left border */
+.nav-dropdown-toggle.has-active-child.open {
+  border: 1px solid var(--border-color);
+  border-bottom: 0;
+  border-left: none; /* Remove left border to show the indicator */
+  background-color: var(--bg-active);
+  color: var(--accent);
+  border-radius: 8px 8px 0 0;
+  font-weight: 600;
+}
+
+/* Active sub-nav item - WITH left border indicator */
+.sub-nav-item.active {
+  position: relative;
+  background-color: var(--bg-active);
+  color: var(--accent);
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+/* Left border indicator for active sub-nav item */
+.sub-nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background-color: var(--accent);
+  border-radius: 0 2px 2px 0;
+  z-index: 10;
+}
+
+
+
+/* Hover state for active parent */
+.nav-dropdown-toggle.has-active-child:hover {
+  background-color: var(--bg-active);
+  color: var(--accent);
+}
+
+/* Temporary open state (when dropdown is expanded, NO active child) */
+.nav-dropdown-toggle.open:not(.has-active-child) {
+  border: 1px solid var(--border-color);
+  border-bottom: 0;
+  background-color: var(--bg-active);
+  color: var(--text-primary);
+  border-radius: 8px 8px 0 0;
+}
+
+/* When parent has active child AND is open - unified style */
+.nav-dropdown-toggle.has-active-child.open {
+  border: 1px solid var(--border-color);
+  border-bottom: 0;
+  background-color: var(--bg-active);
+  color: var(--accent);
+  border-radius: 8px 8px 0 0;
+  font-weight: 600;
+}
+
+/* Sub-nav container */
+.sub-nav {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  padding-left: 35px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+
+  transition: max-height 260ms ease, opacity 200ms ease, transform 200ms ease,
+    border-radius 200ms ease;
+
+  background-color: var(--bg-active);
+  border-radius: 0 0 0.5rem 0.5rem;
+  border: 1px solid var(--border-color);
+  border-top: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Open effect */
+.nav-dropdown.open .sub-nav {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+/* Sub-nav items */
+.sub-nav-item {
+  background: transparent;
+  border: none;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: var(--text-primary);
+  text-align: left;
+  text-decoration: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, font-weight 180ms ease;
+  display: block;
+}
+
+.sub-nav-item:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* Active sub-nav item - subtle emphasis with accent */
+.sub-nav-item.active {
+  background-color: var(--bg-active);
+  color: var(--accent);
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+
+/* ================================
+   Collapsed State Active Indicators
+   ================================ */
+
+/* Active indicator for parent with active child in collapsed mode */
+.sidebar.is-collapsed .nav-dropdown-toggle.has-active-child::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background-color: var(--accent);
+  border-radius: 0 2px 2px 0;
+  z-index: 10;
+}
+
+/* Optional: Icon highlight for active parent in collapsed mode */
+.sidebar.is-collapsed .nav-dropdown-toggle.has-active-child i:first-child {
+  color: var(--accent);
+}
+
+/* Active sub-nav item in flyout - WITH left border indicator */
+.sidebar.is-collapsed .sub-nav-item.active {
+  position: relative;
+  background-color: var(--bg-active);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Left border indicator for active sub-nav item in collapsed flyout */
+.sidebar.is-collapsed .sub-nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background-color: var(--accent);
+  border-radius: 0 2px 2px 0;
+  z-index: 10;
+}
+
+
+
+/* ================================
+   Collapsed Sidebar Flyouts (Enhanced)
+   ================================ */
+
+/* Dropdown container positioning */
+.sidebar.is-collapsed .nav-dropdown {
+  position: relative;
+}
+
+/* Invisible bridge to maintain hover state between sidebar and flyout */
+.sidebar.is-collapsed .nav-dropdown::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background: transparent;
+  z-index: 9998;
+  display: none;
+}
+
+.sidebar.is-collapsed .nav-dropdown:hover::after {
+  display: block;
+}
+
+/* Keep parent button highlighted when hovering flyout */
+.sidebar.is-collapsed .nav-dropdown:hover .nav-dropdown-toggle,
+.sidebar.is-collapsed .nav-dropdown:has(.sub-nav:hover) .nav-dropdown-toggle {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* Keep active state visible even when hovering in collapsed mode */
+.sidebar.is-collapsed .nav-dropdown:hover .nav-dropdown-toggle.has-active-child,
+.sidebar.is-collapsed .nav-dropdown:has(.sub-nav:hover) .nav-dropdown-toggle.has-active-child {
+  background-color: var(--bg-active);
+  color: var(--accent);
+}
+
+/* Flyout positioning and base styles */
+.sidebar.is-collapsed .sub-nav {
+  position: fixed;
+  left: 87px;
+  top: auto;
+  margin: 0;
+  padding: 8px;
+  padding-left: 8px;
+  
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  
+  min-width: 200px;
+  max-width: 280px;
+  max-height: none;
+  
+  /* Animation states */
+  transform: translateX(-12px);
+  opacity: 0;
+  
+  /* Fast smooth transition */
+  transition: opacity 180ms cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* High z-index for proper layering */
+  z-index: 9999;
+  
+  /* Enhanced shadow for depth */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15),
+              0 4px 12px rgba(0, 0, 0, 0.1),
+              0 0 0 1px rgba(0, 0, 0, 0.05);
+  
+  /* Initially hidden */
+  display: flex;
+  pointer-events: none;
+}
+
+/* Show flyout on hover with smooth animation */
+.sidebar.is-collapsed .nav-dropdown:hover .sub-nav,
+.sidebar.is-collapsed .sub-nav:hover {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* Flyout sub-nav items styling */
+.sidebar.is-collapsed .sub-nav-item {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 150ms ease, color 150ms ease, font-weight 150ms ease;
+}
+
+.sidebar.is-collapsed .sub-nav-item:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* Active sub-nav item in flyout - subtle with accent */
+.sidebar.is-collapsed .sub-nav-item.active {
+  background-color: var(--bg-active);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Subtle backdrop effect */
+.sidebar.is-collapsed .nav-dropdown:hover .sub-nav::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(2px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.sidebar.is-collapsed .nav-dropdown:hover .sub-nav::before {
+  opacity: 1;
+}
+
+/* ================================
+   Tooltips (Collapsed State)
+   ================================ */
+
+.sidebar.is-collapsed .nav-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: var(--shadow-md);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+  z-index: 1000;
+}
+
+.sidebar.is-collapsed .nav-item:hover::after {
+  opacity: 1;
+}

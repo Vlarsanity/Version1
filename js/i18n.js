@@ -1305,6 +1305,10 @@ async function loadServerTexts(languageCode = null) {
         const lang = languageCode || getCurrentLanguage();
         const apiPath = getApiPath();
         const url = `${apiPath}?action=get_texts&lang=${lang}`;
+
+        console.log('DEBUG apiPath:', apiPath);
+        console.log('DEBUG location.pathname:', window.location.pathname);
+        console.log('DEBUG Fetching URL:', url);
         
         // CORS 및 네트워크 오류 처리
         const response = await fetch(url, {

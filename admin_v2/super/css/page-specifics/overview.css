@@ -1,0 +1,614 @@
+
+
+/* ========================= */
+/* Page Header */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid black; */
+  flex: 0 0 7%; /* 7% of main-content height */
+  min-height: 50px;
+  padding: 0 0rem; /* optional horizontal padding */
+
+  /* border: 1px solid black; */
+}
+
+/* Left section */
+.page-header-left {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center; /* vertical center */
+  justify-content: flex-start;
+  height: 100%;
+}
+
+/* Left Section - Title */
+.page-header-left .page-title {
+  margin: 0;
+  font-size: 1.75rem; /* prominent but not too big */
+  font-weight: 600;
+  color: #212529; /* professional dark text */
+  line-height: 1.2;
+}
+
+
+/* Right section */
+.page-header-right {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+/* Date Pill Container */
+.date-pill-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 6px 6px 6px var(--spacing-lg);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+  border: 1px solid #ea580c;
+  border-radius: 999px;
+}
+
+/* Date Icon Inside Pill */
+.date-pill-wrapper .date-icon {
+  width: 32px;
+  height: 32px;
+  background: #ea580c;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  order: 2;
+}
+
+.date-pill-wrapper .date-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.date-pill-wrapper .date-icon path {
+  fill: #ffffff;
+}
+
+/* Date Text Inside Pill */
+.date-pill-wrapper .page-date {
+  font-size: 14px;
+  font-weight: 500;
+  color: #7c2d12;
+  margin: 0;
+  order: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-header-left,
+  .page-header-right {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .page-header-right {
+    align-items: flex-start;
+    margin-top: var(--spacing-md);
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+}
+
+
+/* ========================= */
+/* Overview Card Grid */
+
+.overview-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.5rem;
+  flex: 0 0 25%; /* 25% of main-content height */
+
+  /* border: 1px solid black; */
+}
+
+/* Payment Card - full width of grid */
+.payment-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+
+  grid-column: 1 / -1; /* span all columns */
+  width: 100%; /* ensure full width inside grid */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Payment Grid - inside payment card */
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xs);
+}
+
+/* Payment Item */
+.payment-item {
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: opacity 0.2s ease;
+
+  /* Make all payment items same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Hover effect */
+.payment-item:hover {
+  opacity: 0.85;
+}
+
+/* Specific Payment Types */
+/* Down Payment */
+.payment-down {
+  background: var(--color-down-bg);
+  border: 1px solid var(--color-down-border);
+}
+
+.payment-down .payment-icon {
+  background: var(--color-down-icon);
+}
+
+.payment-down .payment-label {
+  color: var(--color-down-text);
+}
+
+.payment-down .payment-count {
+  color: var(--color-down-count);
+}
+
+.payment-down .payment-status {
+  color: var(--color-down-status);
+}
+
+/* Advance Payment */
+.payment-advance {
+  background: var(--color-advance-bg);
+  border: 1px solid var(--color-advance-border);
+}
+
+.payment-advance .payment-icon {
+  background: var(--color-advance-icon);
+}
+
+.payment-advance .payment-label {
+  color: var(--color-advance-text);
+}
+
+.payment-advance .payment-count {
+  color: var(--color-advance-count);
+}
+
+.payment-advance .payment-status {
+  color: var(--color-advance-status);
+}
+
+/* Balance Payment */
+.payment-balance {
+  background: var(--color-balance-bg);
+  border: 1px solid var(--color-balance-border);
+}
+
+.payment-balance .payment-icon {
+  background: var(--color-balance-icon);
+}
+
+.payment-balance .payment-label {
+  color: var(--color-balance-text);
+}
+
+.payment-balance .payment-count {
+  color: var(--color-balance-count);
+}
+
+.payment-balance .payment-status {
+  color: var(--color-balance-status);
+}
+
+/* Payment Item Elements */
+.payment-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  margin: 0 auto var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-icon span {
+  font-size: 20px;
+}
+
+.payment-label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+}
+
+.payment-count {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.payment-status {
+  font-size: 12px;
+}
+
+/* ========================= */
+/* Card Panel */
+.card-panel {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+
+  flex: 1 1 auto; /* fill remaining height */
+  min-height: 200px; /* fallback */
+  overflow-y: auto; /* scroll if content overflows */
+
+  /* border: 1px solid black; */
+}
+
+/* Card Panel Header - With Action Link */
+.card-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 1px solid #f59e0b;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.card-panel-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.card-panel-header .header-icon {
+  width: 56px;
+  height: 56px;
+  background: #f59e0b;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-panel-header .header-icon span {
+  font-size: 28px;
+}
+
+.card-panel-header .header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-panel-header .card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #92400e;
+}
+
+.card-panel-header .card-subtitle {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-xs);
+}
+
+.card-panel-header .card-subtitle strong {
+  font-size: 32px;
+  font-weight: 700;
+  color: #b45309;
+  line-height: 1;
+}
+
+.card-panel-header .card-subtitle span {
+  font-size: 13px;
+  color: #a16207;
+}
+
+.card-panel-header .header-action {
+  flex-shrink: 0;
+}
+
+.card-panel-header .show-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--spacing-xs) var(--spacing-lg);
+  font-size: 14px;
+  font-weight: 500;
+  color: #92400e;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid #f59e0b;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.card-panel-header .show-all-link:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: #d97706;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-panel-header {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .card-panel-header .header-left {
+    gap: var(--spacing-md);
+  }
+
+  .card-panel-header .header-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .card-panel-header .header-icon span {
+    font-size: 24px;
+  }
+
+  .card-panel-header .card-subtitle strong {
+    font-size: 28px;
+  }
+
+  .card-panel-header .header-action {
+    width: 100%;
+    text-align: right;
+  }
+}
+
+/* ====================================
+   Page Header
+   ==================================== */
+
+/* ====================================
+   Payment Status Card
+   ==================================== */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+
+  /* border: 1px solid black; */
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.card-link {
+  font-size: 14px;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.card-link:hover {
+  color: var(--color-primary-dark);
+}
+
+/* ====================================
+   Table Card
+   ==================================== */
+
+.card-subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.card-subtitle strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* ====================================
+   Table Styles
+   ==================================== */
+.table-scroll {
+  overflow-x: auto;
+  margin: 0 calc(-1 * var(--spacing-xl));
+  padding: 0 var(--spacing-xl);
+}
+
+.table-wrapper {
+  min-width: 100%;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.data-table thead {
+  background-color: var(--color-background);
+}
+
+.data-table th {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.data-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--color-background);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--spacing-3xl) var(--spacing-md);
+}
+
+/* Column Widths */
+.col-no {
+  width: 60px;
+}
+
+.col-product {
+  width: auto;
+}
+
+.col-period {
+  width: 220px;
+}
+
+.col-type {
+  width: 120px;
+}
+
+.col-travelers {
+  width: 100px;
+}
+
+.col-guide {
+  width: 140px;
+}
+
+/* ====================================
+   Responsive Design
+   ==================================== */
+@media (max-width: 1024px) {
+  .layout-nav {
+    width: 220px;
+  }
+
+  .main-content {
+    padding: var(--spacing-lg);
+  }
+
+  .payment-grid {
+    gap: var(--spacing-sm);
+  }
+
+  .layout-header {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper-container {
+    flex-direction: column;
+  }
+
+  .layout-nav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .main-content {
+    padding: var(--spacing-md);
+  }
+
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .table-scroll {
+    margin: 0 calc(-1 * var(--spacing-md));
+    padding: 0 var(--spacing-md);
+  }
+
+  .layout-header {
+    padding: 0 var(--spacing-md);
+  }
+
+  .header-right {
+    gap: var(--spacing-xs);
+  }
+
+  .lang-text {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .payment-card,
+  .card-panel {
+    padding: var(--spacing-md);
+  }
+
+  .brand img {
+    height: 24px;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .jw-button {
+    padding: var(--spacing-xs);
+  }
+}

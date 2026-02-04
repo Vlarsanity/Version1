@@ -1,0 +1,266 @@
+/* ==========================================
+   THEME DEFAULT CSS - Colors, Shadows, Effects
+   Customize this file for different themes
+   ========================================== */
+
+:root {
+    /* Colors */
+    --color-primary: #3b82f6;
+    --color-primary-hover: #2563eb;
+    --color-secondary: #6b7280;
+    --color-secondary-hover: #4b5563;
+    
+    --color-text-primary: #111827;
+    --color-text-secondary: #6b7280;
+    --color-text-light: #9ca3af;
+    
+    --color-bg-white: #ffffff;
+    --color-bg-gray: #f9fafb;
+    --color-bg-hover: #f3f4f6;
+    
+    --color-border: #e5e7eb;
+    --color-border-light: #f3f4f6;
+    --color-border-focus: #3b82f6;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.2s ease;
+    --transition-slow: 0.3s ease;
+}
+
+/* ==========================================
+   CARD PANEL STYLING
+   ========================================== */
+/* .card-panel {
+    background: var(--color-bg-white);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+} */
+
+/* ==========================================
+   SEARCH AREA STYLING
+   ========================================== */
+.search-area {
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.search-input {
+    background: var(--color-bg-white);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.search-input::placeholder {
+    color: var(--color-text-light);
+}
+
+.search-input:focus {
+    border-color: var(--color-border-focus);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-btn:hover {
+    opacity: 0.7;
+}
+
+.sort-select {
+    background-color: var(--color-bg-white);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+    transition: border-color var(--transition-base);
+}
+
+.sort-select:hover {
+    border-color: var(--color-secondary);
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: var(--color-border-focus);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+
+
+
+
+/* ==========================================
+   DATA TABLE – MINIMALIST LIGHT THEME
+   ========================================== */
+
+/* Container */
+.table-container {
+    background: #ffffff;
+    border: 1px solid #e6eaf0;              /* subtle border */
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04); /* light elevation */
+}
+
+/* Scrollbar */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f2f6fc;                    /* light blue-gray */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #c7d4e6;                    /* blue-gray accent */
+    border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #9fb6d6;                    /* stronger blue tone */
+}
+
+/* Table base */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+/* Header */
+.data-table thead {
+    background: #eef4ff;                    /* soft blue header */
+    border-bottom: 1px solid #d3def5;
+}
+
+.data-table th {
+    padding: 12px 16px;
+    font-weight: 600;
+    color: #2f3b52;                         /* dark gray primary */
+    letter-spacing: 0.3px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Cells */
+.data-table td {
+    padding: 11px 16px;
+    color: #3b4252;                         /* dark gray */
+    border-bottom: 1px solid #e6eaf0;       /* light separator */
+    vertical-align: middle;
+}
+
+/* Hover row */
+.data-table .table-row {
+    transition: background-color 0.15s ease;
+}
+
+.data-table .table-row:hover {
+    background-color: #f7faff;              /* super light blue hover */
+}
+
+/* Row striping (optional, looks cleaner) */
+.data-table tbody tr:nth-child(even) {
+    background-color: #fafbfd;              /* subtle gray */
+}
+
+/* Active / selected state (optional) */
+.data-table .row-active {
+    background-color: #e4edff !important;   /* soft blue highlight */
+}
+
+/* Optional: Rounded top corners on thead */
+.data-table thead tr th:first-child {
+    border-top-left-radius: 8px;
+}
+.data-table thead tr th:last-child {
+    border-top-right-radius: 8px;
+}
+
+
+
+
+
+
+/* ==========================================
+   EMPTY STATE STYLING
+   ========================================== */
+.empty-state {
+    background: var(--color-bg-white);
+}
+
+.empty-state__text {
+    color: var(--color-text-secondary);
+}
+
+/* ==========================================
+   BUTTON STYLING
+   ========================================== */
+.btn {
+    background: var(--color-bg-white);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+    transition: all var(--transition-base);
+}
+
+.btn:hover:not(:disabled) {
+    background-color: var(--color-bg-hover);
+    border-color: var(--color-secondary);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: white;
+    border-color: var(--color-secondary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: var(--color-secondary-hover);
+    border-color: var(--color-secondary-hover);
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        padding: var(--spacing-md);
+    }
+
+    .search-area {
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content-wrapper {
+        padding: var(--spacing-sm);
+    }
+}

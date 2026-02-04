@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Create Account - SMART TRAVEL ADMIN</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="layout-main">
+		<!-- nav 들어올 자리 -->
+		<nav class="layout-nav"></nav>
+
+		<section class="layout-content">
+			<div class="page-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+				<h1 class="page-title" data-lan-eng="Create Account" style="margin: 0;">계정 생성</h1>
+				<div style="display: flex; gap: 8px; align-items: center;">
+					<button type="button" class="jw-button typeC" id="testDataBtn" data-lan-eng="Fill Test Data">테스트 데이터 입력</button>
+					<button type="button" class="jw-button typeB" data-lan-eng="Create Account" id="createBtn">계정 생성</button>
+				</div>
+			</div>
+
+			<h2 class="section-title" data-lan-eng="Basic Information">기본 정보</h2>
+			<div class="card-panel jw-mgt16">
+				<div class="grid-wrap">
+
+					<!-- 1행: Account Type / First Name / Last Name -->
+					<div class="grid-item">
+						<label class="label-name" for="accountType" data-lan-eng="Account Type">계정 유형 *</label>
+						<select id="accountType" class="select" required>
+							<option value="">선택하세요</option>
+							<option value="admin">Admin</option>
+							<option value="agent">Agent</option>
+							<option value="employee">Employee</option>
+							<option value="guide">Guide</option>
+						</select>
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="firstName" data-lan-eng="First Name">이름 *</label>
+						<input id="firstName" type="text" class="form-control" placeholder="First Name" required data-lan-eng-placeholder="First Name">
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="lastName" data-lan-eng="Last Name">성 *</label>
+						<input id="lastName" type="text" class="form-control" placeholder="Last Name" required data-lan-eng-placeholder="Last Name">
+					</div>
+
+					<!-- 2행: Middle Name / Username / Email -->
+					<div class="grid-item">
+						<label class="label-name" for="middleName" data-lan-eng="Middle Name">중간 이름</label>
+						<input id="middleName" type="text" class="form-control" placeholder="Middle Name (Optional)" data-lan-eng-placeholder="Middle Name (Optional)">
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="username" data-lan-eng="Username">사용자명 *</label>
+						<input id="username" type="text" class="form-control" placeholder="Username" required data-lan-eng-placeholder="Username">
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="email" data-lan-eng="Email">이메일 *</label>
+						<input id="email" type="email" class="form-control" placeholder="Email Address" required data-lan-eng-placeholder="Email Address">
+					</div>
+
+					<!-- 3행: Password / Display Name -->
+					<div class="grid-item">
+						<label class="label-name" for="password">Password *</label>
+						<div class="input-box">
+							<input id="password" type="password" class="form-control" placeholder="Password" required>
+							<button type="button" class="jw-button typeD" id="generatePasswordBtn">
+								<img src="../image/replay.svg" alt="">
+								<span data-lan-eng="Auto Generate">자동 생성</span>
+							</button>
+						</div>
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="displayName" data-lan-eng="Display Name">표시 이름</label>
+						<input id="displayName" type="text" class="form-control" placeholder="Display Name (Auto-generated)" readonly data-lan-eng-placeholder="Display Name (Auto-generated)">
+					</div>
+
+					<div class="grid-item"></div>
+
+				</div>
+			</div>
+
+			<!-- Agent 전용 정보 (accountType이 agent일 때만 표시) -->
+			<div id="agentSection" style="display: none;">
+				<h2 class="section-title jw-mgt32" data-lan-eng="Agent Information">Agent 정보</h2>
+				<div class="card-panel jw-mgt16">
+					<div class="grid-wrap">
+
+						<div class="grid-item">
+							<label class="label-name" for="agentType" data-lan-eng="Agent Type">Agent 유형</label>
+							<select id="agentType" class="select">
+								<option value="Retailer" selected>Retailer</option>
+								<option value="Wholeseller">Wholeseller</option>
+							</select>
+						</div>
+
+						<div class="grid-item">
+							<label class="label-name" for="agentRole" data-lan-eng="Agent Role">Agent 역할</label>
+							<select id="agentRole" class="select">
+								<option value="Head Agent" selected>Head Agent</option>
+								<option value="Sub-Agent">Sub-Agent</option>
+								<option value="Sales">Sales</option>
+							</select>
+						</div>
+
+						<div class="grid-item"></div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Employee 전용 정보 (accountType이 employee일 때만 표시) -->
+			<div id="employeeSection" style="display: none;">
+				<h2 class="section-title jw-mgt32" data-lan-eng="Employee Information">Employee 정보</h2>
+				<div class="card-panel jw-mgt16">
+					<div class="grid-wrap">
+
+						<div class="grid-item">
+							<label class="label-name" for="position" data-lan-eng="Position">직책</label>
+							<input id="position" type="text" class="form-control" placeholder="Position" data-lan-eng-placeholder="Position">
+						</div>
+
+						<div class="grid-item">
+							<label class="label-name" for="branch" data-lan-eng="Branch">지점</label>
+							<select id="branch" class="select">
+								<option value="Manila" selected>Manila</option>
+								<option value="Cebu">Cebu</option>
+								<option value="Seoul">Seoul</option>
+								<option value="Tokyo">Tokyo</option>
+							</select>
+						</div>
+
+						<div class="grid-item"></div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Guide 전용 정보 (accountType이 guide일 때만 표시) -->
+			<div id="guideSection" style="display: none;">
+				<h2 class="section-title jw-mgt32" data-lan-eng="Guide Information">Guide 정보</h2>
+				<div class="card-panel jw-mgt16">
+					<div class="grid-wrap">
+
+						<div class="grid-item">
+							<label class="label-name" for="phoneNumber" data-lan-eng="Phone Number">연락처</label>
+							<input id="phoneNumber" type="tel" class="form-control" placeholder="Phone Number" data-lan-eng-placeholder="Phone Number">
+						</div>
+
+						<div class="grid-item">
+							<label class="label-name" for="languages" data-lan-eng="Languages">사용 언어</label>
+							<input id="languages" type="text" class="form-control" placeholder="e.g., English, Korean, Japanese" data-lan-eng-placeholder="e.g., English, Korean, Japanese">
+						</div>
+
+						<div class="grid-item">
+							<label class="label-name" for="experienceYears" data-lan-eng="Experience Years">경력 (년)</label>
+							<input id="experienceYears" type="number" class="form-control" placeholder="Years" min="0" data-lan-eng-placeholder="Years">
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- 메시지 박스 -->
+			<div class="message-box jw-mgt32" id="messageBox" style="display: none;"></div>
+
+		</section>
+
+	</main>
+
+	<!-- 기본 스크립트 -->
+	<script src="../js/default.js"></script>
+	<script src="../js/super.js"></script>
+	<script src="../js/create-account.js"></script>
+	<script>
+		init({
+			headerUrl: '../inc/header.html',
+			navUrl: '../inc/nav_super.html'
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<div class="header_memberinfo">
+  <div class="avatar">
+    <svg
+      width="33"
+      height="33"
+      viewBox="0 0 33 33"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g>
+        <circle
+          cx="16.4721"
+          cy="10.9799"
+          r="6.11275"
+          stroke="#0065F8"
+          stroke-width="1.5"
+        />
+        <path
+          d="M7.55078 28.8244V25.2754C7.55078 23.0662 9.34164 21.2754 11.5508 21.2754H21.3939C23.6031 21.2754 25.3939 23.0663 25.3939 25.2754V28.8244"
+          stroke="#0065F8"
+          stroke-width="1.5"
+          stroke-linejoin="round"
+        />
+      </g>
+    </svg>
+  </div>
+  <h3 class="name" id="memberinfo-name">ADMIN</h3>
+  <p class="role" id="memberinfo-role">Employee</p>
+
+  <div class="actions">
+    <button
+      type="button"
+      class="action-btn change-password"
+      id="changePasswordBtn"
+      data-lan-kor="비밀번호 변경"
+    >
+      Change Password
+    </button>
+    <button
+      type="button"
+      class="action-btn logout"
+      id="logoutBtn"
+      data-lan-kor="로그아웃"
+    >
+      Logout
+    </button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    console.log("header_memberinfo.html script loaded");
+
+    function updateMemberInfo(user) {
+      const nameEl = document.getElementById("memberinfo-name");
+      const roleEl = document.getElementById("memberinfo-role");
+
+      if (nameEl) {
+        nameEl.textContent = user.displayName || user.username || "ADMIN";
+      }
+
+      if (roleEl) {
+        roleEl.textContent = user.role || "Employee";
+      }
+    }
+
+    function initButtons() {
+  console.log("initButtons called");
+
+  const changePasswordBtn = document.getElementById("changePasswordBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  // Password Change Button
+  if (changePasswordBtn) {
+    changePasswordBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("Change password clicked");
+
+      if (typeof modal === "function") {
+        modal("password-change-modal.html");
+      } else {
+        console.error("modal() is not defined");
+      }
+    });
+  } else {
+    console.error("changePasswordBtn not found");
+  }
+
+  // Logout Button
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("Logout clicked");
+
+      if (confirm("Are you sure you want to logout?")) {
+        logout().catch((err) => {
+          console.error("Unhandled logout exception:", err);
+          alert("Unexpected error occurred during logout.");
+        });
+      }
+    });
+  } else {
+    console.error("logoutBtn not found");
+  }
+}
+
+async function logout() {
+  console.log("Running logout...");
+
+  try {
+    const res = await fetch("../../admin_v2/general/functions/logout-process.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let data = {};
+    try {
+      data = await res.json();
+    } catch (jsonErr) {
+      console.error("Failed to parse JSON:", jsonErr);
+    }
+
+    console.log("Logout response:", data);
+
+    if (data?.success === true) {
+      window.location.href = "../index.php";
+    } else {
+      console.error("Logout failed:", data?.message || "Unknown error");
+      alert("Logout failed. Please try again.");
+    }
+
+  } catch (err) {
+    console.error("Logout error:", err);
+    alert("Network or server error during logout. Please try again.");
+  }
+}
+
+
+	
+    // 사용자 정보가 이미 로드되어 있으면 바로 업데이트
+    if (window.currentUser) {
+      updateMemberInfo(window.currentUser);
+    } else {
+      // 없으면 API 직접 호출
+      fetch("../backend/api/agent-api.php?action=getUserInfo")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success && data.data) {
+            window.currentUser = data.data;
+            updateMemberInfo(data.data);
+          }
+        })
+        .catch((err) => {
+          console.error("Failed to load user info in member info popup:", err);
+        });
+    }
+
+    // 버튼 초기화
+    initButtons();
+  })();
+</script>

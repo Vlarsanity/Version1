@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>SMART TRAVEL ADMIN</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+
+	<!-- editor -->
+	<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="layout-main">
+		<!-- nav 들어올 자리 -->
+		<nav class="layout-nav"></nav>
+
+		<section class="layout-content">
+			<div class="page-toolbar">
+				<a href="inquiry-list.html" class="jw-button" aria-label="목록으로 돌아가기">
+					<img src="../image/arrow4.svg" alt="">
+					<span data-lan-eng="">Return to list</span>
+				</a>
+
+				<div class="page-toolbar-actions">
+					<button type="button" class="jw-button typeB" id="save-btn" data-lan-eng="Save" style="display: none;">Save</button>
+				</div>
+			</div>
+
+			<h1 class="page-title" data-lan-eng="Inquiry detail">문의 상세</h1>
+
+			<h2 class="section-title jw-mgt32" data-lan-eng="Inquiry details">문의 내용</h2>
+			<div class="card-panel jw-mgt16">
+				<div class="grid-wrap">
+
+					<!-- 작성일시 -->
+					<div class="grid-item">
+						<label class="label-name" for="created_at" data-lan-eng="Created at">작성일시</label>
+						<input id="created_at" type="text" class="form-control" value="" disabled>
+					</div>
+					<div class="grid-item"></div>
+					<div class="grid-item"></div>
+
+					<!-- 제목 -->
+					<div class="grid-item col-span-3">
+						<label class="label-name" for="title" data-lan-eng="Title">제목</label>
+						<input id="title" type="text" class="form-control" value="">
+					</div>
+
+					<!-- 내용 -->
+					<div class="grid-item col-span-3">
+						<label class="label-name" for="content" data-lan-eng="Content">내용</label>
+						<div class="editor-box-wrap">
+							<div class="jw-editor" id="content-editor">
+								<div class="toolbar" id="content-toolbar">
+									<div class="group">
+										<button type="button" class="editor-btn ql-bold">
+											<img src="../image/editer_bold.svg" alt="">
+										</button>
+										<button type="button" class="editor-btn ql-italic">
+											<img src="../image/editer_italic.svg" alt="">
+										</button>
+										<button type="button" class="editor-btn ql-underline">
+											<img src="../image/editer_underline.svg" alt="">
+										</button>
+										<button type="button" class="editor-btn ql-strike">
+											<img src="../image/editer_strikethrough.svg" alt="">
+										</button>
+
+										<button type="button" class="editor-btn font-color" onclick="setColor(this);">가</button>
+										<button type="button" class="background-color" onclick="setColor(this, 2);"></button>
+									</div>
+
+									<div class="group">
+										<select class="editor-font-size ql-size" onchange="fontsize(this);">
+											<option value="" selected>폰트</option>
+											<option value="12px">12px</option>
+											<option value="14px">14px</option>
+											<option value="16px">16px</option>
+											<option value="18px">18px</option>
+											<option value="24px">24px</option>
+										</select>
+									</div>
+
+									<div class="group">
+										<button type="button" class="editor-btn ql-align" value="">
+											<img src="../image/editer_left.svg" alt="">
+										</button>
+										<button type="button" class="editor-btn ql-align" value="center">
+											<img src="../image/editer_center.svg" alt="">
+										</button>
+										<button type="button" class="editor-btn ql-align" value="right">
+											<img src="../image/editer_right.svg" alt="">
+										</button>
+									</div>
+
+									<div class="group">
+										<button type="button" class="editor-btn ql-list" value="ordered">
+											<img src="../image/editer_ordered.svg" alt="">
+										</button>
+										<button type="button" class="editor-btn ql-list" value="bullet">
+											<img src="../image/editer_unordered.svg" alt="">
+										</button>
+									</div>
+
+									<div class="group">
+										<button type="button" class="editor-btn" onclick="removeHtmlTags(this);">
+											<img src="../image/editer_removeHtmlTags.svg" alt="">
+										</button>
+										<button type="button" class="editor-btn" style="font-size:9px;" onclick="toggleHtmlView(this);">
+											HTML
+										</button>
+									</div>
+
+									<div class="group">
+										<label class="inputFile">
+											<input name="inquiry_img[]" type="file" accept="image/*" multiple onchange="insertImage(this);">
+											<span class="text">이미지</span>
+											<i class="progress"></i>
+										</label>
+									</div>
+								</div>
+
+								<div class="jweditor" id="content" data-placeholder="내용을 입력해주세요"></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 첨부파일 -->
+					<div class="grid-item col-span-3">
+						<label class="label-name" data-lan-eng="Attachment">첨부파일</label>
+						<div class="jw-mgb12" id="upload-btn-wrap" style="display: none;">
+							<label class="inputFile">
+								<input type="file" id="file-upload" multiple style="display:none;">
+								<button type="button" class="jw-button typeE" id="file-upload-btn"><img src="../image/upload.svg" alt=""> <span data-lan-eng="File upload">파일 업로드</span></button>
+							</label>
+						</div>
+						<div class="attach-list" id="attach-list"></div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- 문의 답변 섹션 -->
+			<h2 class="section-title jw-mgt32" id="reply-section-title" style="display: none;" data-lan-eng="Inquiry reply">문의 답변</h2>
+			<div class="card-panel jw-mgt16" id="reply-section" style="display: none;">
+				<div class="grid-wrap">
+					<div class="grid-item">
+						<label class="label-name" for="replied_at" data-lan-eng="Answered at">답변일시</label>
+						<input id="replied_at" type="text" class="form-control" value="" disabled>
+					</div>
+					<div class="grid-item"></div>
+					<div class="grid-item"></div>
+
+					<div class="grid-item col-span-3">
+						<label class="label-name" for="reply_content" data-lan-eng="Reply content">내용</label>
+						<div class="editor-box-wrap readonly">
+							<div id="reply_content" class="readonly-editor"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+		</section>
+
+	</main>
+
+	<!-- 기본 스크립트 -->
+	<script src="../js/default.js"></script>
+	<script src="../js/agent.js"></script>
+	<script src="../js/multi-editor.js"></script>
+	<script src="../js/agent-inquiry-detail.js"></script>
+	<script>
+		init({
+			headerUrl: '../inc/header.html',
+			navUrl: '../inc/nav_agent.html'
+		});
+	</script>
+</body>
+
+</html>

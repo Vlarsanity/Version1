@@ -1,0 +1,499 @@
+.table-controls {
+  margin-bottom: 24px;
+}
+
+
+/* ============================================================
+   SEARCH FIELD CONTAINER
+   ============================================================ */
+.search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+  
+  max-width: 400px;
+  width: 100%;
+}
+
+
+/* ============================================================
+   SEARCH LABEL
+   ============================================================ */
+.search-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary, #9e9e9e);
+  letter-spacing: 0.3px;
+  padding-left: 2px;
+}
+
+
+/* ============================================================
+   SEARCH INPUT WRAPPER
+   ============================================================ */
+.search-input-wrapper {
+  position: relative;               /* Allows button to sit inside */
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  border-radius: 6px;
+  border: 1px solid gainsboro;
+}
+
+
+/* ============================================================
+   SEARCH INPUT
+   ============================================================ */
+.search-input {
+  width: 100%;
+  padding: 12px 48px 12px 14px;     /* Space for search icon */
+
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-white);
+
+  transition: 
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-input:hover {
+  border-color: var(--border-medium);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px var(--primary-blue-light);
+}
+
+
+/* ============================================================
+   SEARCH BUTTON
+   ============================================================ */
+.search-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.search-btn:hover {
+  background: var(--bg-hover);
+}
+
+.search-btn:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+
+/* ============================================================
+   SEARCH ICON
+   ============================================================ */
+.search-icon {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.search-btn:hover .search-icon img {
+  opacity: 0.85;
+}
+
+
+
+/* ============================================
+   TABULATOR BASE STYLES – MINIMALIST LIGHT BLUE THEME
+   ============================================ */
+
+/* ============================================================
+   TABLE CONTAINER
+   ============================================================ */
+.table-container {
+  display: flex;              /* enable flex to let children fill height */
+  flex-direction: column;     
+  flex: 1;                    
+  min-height: 0;              /* important for flex children to shrink properly */
+  overflow: hidden;           /* hide scrollbars of container itself */
+}
+
+/* ============================================================
+   TABULATOR
+   ============================================================ */
+.tabulator {
+  flex: 1;                    /* fill available height */
+  min-height: 0;              /* allow shrinking inside flex container */
+  width: 100% !important;
+  height: 100% !important;    /* full height */
+  border: 1px solid #e6eaf0 !important; /* subtle border */
+  border-radius: 6px !important;
+  background: #ffffff !important;
+  font-size: 14px !important;
+  overflow: auto !important;  /* scroll if content exceeds */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+
+/* ============================================================
+   DATA TABLE
+   ============================================================ */
+.data-table {
+  width: 100%;
+  height: 100%;               /* fill parent container */
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  display: block;             /* allow scrolling if content exceeds */
+  overflow: auto;
+}
+
+
+
+
+
+
+
+/* ============================================
+   TABULATOR HEADER
+   ============================================ */
+.tabulator-header {
+  background: linear-gradient(to bottom, #eaf1ff, #e0e9ff) !important; /* subtle blue gradient */
+  border-bottom: 1px solid #c4d4f3 !important;
+  font-weight: 500 !important;
+  box-shadow: inset 0 -1px 0 #c4d4f3;
+}
+
+.tabulator-col {
+  background: transparent !important;
+  border-right: 1px solid #c4d4f3 !important;
+  padding-right: 10px;
+}
+
+.tabulator-col:last-child,
+.tabulator-col:nth-last-child(2) {
+  border-right: none !important;
+}
+
+.tabulator-col-title {
+  font-weight: 600 !important;
+  color: #2c3648 !important;                    /* deep gray */
+  padding: 12px 16px !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Sortable Column Indicators */
+.tabulator-col.tabulator-sortable:hover {
+  background: #eef4ff !important;
+  cursor: pointer;
+}
+
+.tabulator-col[aria-sort="ascending"] .tabulator-col-content,
+.tabulator-col[aria-sort="descending"] .tabulator-col-content {
+  color: #3b6dde !important;                    /* light blue accent */
+}
+
+.tabulator-arrow {
+  border-bottom-color: #3b6dde !important;
+}
+
+/* ============================================
+   TABULATOR ROWS
+   ============================================ */
+.tabulator-row {
+  height: auto !important;       /* auto row height based on content */
+  min-height: 0 !important;
+  border-bottom: 1px solid #e6eaf0 !important;  /* light border for row separation */
+  background: #ffffff !important;
+  transition: background-color 0.18s ease !important;
+}
+
+.tabulator-row:last-child {
+  border-bottom: none !important;
+}
+
+/* Row hover effect */
+.tabulator-row:hover {
+  background: #f3f7ff !important;               /* subtle light blue hover */
+}
+
+/* Selected row */
+.tabulator-row.tabulator-selected {
+  background: #d9e6ff !important;               /* soft blue highlight */
+}
+
+.tabulator-row.tabulator-selected:hover {
+  background: #c4d4f3 !important;               /* slightly deeper hover */
+}
+
+/* Row striping for readability */
+.tabulator-row:nth-child(even) {
+  background: #fafbfd !important;
+}
+
+/* ============================================
+   TABULATOR CELLS
+   ============================================ */
+.tabulator-cell {
+  padding: 14px 16px !important;
+  border-right: 1px solid #e6eaf0 !important;
+  color: #3b4454 !important;
+  vertical-align: middle !important;
+  height: auto !important;          /* auto height */
+  white-space: normal !important;   /* wrap text if needed */
+}
+
+.tabulator-cell:last-child,
+.tabulator-cell:nth-last-child(2) {
+  border-right: none !important;    /* remove right border for last 2 cells */
+}
+
+.tabulator-cell.text-center {
+  text-align: center !important;
+}
+
+.tabulator-cell.text-right {
+  text-align: right !important;
+}
+
+/* ============================================
+   FORCE TABLE TO FILL PARENT WIDTH
+   ============================================ */
+.tabulator .tabulator-tableHolder,
+.tabulator .tabulator-table {
+  width: 100% !important;
+  table-layout: auto !important;    /* columns adapt to content */
+}
+
+
+
+/* ============================================
+   TABULATOR FOOTER (Hidden)
+   ============================================ */
+.tabulator-footer {
+  display: none !important;
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  display: none;
+  background: var(--bg-light);
+  border-radius: 8px;
+  border: 2px dashed var(--border-light);
+}
+
+.empty-state.show {
+  display: block;
+}
+
+.empty-state__content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.empty-state__text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Primary Button */
+.btn-primary {
+  background: var(--primary-blue);
+  color: var(--bg-white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-blue-hover);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: var(--secondary-gray);
+  color: var(--bg-white);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-gray-hover);
+}
+
+/* ============================================
+   COLUMN WIDTH UTILITIES
+   ============================================ */
+.tabulator .col-60 {
+  width: 60px;
+  min-width: 60px;
+}
+
+.tabulator .col-80 {
+  width: 80px;
+  min-width: 80px;
+}
+
+.tabulator .col-100 {
+  width: 100px;
+  min-width: 100px;
+}
+
+.tabulator .col-120 {
+  width: 120px;
+  min-width: 120px;
+}
+
+.tabulator .col-150 {
+  width: 150px;
+  min-width: 150px;
+}
+
+.tabulator .col-200 {
+  width: 200px;
+  min-width: 200px;
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+.tabulator-loader {
+  border-top: 3px solid var(--primary-blue) !important;
+  background: var(--bg-white);
+}
+
+.tabulator-loader-msg {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .table-container {
+    padding: 16px;
+  }
+
+  .search-field {
+    max-width: 100%;
+  }
+
+  .pagination-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .pagination-controls {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pagination-info {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+.tabulator-row:focus-within {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: -2px;
+}
+
+.pagination-btn:focus-visible,
+.pagination-number:focus-visible,
+.search-btn:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .table-controls,
+  .pagination-wrapper,
+  .search-field {
+    display: none !important;
+  }
+
+  .tabulator {
+    border: none;
+    box-shadow: none;
+  }
+
+  .tabulator-row:hover {
+    background: var(--bg-white) !important;
+  }
+}

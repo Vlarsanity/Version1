@@ -1,0 +1,33 @@
+<div class="dialog-container jw-rows jw-flex-c">
+	
+	<div class="dialog-content">
+        <div class="grid-wrap">
+            <div class="grid-item col-span-2">
+                <h1 class="page-title" data-lan-eng="Customer Batch Registration">Customer Batch Registration</h1>
+            </div>
+            <div class="grid-item jw-mgt32">
+                <button type="button" class="jw-button typeG" id="sampleDownloadBtn" data-lan-eng="Sample Download">Sample Download</button>
+            </div>
+        </div>
+        <div class="grid-item">
+            <label class="inputFile jw-mgt32">
+                <input name="" type="file" id="batchFileInput" accept=".xlsx,.xls,.csv" data-essential="y">
+                <button type="button" class="jw-button typeE" id="batchFileUploadBtn"><img src="../image/upload.svg" alt=""> <span data-lan-eng="File upload">파일 업로드</span></button>
+            </label>
+        </div>
+        
+        <div class="file-info" id="fileInfo" style="display: none; margin-top: 16px;">
+            <div class="file-info-item" style="display: flex; align-items: center; justify-content: space-between; padding: 12px; background: #F7FAFF; border-radius: 10px;">
+                <span class="file-name" id="fileName" style="font-weight: 500;"></span>
+                <button type="button" class="file-remove" id="fileRemoveBtn" aria-label="파일 제거" style="background: none; border: none; cursor: pointer; padding: 4px;">
+                    <img src="../image/button-close2.svg" alt="" style="width: 16px; height: 16px;">
+                </button>
+            </div>
+        </div>
+	</div>
+	
+	<div class="dialog-controls jw-mgt50">
+		<button type="button" class="jw-button typeB2" id="closeDialog" data-lan-eng="Cancel">Cancel</button>
+		<button type="button" class="jw-button typeB" id="batchRegisterBtn" disabled data-lan-eng="Register">Register</button>
+	</div>
+</div>

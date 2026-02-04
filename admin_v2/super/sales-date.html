@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>SMART TRAVEL ADMIN</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="layout-main">
+		<!-- nav 들어올 자리 -->
+		<nav class="layout-nav"></nav>
+
+		<section class="layout-content">
+
+			<h1 class="page-title" data-lan-eng="Sales by date">날짜별 매출</h1>
+
+			<div class="card-panel jw-mgt32">
+
+				<h3 class="card-subtitle2" data-lan-eng="Select period">기간 선택</h3>
+				<div class="jw-cols jw-gap10 jw-mgt16">
+					<label class="jw-radio typeA">
+						<input type="radio" name="radio1" checked>
+						<p class="text" data-lan-eng="Daily">일간</p>
+					</label>
+					<label class="jw-radio typeA">
+						<input type="radio" name="radio1" >
+						<p class="text" data-lan-eng="Weekly">주간</p>
+					</label>
+					<label class="jw-radio typeA">
+						<input type="radio" name="radio1" >
+						<p class="text" data-lan-eng="Monthly">월간</p>
+					</label>
+					<label class="jw-radio typeA">
+						<input type="radio" name="radio1" >
+						<p class="text" data-lan-eng="Annual">연간</p>
+					</label>
+				</div>
+				<div class="input-box typeA jw-w400 jw-mgt16">
+					<input name="" value="2025-01-06 ~ 2025-01-06">
+				</div>
+
+
+				<div class="list-header jw-mgt32">
+					<div class="result-count">
+						<span data-lan-eng="Search results">검색결과</span> <span class="result-count__num">999</span><span data-lan-eng="items">개</span>
+					</div>
+				</div>
+				
+				<table class="jw-tableA">
+					<colgroup>
+						<col class="col-60"> <!-- No -->
+						<col> <!-- 시간대 -->
+						<col> <!-- 총 매출액 -->
+					</colgroup>
+					<thead>
+						<tr>
+							<th class="no is-center">No</th>
+							<th data-lan-eng="Time zone">시간대</th>
+							<th data-lan-eng="Total sales amount (₱)">총 매출액 (₱)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						  <td class="is-center">10</td>
+						  <td class="is-center">23시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+						<tr>
+						  <td class="is-center">9</td>
+						  <td class="is-center">22시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+						<tr>
+						  <td class="is-center">8</td>
+						  <td class="is-center">21시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+						<tr>
+						  <td class="is-center">7</td>
+						  <td class="is-center">20시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+						<tr>
+						  <td class="is-center">6</td>
+						  <td class="is-center">19시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+						<tr>
+						  <td class="is-center">5</td>
+						  <td class="is-center">18시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+						<tr>
+						  <td class="is-center">4</td>
+						  <td class="is-center">17시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+						<tr>
+						  <td class="is-center">3</td>
+						  <td class="is-center">16시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+						<tr>
+						  <td class="is-center">2</td>
+						  <td class="is-center">15시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+						<tr>
+						  <td class="is-center">1</td>
+						  <td class="is-center">14시</td>
+						  <td class="is-center">900,000</td>
+						</tr>
+
+					</tbody>
+				</table>
+
+				
+				<div class="jw-pagebox" role="navigation" aria-label="페이지네이션">
+					<div class="contents">
+						<button type="button" class="first" aria-label="첫 페이지" aria-disabled="false">
+							<img src="../image/first.svg" alt="">
+						</button>
+						<button type="button" class="prev" aria-label="이전 페이지" aria-disabled="false">
+							<img src="../image/prev.svg" alt="">
+						</button>
+
+						<div class="page" role="list">
+							<button type="button" class="p" role="listitem">1</button>
+							<button type="button" class="p" role="listitem">2</button>
+							<button type="button" class="p show" role="listitem" aria-current="page">3</button>
+							<button type="button" class="p" role="listitem">4</button>
+							<button type="button" class="p" role="listitem">5</button>
+						</div>
+
+						<button type="button" class="next" aria-label="다음 페이지" aria-disabled="false">
+							<img src="../image/next.svg" alt="">
+						</button>
+						<button type="button" class="last" aria-label="마지막 페이지" aria-disabled="false">
+							<img src="../image/last.svg" alt="">
+						</button>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="controller">
+				<button type="button" class="jw-button typeA" data-lan-eng="Download">다운로드</button>
+			</div>
+
+
+
+		</section>
+
+	</main>
+
+	<!-- 기본 스크립트 -->
+	<script src="../js/default.js"></script>
+	<script src="../js/super.js"></script>
+
+	<script>
+		init({
+			headerUrl: '../inc/header.html',
+			navUrl: '../inc/nav_super.html'
+		});
+	</script>
+</body>
+
+</html>

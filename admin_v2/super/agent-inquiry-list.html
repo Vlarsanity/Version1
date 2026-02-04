@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>SMART TRAVEL ADMIN</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="layout-main">
+		<!-- nav 들어올 자리 -->
+		<nav class="layout-nav"></nav>
+
+		<section class="layout-content">
+			<h1 class="page-title" data-lan-eng="Agent Inquiry List">에이전트 문의 목록</h1>
+
+			<div class="card-panel jw-mgt32">
+
+				<div class="list-header">
+					<div class="result-count">
+						<span data-lan-eng="Search results">검색결과</span> <span class="result-count__num">999</span><span data-lan-eng="items">개</span>
+					</div>
+					<form class="search-form" action="" method="get">
+						<select class="select" name="" onchange="">
+							<option value="" data-lan-eng="Response status">답변 여부</option>
+							<option value="" ></option>
+						</select>
+						<select class="select" name="" onchange="">
+							<option value="" data-lan-eng="Processing status">처리 상태</option>
+							<option value="" ></option>
+						</select>
+						<select class="select" name="" onchange="">
+							<option value="" data-lan-eng="Latest">최신순</option>
+							<option value="" ></option>
+						</select>
+					</form>
+				</div>
+
+				<table class="jw-tableA">
+					<colgroup>
+						<col class="col-60"> <!-- No -->
+						<col> <!-- 지점명 -->
+						<col> <!-- 문의 제목 -->
+						<col> <!-- 작성일 -->
+						<col> <!-- 답변 여부 -->
+						<col> <!-- 처리 상태 -->
+					</colgroup>
+					<thead>
+						<tr>
+							<th class="no">No</th>
+							<th data-lan-eng="Agent Name">지점명</th>
+							<th data-lan-eng="Inquiry Title">문의 제목</th>
+							<th data-lan-eng="Date created">작성일</th>
+							<th data-lan-eng="Response status">답변 여부</th>
+							<th data-lan-eng="Processing status">처리 상태</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="is-center">10</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">미답변</td>
+							<td class="is-center">접수됨</td>
+						</tr>
+						<tr>
+							<td class="is-center">9</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">답변 완료</td>
+							<td class="is-center">처리중</td>
+						</tr>
+						<tr>
+							<td class="is-center">8</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">답변 완료</td>
+							<td class="is-center">처리 완료</td>
+						</tr>
+						<tr>
+							<td class="is-center">7</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">답변 완료</td>
+							<td class="is-center">처리 완료</td>
+						</tr>
+						<tr>
+							<td class="is-center">6</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">답변 완료</td>
+							<td class="is-center">처리 완료</td>
+						</tr>
+						<tr>
+							<td class="is-center">5</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">답변 완료</td>
+							<td class="is-center">처리 완료</td>
+						</tr>
+						<tr>
+							<td class="is-center">4</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">답변 완료</td>
+							<td class="is-center">처리 완료</td>
+						</tr>
+						<tr>
+							<td class="is-center">3</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">답변 완료</td>
+							<td class="is-center">처리 완료</td>
+						</tr>
+						<tr>
+							<td class="is-center">2</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">답변 완료</td>
+							<td class="is-center">처리 완료</td>
+						</tr>
+						<tr>
+							<td class="is-center">1</td>
+							<td class="is-center">Davao City</td>
+							<td class="is-center">문의 제목입니다</td>
+							<td class="is-center">2025-04-19</td>
+							<td class="is-center">답변 완료</td>
+							<td class="is-center">처리 완료</td>
+						</tr>
+
+					</tbody>
+				</table>
+
+				
+				<div class="jw-pagebox" role="navigation" aria-label="페이지네이션">
+					<div class="contents">
+						<button type="button" class="first" aria-label="첫 페이지" aria-disabled="false">
+							<img src="../image/first.svg" alt="">
+						</button>
+						<button type="button" class="prev" aria-label="이전 페이지" aria-disabled="false">
+							<img src="../image/prev.svg" alt="">
+						</button>
+
+						<div class="page" role="list">
+							<button type="button" class="p" role="listitem">1</button>
+							<button type="button" class="p" role="listitem">2</button>
+							<button type="button" class="p show" role="listitem" aria-current="page">3</button>
+							<button type="button" class="p" role="listitem">4</button>
+							<button type="button" class="p" role="listitem">5</button>
+						</div>
+
+						<button type="button" class="next" aria-label="다음 페이지" aria-disabled="false">
+							<img src="../image/next.svg" alt="">
+						</button>
+						<button type="button" class="last" aria-label="마지막 페이지" aria-disabled="false">
+							<img src="../image/last.svg" alt="">
+						</button>
+					</div>
+				</div>
+
+			</div>
+			
+			<div class="controller">
+				<button type="button" class="jw-button typeA" data-lan-eng="Download">다운로드</button>
+			</div>
+
+		</section>
+
+	</main>
+
+	<script src="../js/default.js"></script>
+	<script src="../js/super.js"></script>
+
+	<script>
+		init({
+			headerUrl: '../inc/header.html',
+			navUrl: '../inc/nav_super.html'
+		});
+	</script>
+</body>
+
+</html>

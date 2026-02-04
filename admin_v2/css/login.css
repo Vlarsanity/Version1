@@ -1,0 +1,348 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, sans-serif;
+  background: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Layout */
+.layout-main {
+  width: 100%;
+  padding: 20px;
+}
+
+.layout-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Login Card */
+.login-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  min-width: 550px;      /* slightly larger */
+  max-width: 650px;      /* slightly larger */
+  padding: 50px 40px;    /* increased padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  transition: all 0.3s ease; /* smooth resize */
+  border: 1px solid #ddd;
+  
+}
+
+/* Logo */
+.logo-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.logo-section img {
+  max-width: 150px; /* larger logo */
+  height: auto;
+}
+
+/* Form */
+.field-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+
+  /* border: 1px solid black; */
+}
+
+
+
+
+
+
+
+
+.label-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fafafa;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #116530;
+  background: #fff;
+  outline: none;
+}
+
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-box input {
+  padding-right: 48px;
+}
+
+.show-password-btn {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.show-password-btn:hover {
+  opacity: 0.9;
+}
+
+.show-password-btn i {
+  font-size: 18px;
+}
+
+/* Buttons */
+.login-button {
+  width: 100%;
+  padding: 16px;             /* bigger button */
+  background: #116530;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.login-button:hover {
+  background: #0f4d2e;
+}
+
+.login-button:active {
+  transform: translateY(1px);
+}
+
+
+
+
+
+/* Row and checkbox */
+.row.jw-mgt32 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 28px;
+  width: 100%;
+
+  /* border: 1px solid black; */
+}
+
+
+/* ----------------------------------------
+   FIELD WRAPPER
+---------------------------------------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+
+/* ----------------------------------------
+   BASE ROW STYLE
+---------------------------------------- */
+.row-field {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+
+
+/* ----------------------------------------
+   MAIN BOTTOM ROW
+---------------------------------------- */
+.row-field.main-form-bottom {
+  display: flex;
+  flex-wrap: nowrap;   /* keep in one line */
+  width: 100%;
+  gap: 20px;
+  padding: 10px 0 5px;
+
+  /* border: 1px solid black; */
+}
+
+
+
+/* ========== 25% / 75% LAYOUT ========== */
+.row-field.main-form-bottom > div:nth-child(1) {
+  flex: 0 0 30%;
+  min-width: 0;
+}
+
+.row-field.main-form-bottom > div:nth-child(2) {
+  flex: 1 1 70%;      /* auto-shrink allowed */
+  min-width: 0;       /* critical for preventing overflow */
+  max-width: 100%;    /* ensures no exceeding */
+}
+
+
+
+/* ----------------------------------------
+   LEFT SIDE (Check Box)
+---------------------------------------- */
+.row-field.main-form-bottom .jw-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;      /* checkbox never shrinks */
+
+  /* border: 1px solid black; */
+}
+
+.jw-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #116530;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.jw-checkbox .text {
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+}
+
+
+
+/* ----------------------------------------
+   RIGHT SIDE (Link Bar)
+---------------------------------------- */
+.row-field.main-form-bottom .linkbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+
+  flex-shrink: 1;      /* linkbar CAN shrink to fit */
+  min-width: 0;        /* critical → allows shrinking inside parent */
+  max-width: 100%;     /* prevents going outside */
+  overflow: hidden;    /* no overflow */
+}
+
+
+
+/* Individual links: no wrap, shrinkable, ellipsis */
+.row-field.main-form-bottom .linkbar a {
+  white-space: nowrap;
+  flex-shrink: 1;          /* allow text to shrink */
+  min-width: 0;            /* prevent overflow */
+  overflow: hidden;
+  text-overflow: ellipsis; /* add "..." if needed */
+
+  font-size: 14px;
+  color: #116530;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.row-field.main-form-bottom .linkbar a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+
+
+
+
+
+/* Message box below login button */
+.login-message-box {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: none; /* hidden by default */
+  margin-top: 14px;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.login-message-box.error {
+  background-color: #fdecea;
+  color: #e74c3c;
+  border: 1px solid #f5c6cb;
+}
+
+.login-message-box.success {
+  background-color: #eafaf1;
+  color: #27ae60;
+  border: 1px solid #2ecc71;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 40px 30px;
+    min-width: 450px;
+    max-width: 500px;
+  }
+  .logo-section img {
+    max-width: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 20px;
+    min-width: 380px;
+    max-width: 420px;
+  }
+  .logo-section img {
+    max-width: 110px;
+  }
+}

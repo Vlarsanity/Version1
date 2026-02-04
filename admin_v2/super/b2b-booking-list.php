@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Member List</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="../css/a_reset.css?v=<?= time(); ?>">
+	<link rel="stylesheet" href="../css/a_variables.css?v=<?= time(); ?>">
+	<link rel="stylesheet" href="../css/a_components.css?v=<?= time(); ?>" />
+	<link rel="stylesheet" href="../css/a_contents copy.css?v=<?= time(); ?>" />
+
+	<!-- General CSS -->
+	<link rel="stylesheet" href="../../admin_v2/css/dashboard-structure.css?v=<?= time(); ?>">
+	<link rel="stylesheet" href="../../admin_v2/css/root.css?v=<?= time(); ?>">
+	
+	<link rel="stylesheet" href="../../admin_v2/agent/css/page-specifics/registration-list.css?v=<?= time(); ?>">
+
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 / Main Navbar -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="main-container">
+
+		<div class="wrapper-container">
+
+			<!-- nav 들어올 자리 / Sidebar -->
+			<nav class="layout-nav"></nav>
+
+			<!-- Main Content Wrapper -->
+			<section class="main-content">
+
+				<!-- Main-Body template Here -->
+				<div class="main-content-wrapper">
+
+					<div class="content-wrapper-header">
+						<h1 class="page-title" data-lan-eng="B2B Reservation List">B2B 예약 목록</h1>
+					</div>
+
+
+					<div class="content-wrapper-body">
+
+						<div class="card-panel jw-mgt32">
+
+							<div class="list-header">
+								<div class="result-count">
+									<span data-lan-eng="Search results">검색결과</span> <span class="result-count__num">999</span><span data-lan-eng="items">개</span>
+								</div>
+								<form class="search-form" action="" method="get">
+									<input type="date" class="travelStartDate" name="" placeholder="여행 시작일">
+
+									<select class="select" name="" onchange="">
+										<option value="" data-lan-eng="">전체 상태</option>
+										<option value="" data-lan-eng="">전체</option>
+									</select>
+
+									<div class="search-field">
+										<select class="select" name="" onchange="">
+											<option value="" data-lan-eng="all">전체</option>
+											<option value="" data-lan-eng="all">전체</option>
+										</select>
+										<input type="text" class="search-input" placeholder="고객명 검색" data-lan-eng="Search">
+										<button type="submit" class="jw-button search-btn" aria-label="검색">
+											<span class="search-ico"><img src="../image/search.svg" alt=""></span>
+										</button>
+									</div>
+								</form>
+							</div>
+
+							<table class="jw-tableA">
+								<colgroup>
+									<col class="col-60"> <!-- No -->
+									<col> <!-- 상품명 -->
+									<col class="col-120"> <!-- 여행 시작일 -->
+									<col class="col-160"> <!-- 소속 지점명 -->
+									<col class="col-140"> <!-- 예약자명 -->
+									<col class="col-100"> <!-- 예약 인원 -->
+									<col class="col-140"> <!-- 배정 가이드 -->
+									<col class="col-140"> <!-- 상태 -->
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="no is-center">No</th>
+										<th data-lan-eng="Product Name">상품명</th>
+										<th data-lan-eng="Travel start date">여행 시작일</th>
+										<th data-lan-eng="Agent Name">소속 지점명</th>
+										<th data-lan-eng="Reserver's name">예약자명</th>
+										<th data-lan-eng="Number of people for reservation" class="is-center">예약 인원</th>
+										<th data-lan-eng="Assignment Guide">배정 가이드</th>
+										<th data-lan-eng="Status" class="is-center">상태</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">10</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-wait"> 선금 입금 대기</span></td>
+									</tr>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">9</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-wait2"> 잔금 입금 대기</span></td>
+									</tr>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">8</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-confirm"> 예약 확정</span></td>
+									</tr>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">7</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-done"> 여행 완료</span></td>
+									</tr>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">6</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-done"> 여행 완료</span></td>
+									</tr>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">5</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-cancel"> 예약 취소</span></td>
+									</tr>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">4</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-refund"> 환불 완료</span></td>
+									</tr>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">3</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-refund"> 환불 완료</span></td>
+									</tr>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">2</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-refund"> 환불 완료</span></td>
+									</tr>
+									<tr onclick="temp_link('b2b-booking-detail.html')">
+										<td class="no is-center">1</td>
+										<td class="td-ellipsis"><span>서울 벚꽃 명소 집중 탐방 5박 6일 패키지 – 전일정 가이드 및 식사 포함</span></td>
+										<td class="is-center">2025-04-19</td>
+										<td class="is-center">Davao City</td>
+										<td class="is-center">Jose Ramirez</td>
+										<td class="is-center">5</td>
+										<td class="is-center">Hyunwoo Park</td>
+										<td class="is-center"><span class="badge badge-refund"> 환불 완료</span></td>
+									</tr>
+								</tbody>
+							</table>
+
+
+							<div class="jw-pagebox" role="navigation" aria-label="페이지네이션">
+								<div class="contents">
+									<button type="button" class="first" aria-label="첫 페이지" aria-disabled="false">
+										<img src="../image/first.svg" alt="">
+									</button>
+									<button type="button" class="prev" aria-label="이전 페이지" aria-disabled="false">
+										<img src="../image/prev.svg" alt="">
+									</button>
+
+									<div class="page" role="list">
+										<button type="button" class="p" role="listitem">1</button>
+										<button type="button" class="p" role="listitem">2</button>
+										<button type="button" class="p show" role="listitem" aria-current="page">3</button>
+										<button type="button" class="p" role="listitem">4</button>
+										<button type="button" class="p" role="listitem">5</button>
+									</div>
+
+									<button type="button" class="next" aria-label="다음 페이지" aria-disabled="false">
+										<img src="../image/next.svg" alt="">
+									</button>
+									<button type="button" class="last" aria-label="마지막 페이지" aria-disabled="false">
+										<img src="../image/last.svg" alt="">
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="controller">
+							<button type="button" class="jw-button typeA" data-lan-eng="Download">다운로드</button>
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</div>
+
+	</main>
+
+</body>
+
+<!-- 기본 스크립트 -->
+<script src="../js/default.js"></script>
+<script src="../js/super.js"></script>
+
+
+<!-- Initialize Navbar and Sidebar -->
+<script src="../../admin_v2/general/functions/js/init-nav-sidebar-super.js"></script>
+
+</html>

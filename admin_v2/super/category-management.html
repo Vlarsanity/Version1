@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>SMART TRAVEL ADMIN</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="layout-main">
+		<!-- nav 들어올 자리 -->
+		<nav class="layout-nav"></nav>
+
+		<section class="layout-content">
+			<h1 class="page-title" data-lan-eng="">카테고리 관리</h1>
+
+			<h2 class="section-title jw-mgt32" data-lan-eng="">카테고리 관리</h2>
+			
+			<div class="grid-panel jw-mgt32">
+			
+				<!-- 카드: 지역별 -->
+				<div class="grid-panel-card">
+					<div class="wrap">
+						<div class="gpc-head">
+							<div class="gpc-title" data-lan-eng="Seasonal">계절별</div>
+							<div class="gpc-head-actions">
+								<button class="icon-btn" title="이름 수정"><img src="../image/category-edit.svg" alt=""></button>
+								<button class="icon-btn" title="삭제"><img src="../image/category-delete.svg" alt=""></button>
+							</div>
+						</div>
+						<div class="gpc-body">
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">봄</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">여름</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">가을</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">겨울</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+						</div>
+						<div class="gpc-foot"><button class="jw-button typeC" data-lan-eng="Add subcategory">중분류 추가</button></div>
+
+					</div>
+				</div>
+
+				<!-- 카드: 지역별 -->
+				<div class="grid-panel-card">
+					<div class="wrap">
+						<div class="gpc-head">
+							<div class="gpc-title" data-lan-eng="By region">지역별</div>
+							<div class="gpc-head-actions">
+								<button class="icon-btn" title="이름 수정"><img src="../image/category-edit.svg" alt=""></button>
+								<button class="icon-btn" title="삭제"><img src="../image/category-delete.svg" alt=""></button>
+							</div>
+						</div>
+						<div class="gpc-body">
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">서울</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">강원</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">인천</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">경기</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+						</div>
+						<div class="gpc-foot"><button class="jw-button typeC" data-lan-eng="Add subcategory">중분류 추가</button></div>
+
+					</div>
+				</div>
+
+				<!-- 카드: 테마별 -->
+				<div class="grid-panel-card">
+					<div class="wrap">
+						<div class="gpc-head">
+							<div class="gpc-title" data-lan-eng="By theme">테마별</div>
+							<div class="gpc-head-actions">
+								<button class="icon-btn" title="이름 수정"><img src="../image/category-edit.svg" alt=""></button>
+								<button class="icon-btn" title="삭제"><img src="../image/category-delete.svg" alt=""></button>
+							</div>
+						</div>
+						<div class="gpc-body">
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">가족</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">친구</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">반려동물</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">혼자</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+						</div>
+						<div class="gpc-foot"><button class="jw-button typeC" data-lan-eng="Add subcategory">중분류 추가</button></div>
+
+					</div>
+				</div>
+
+
+				<!-- 카드: 프라이빗 -->
+				<div class="grid-panel-card">
+					<div class="wrap">
+						<div class="gpc-head">
+							<div class="gpc-title" data-lan-eng="Private">프라이빗</div>
+							<div class="gpc-head-actions">
+								<button class="icon-btn" title="이름 수정"><img src="../image/category-edit.svg" alt=""></button>
+								<button class="icon-btn" title="삭제"><img src="../image/category-delete.svg" alt=""></button>
+							</div>
+						</div>
+						<div class="gpc-body">
+							<div class="gpc-item">
+								<div class="category">
+									<span class="drag"><img src="../image/category-sort.svg" alt=""></span>
+									<span class="name">가족</span>
+								</div>
+								<div class="actions">
+									<button class="icon-btn"><img src="../image/category-edit.svg" alt=""></button>
+									<button class="icon-btn" onclick="modal('category-management-m2.html', '600px', '252px')"><img src="../image/category-delete.svg" alt=""></button>
+								</div>
+							</div>
+							
+							<div class="gpc-form iptA"><input type="text" placeholder="대분류명 입력" data-lan-eng="Enter main category name"><button class="btn-ghost"><img src="../image/category-check2.svg" alt=""></button></div>
+							<div class="gpc-form iptB jw-mgt4"><input type="text" placeholder="중분류명 입력" data-lan-eng="Enter category name"><button class="btn-ghost"><img src="../image/category-check2.svg" alt=""></button></div>
+
+						</div>
+						<div class="gpc-foot"><button class="jw-button typeC" data-lan-eng="Add subcategory">중분류 추가</button></div>
+
+					</div>
+				</div>
+
+
+			</div>
+
+			
+			
+			<div class="controller">
+				<button type="button" class="jw-button typeB" onclick="modal('category-management-m1.html', '580px', '512px')"><img src="../image/buttonB.svg" alt=""><span data-lan-eng="Add main category">대분류 추가</span></button>
+			</div>
+
+
+		</section>
+
+	</main>
+
+	<!-- 기본 스크립트 -->
+	<script src="../js/default.js"></script>
+	<script src="../js/super.js"></script>
+
+	<script>
+		init({
+			headerUrl: '../inc/header.html',
+			navUrl: '../inc/nav_super.html'
+		});
+	</script>
+</body>
+
+</html>

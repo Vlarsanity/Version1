@@ -1,0 +1,45 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid black; */
+  flex: 0 0 7%; /* 7% of main-content height */
+  min-height: 50px;
+  padding: 0 0rem; /* optional horizontal padding */
+
+  border: 1px solid black;
+}
+
+/* Left section */
+.page-header-left {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center; /* vertical center */
+  justify-content: flex-start;
+  height: 100%;
+}
+
+/* Left Section - Title */
+.page-header-left .page-title {
+  margin: 0;
+  font-size: 1.75rem; /* prominent but not too big */
+  font-weight: 600;
+  color: #212529; /* professional dark text */
+  line-height: 1.2;
+}
+
+
+/* Right section */
+.page-header-right {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+
+
+
+
+

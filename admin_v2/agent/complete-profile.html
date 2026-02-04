@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Complete Profile - SMART TRAVEL ADMIN</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+
+	<style>
+		.complete-profile-container {
+			max-width: 800px;
+			margin: 80px auto;
+			padding: 40px;
+		}
+
+		.profile-card {
+			background: white;
+			border-radius: 8px;
+			padding: 40px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		}
+
+		.profile-header {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		.profile-header h1 {
+			font-size: 24px;
+			font-weight: 600;
+			margin-bottom: 8px;
+			color: #333;
+		}
+
+		.profile-header p {
+			font-size: 14px;
+			color: #666;
+		}
+
+		.form-field {
+			margin-bottom: 24px;
+		}
+
+		.form-field label {
+			display: block;
+			font-size: 14px;
+			font-weight: 500;
+			margin-bottom: 8px;
+			color: #333;
+		}
+
+		.form-field label .required {
+			color: #e74c3c;
+			margin-left: 4px;
+		}
+
+		.form-field input,
+		.form-field select {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			font-size: 14px;
+		}
+
+		.form-field input:focus,
+		.form-field select:focus {
+			outline: none;
+			border-color: #3498db;
+		}
+
+		.button-group {
+			display: flex;
+			gap: 12px;
+			margin-top: 32px;
+		}
+
+		.btn-submit {
+			flex: 1;
+			padding: 14px;
+			background: #3498db;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			font-size: 16px;
+			font-weight: 500;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+
+		.btn-submit:hover {
+			background: #2980b9;
+		}
+
+		.btn-submit:disabled {
+			background: #bdc3c7;
+			cursor: not-allowed;
+		}
+
+		.btn-logout {
+			padding: 14px 24px;
+			background: #95a5a6;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			font-size: 16px;
+			font-weight: 500;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+
+		.btn-logout:hover {
+			background: #7f8c8d;
+		}
+
+		.error-message {
+			display: none;
+			padding: 12px;
+			margin-bottom: 20px;
+			background: #fee;
+			border: 1px solid #fcc;
+			border-radius: 4px;
+			color: #c33;
+			font-size: 14px;
+		}
+
+		.success-message {
+			display: none;
+			padding: 12px;
+			margin-bottom: 20px;
+			background: #efe;
+			border: 1px solid #cfc;
+			border-radius: 4px;
+			color: #3c3;
+			font-size: 14px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="complete-profile-container">
+		<div class="profile-card">
+			<div class="profile-header">
+				<h1 data-lan-eng="Complete Your Profile">프로필 완성</h1>
+				<p data-lan-eng="Please complete your profile information to continue">계속하려면 프로필 정보를 완성해주세요</p>
+			</div>
+
+			<div class="error-message" id="errorMessage"></div>
+			<div class="success-message" id="successMessage"></div>
+
+			<form id="profileForm">
+				<div class="form-field">
+					<label for="agencyName">
+						<span data-lan-eng="Agency Name">여행사명</span>
+						<span class="required">*</span>
+					</label>
+					<input type="text" id="agencyName" name="agencyName" required placeholder="Enter agency name" data-lan-eng-placeholder="Enter agency name">
+				</div>
+
+				<div class="form-field">
+					<label for="fName">
+						<span data-lan-eng="First Name">이름</span>
+						<span class="required">*</span>
+					</label>
+					<input type="text" id="fName" name="fName" required placeholder="Enter first name" data-lan-eng-placeholder="Enter first name">
+				</div>
+
+				<div class="form-field">
+					<label for="mName">
+						<span data-lan-eng="Middle Name">중간 이름</span>
+					</label>
+					<input type="text" id="mName" name="mName" placeholder="Enter middle name (optional)" data-lan-eng-placeholder="Enter middle name (optional)">
+				</div>
+
+				<div class="form-field">
+					<label for="lName">
+						<span data-lan-eng="Last Name">성</span>
+						<span class="required">*</span>
+					</label>
+					<input type="text" id="lName" name="lName" required placeholder="Enter last name" data-lan-eng-placeholder="Enter last name">
+				</div>
+
+				<div class="form-field">
+					<label for="personInChargeEmail">
+						<span data-lan-eng="Business Email">비즈니스 이메일</span>
+						<span class="required">*</span>
+					</label>
+					<input type="email" id="personInChargeEmail" name="personInChargeEmail" required placeholder="Enter business email" data-lan-eng-placeholder="Enter business email">
+				</div>
+
+				<div class="form-field">
+					<label for="contactNo">
+						<span data-lan-eng="Contact Number">연락처</span>
+						<span class="required">*</span>
+					</label>
+					<input type="text" id="contactNo" name="contactNo" required placeholder="Enter phone number (e.g., +631234567890)" data-lan-eng-placeholder="Enter phone number (e.g., +631234567890)">
+				</div>
+
+				<div class="button-group">
+					<button type="submit" class="btn-submit" id="submitBtn">
+						<span data-lan-eng="Save Profile">프로필 저장</span>
+					</button>
+					<button type="button" class="btn-logout" id="logoutBtn">
+						<span data-lan-eng="Logout">로그아웃</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script src="../js/default.js"></script>
+	<script>
+		// 언어 설정 초기화
+		document.addEventListener('DOMContentLoaded', function() {
+			const lang = getCookie('lang') || 'eng';
+			setCookie('lang', lang, 365);
+			language_apply(lang);
+		});
+
+		// 프로필 폼 제출
+		document.getElementById('profileForm').addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			const agencyName = document.getElementById('agencyName').value.trim();
+			const fName = document.getElementById('fName').value.trim();
+			const mName = document.getElementById('mName').value.trim();
+			const lName = document.getElementById('lName').value.trim();
+			const personInChargeEmail = document.getElementById('personInChargeEmail').value.trim();
+			const contactNo = document.getElementById('contactNo').value.trim();
+
+			// 유효성 검사
+			if (!agencyName || !fName || !lName || !personInChargeEmail || !contactNo) {
+				showError('Please fill in all required fields');
+				return;
+			}
+
+			// 이메일 유효성 검사
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (!emailRegex.test(personInChargeEmail)) {
+				showError('Please enter a valid email address');
+				return;
+			}
+
+			// 버튼 비활성화
+			const submitBtn = document.getElementById('submitBtn');
+			submitBtn.disabled = true;
+			submitBtn.textContent = 'Saving...';
+
+			// AJAX 요청
+			fetch('../backend/api/complete-profile.php', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					agencyName: agencyName,
+					fName: fName,
+					mName: mName || null,
+					lName: lName,
+					personInChargeEmail: personInChargeEmail,
+					contactNo: contactNo
+				})
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					showSuccess(data.message || 'Profile saved successfully!');
+					setTimeout(() => {
+						window.location.href = 'overview.php';
+					}, 1000);
+				} else {
+					showError(data.message || 'Failed to save profile');
+					submitBtn.disabled = false;
+					submitBtn.textContent = 'Save Profile';
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				showError('An error occurred. Please try again.');
+				submitBtn.disabled = false;
+				submitBtn.textContent = 'Save Profile';
+			});
+		});
+
+
+
+		const logoutBtn = document.getElementById('logoutBtn');
+
+		if (logoutBtn) {
+			logoutBtn.addEventListener('click', function () {
+				if (confirm('Are you sure you want to logout?')) {
+					logoutCompleteAcc();
+				}
+			});
+		}
+
+		function logoutCompleteAcc() {
+			fetch('../../admin_v2/general/functions/logout-process.php', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			})
+			.then(async (res) => {
+				let data = {};
+				try {
+					data = await res.json();
+				} catch (e) {}
+
+				console.log('Logout response:', data);
+
+				if (data?.success === true) {
+					window.location.href = '../index.php'; // redirect only on success
+				} else {
+					console.error('Logout failed:', data?.message || 'Unknown error');
+					alert('Logout failed. Please try again.');
+				}
+			})
+			.catch((err) => {
+				console.error('Logout error:', err);
+				alert('Network error during logout. Please try again.');
+			});
+		}
+
+
+
+
+
+
+
+
+		// 에러 메시지 표시
+		function showError(message) {
+			const errorEl = document.getElementById('errorMessage');
+			const successEl = document.getElementById('successMessage');
+			successEl.style.display = 'none';
+			errorEl.textContent = message;
+			errorEl.style.display = 'block';
+			setTimeout(() => {
+				errorEl.style.display = 'none';
+			}, 5000);
+		}
+
+		// 성공 메시지 표시
+		function showSuccess(message) {
+			const errorEl = document.getElementById('errorMessage');
+			const successEl = document.getElementById('successMessage');
+			errorEl.style.display = 'none';
+			successEl.textContent = message;
+			successEl.style.display = 'block';
+		}
+
+		// 쿠키 함수들
+		function getCookie(name) {
+			const value = `; ${document.cookie}`;
+			const parts = value.split(`; ${name}=`);
+			if (parts.length === 2) return parts.pop().split(';').shift();
+			return null;
+		}
+
+		function setCookie(name, value, days) {
+			const expires = new Date(Date.now() + days * 864e5).toUTCString();
+			document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+		}
+
+		// 언어 적용 함수 (간소화 버전)
+		function language_apply(lang) {
+			const attr = lang === 'eng' ? 'data-lan-eng' : null;
+			if (!attr) return;
+
+			document.querySelectorAll(`[${attr}]`).forEach(el => {
+				const text = el.getAttribute(attr);
+				if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+					if (el.placeholder) el.placeholder = text;
+				} else {
+					el.textContent = text;
+				}
+			});
+		}
+	</script>
+</body>
+
+</html>

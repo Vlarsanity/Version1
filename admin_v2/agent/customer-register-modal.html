@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>고객 등록</title>
+</head>
+<body>
+	<div class="modal-header">
+		<h2 class="modal-title" data-lan-eng="Customer Registration">고객 등록</h2>
+		<button type="button" class="modal-close" id="closeDialog" aria-label="닫기">
+			<img src="../image/button-close2.svg" alt="">
+		</button>
+	</div>
+
+	<div class="modal-body">
+		<div class="modal-button-group">
+			<button type="button" class="jw-button typeA" id="singleRegBtn">
+				<img src="../image/plus.svg" alt="">
+				<span data-lan-eng="Single registration">단건 등록</span>
+			</button>
+			<button type="button" class="jw-button typeA" id="batchRegBtn">
+				<img src="../image/upload.svg" alt="">
+				<span data-lan-eng="Batch Registration">일괄 등록</span>
+			</button>
+		</div>
+	</div>
+
+	<script>
+		(function() {
+			// 전역 스코프에 함수 등록
+			window.handleSingleRegistration = function() {
+				if (typeof modal_close === 'function') {
+					modal_close();
+				}
+				// 원본 페이지로 이동
+				if (window.parent && window.parent.location) {
+					window.parent.location.href = 'customer-register.html';
+				} else {
+					window.location.href = 'customer-register.html';
+				}
+			};
+
+			window.handleBatchRegistration = function() {
+				if (typeof modal_close === 'function') {
+					modal_close();
+				}
+				// 원본 페이지 기준으로 모달 열기
+				if (window.parent && window.parent.modal) {
+					window.parent.modal('customer-batch-upload-modal.html', '600px', '500px');
+				} else if (typeof modal === 'function') {
+					modal('customer-batch-upload-modal.html', '600px', '500px');
+				}
+			};
+
+			// DOMContentLoaded 또는 즉시 실행
+			function initModal() {
+				const singleBtn = document.getElementById('singleRegBtn');
+				const batchBtn = document.getElementById('batchRegBtn');
+				
+				if (singleBtn) {
+					singleBtn.addEventListener('click', window.handleSingleRegistration);
+				}
+				if (batchBtn) {
+					batchBtn.addEventListener('click', window.handleBatchRegistration);
+				}
+			}
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initModal);
+			} else {
+				initModal();
+			}
+		})();
+	</script>
+</body>
+</html>
+

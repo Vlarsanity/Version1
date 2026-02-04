@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>SMART TRAVEL</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+
+	<!-- editor -->
+	<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="layout-main">
+		<!-- nav 들어올 자리 -->
+		<nav class="layout-nav"></nav>
+
+		<section class="layout-content">
+			<div class="page-toolbar">
+				<a href="customer-list.html" class="jw-button" aria-label="목록으로 돌아가기">
+					<img src="../image/arrow4.svg" alt="">
+					<span data-lan-eng="Back to List">목록으로 돌아가기</span>
+				</a>
+
+				<div class="page-toolbar-actions">
+					
+					<button type="button" class="jw-button typeB" data-lan-eng="Save">저장</button>
+				</div>
+			</div>
+			
+			<h1 class="page-title" data-lan-eng="Customer Details">고객 상세</h1>
+
+
+			<h2 class="section-title jw-mgt32" data-lan-eng="Basic Information">기본 정보</h2>
+			<div class="card-panel jw-mgt16">
+				<div class="grid-wrap">
+
+					<!-- 1행: 고객명 / 연락처 / 이메일 -->
+					<div class="grid-item">
+						<label class="label-name" for="cust_name" data-lan-eng="Customer Name">고객명</label>
+						<input id="cust_name" type="text" class="form-control" placeholder="고객명" data-lan-eng-placeholder="Customer Name">
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="cust_phone" data-lan-eng="Contact">연락처</label>
+						<div class="field-row">
+							<select id="country_code" class="select w-auto" aria-label="국가 코드" data-lan-eng-aria-label="Country Code">
+								<option value="+63" selected>+63</option>
+								<option value="+82">+82</option>
+								<option value="+81">+81</option>
+								<option value="+86">+86</option>
+								<option value="+1">+1</option>
+							</select>
+							<input id="cust_phone" type="tel" class="form-control" placeholder="전화번호" data-lan-eng-placeholder="Phone Number">
+						</div>
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="cust_email" data-lan-eng="Email">이메일</label>
+						<input id="cust_email" type="email" class="form-control" placeholder="email@example.com" data-lan-eng-placeholder="email@example.com">
+					</div>
+
+					<!-- 2행: PW / 고객 번호 / 소속 지점명 -->
+					<div class="grid-item">
+						<label class="label-name" for="cust_pw">PW</label>
+						<div class="input-box">
+							<input id="cust_pw" type="password" value="">
+							<button type="button" class="jw-button typeD" id="resetPasswordBtn"><img src="../image/replay.svg" alt=""><span data-lan-eng="Initialize">초기화</span></button>
+						</div>
+
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="cust_no" data-lan-eng="Customer number">고객 번호</label>
+						<input id="cust_no" type="text" class="form-control" disabled>
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="cust_branch" data-lan-eng="Agent Name">소속 지점명</label>
+						<input id="cust_branch" type="text" class="form-control" disabled>
+					</div>
+
+					<!-- 3행: 등록일시 -->
+					<div class="grid-item">
+						<label class="label-name" for="created_at" data-lan-eng="Registration Date/Time">등록일시</label>
+						<input id="created_at" type="text" class="form-control" disabled>
+					</div>
+					<div class="grid-item"></div>
+					<div class="grid-item"></div>
+
+					<!-- 4행: Note(에디터, 전체폭) -->
+					<!-- multi-editor.js -->
+					<div class="grid-item col-span-3">
+						<label class="label-name" for="content" data-lan-eng="Note">메모</label>
+						<div class="editor-box-wrap">
+						  <div class="jw-editor">
+							<div class="toolbar">
+							  <div class="group">
+								<button type="button" class="editor-btn ql-bold">
+								  <img src="../image/editer_bold.svg">
+								</button>
+								<button type="button" class="editor-btn ql-italic">
+								  <img src="../image/editer_italic.svg">
+								</button>
+								<button type="button" class="editor-btn ql-underline">
+								  <img src="../image/editer_underline.svg">
+								</button>
+								<button type="button" class="editor-btn ql-strike">
+								  <img src="../image/editer_strikethrough.svg">
+								</button>
+					  
+								<!-- 색상 버튼은 this 넘겨주기 -->
+								<button type="button" class="editor-btn font-color" onclick="setColor(this);">가</button>
+								<button type="button" class="background-color" onclick="setColor(this, 2);"></button>
+							  </div>
+					  
+							  <div class="group">
+								<!-- select도 this 넘겨주기 -->
+								<select class="editor-font-size" onchange="fontsize(this);">
+								  <option value="" selected>폰트</option>
+								  <option value="12px">12px</option>
+								  <option value="14px">14px</option>
+								  <option value="16px">16px</option>
+								  <option value="18px">18px</option>
+								  <option value="24px">24px</option>
+								</select>
+							  </div>
+					  
+							  <div class="group">
+								<button type="button" class="editor-btn ql-align" value="">
+								  <img src="../image/editer_left.svg">
+								</button>
+								<button type="button" class="editor-btn ql-align" value="center">
+								  <img src="../image/editer_center.svg">
+								</button>
+								<button type="button" class="editor-btn ql-align" value="right">
+								  <img src="../image/editer_right.svg">
+								</button>
+							  </div>
+					  
+							  <div class="group">
+								<button type="button" class="editor-btn ql-list" value="ordered">
+								  <img src="../image/editer_ordered.svg">
+								</button>
+								<button type="button" class="editor-btn ql-list" value="bullet">
+								  <img src="../image/editer_unordered.svg">
+								</button>
+							  </div>
+					  
+							  <div class="group">
+								<!-- 이것도 this 넘기게 변경 -->
+								<button type="button" class="editor-btn" onclick="removeHtmlTags(this);">
+								  <img src="../image/editer_removeHtmlTags.svg">
+								</button>
+								<button type="button" class="editor-btn" style="font-size:9px;" onclick="toggleHtmlView(this);">
+								  HTML
+								</button>
+							  </div>
+					  
+							  <div class="group">
+								<label class="inputFile">
+								  <!-- this 넘기기 -->
+								  <input name="item_img[]" type="file" accept="image/*" multiple onchange="insertImage(this);">
+								  <span class="text">이미지</span>
+								  <i class="progress"></i>
+								</label>
+							  </div>
+							</div>
+					  
+							<div class="jweditor" data-placeholder="내용을 입력해주세요"></div>
+						  </div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<h2 class="section-title jw-mgt32" data-lan-eng="Traveler Information">여행자 정보</h2>
+			<div class="card-panel jw-mgt16">
+				<div class="grid-wrap">
+
+					<div class="grid-item">
+						<label class="label-name" for="title" data-lan-eng="Title">호칭</label>
+						<select id="title" class="select">
+							<option value="MR" selected>MR</option>
+							<option value="MS">MS</option>
+							<option value="MRS">MRS</option>
+							<option value="MISS">MISS</option>
+						</select>
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="first_name" data-lan-eng="Name">이름</label>
+						<input id="first_name" type="text" class="form-control" placeholder="이름" data-lan-eng-placeholder="Name">
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="last_name" data-lan-eng="Nature">성</label>
+						<input id="last_name" type="text" class="form-control" placeholder="성" data-lan-eng-placeholder="Nature">
+					</div>
+
+					<!-- 2행: 성별 / 나이 / 생년월일 -->
+					<div class="grid-item">
+						<label class="label-name" for="gender" data-lan-eng="Gender">성별</label>
+						<select id="gender" class="select">
+							<option value="Male" selected>Male</option>
+							<option value="Female">Female</option>
+							<option value="Other">Other</option>
+						</select>
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="age" data-lan-eng="Age">나이</label>
+						<input id="age" type="number" class="form-control" min="0" placeholder="나이" data-lan-eng-placeholder="Age">
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="birth" data-lan-eng="Date of birth">생년월일</label>
+						<input id="birth" type="text" class="form-control" placeholder="YYYYMMDD"
+							inputmode="numeric">
+					</div>
+
+					<!-- 3행: 출신국가 / 여권번호 / 여권 발행일 -->
+					<div class="grid-item">
+						<label class="label-name" for="nationality" data-lan-eng="Country of origin">출신국가</label>
+						<input id="nationality" type="text" class="form-control" placeholder="국가" data-lan-eng-placeholder="Country of origin">
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="passport_no" data-lan-eng="Passport number">여권번호</label>
+						<input id="passport_no" type="text" class="form-control" placeholder="여권번호" data-lan-eng-placeholder="Passport number">
+					</div>
+
+					<div class="grid-item">
+						<label class="label-name" for="passport_issue" data-lan-eng="Passport Issue Date">여권 발행일</label>
+						<input id="passport_issue" type="text" class="form-control" placeholder="YYYYMMDD"
+							inputmode="numeric">
+					</div>
+
+					<!-- 4행: 여권 만료일 / 여권 사진(중간 컬럼) / 여분 -->
+					<div class="grid-item">
+						<label class="label-name" for="passport_expire" data-lan-eng="Passport expiration date">여권 만료일</label>
+						<input id="passport_expire" type="text" class="form-control" placeholder="YYYYMMDD"
+							inputmode="numeric">
+					</div>
+
+					<!-- 여권 사진 -->
+					<div class="grid-item">
+						<label class="label-name" data-lan-eng="Passport Photo">여권 사진</label>
+						<div class="upload-box">
+							<input id="file-passport" type="file" accept="image/*">
+							<label for="file-passport" class="thumb" aria-label="preview"></label>
+							<div class="upload-meta">
+								<div class="file-title">이미지</div>
+								<div class="file-info">jpg, 328KB</div>
+								<div class="file-controller">
+									<button type="button" class="btn-icon" id="downloadPassportBtn" aria-label="다운로드"><img src="../image/button-download.svg" alt=""></button>
+									<button type="button" class="btn-icon" id="deletePassportBtn" aria-label="삭제"><img src="../image/button-close2.svg" alt=""></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="grid-item"></div>
+
+				</div>
+			</div>
+
+
+			<h2 class="section-title jw-mgt32" data-lan-eng="Reservation Details">예약 내역</h2>
+			<div class="card-panel jw-mgt16">
+				<table class="jw-tableA">
+					<colgroup>
+						<col class="col-60"> <!-- No -->
+						<col> <!-- 상품명 (auto) -->
+						<col> <!-- 예약일 -->
+						<col> <!-- 여행 시작일 -->
+						<col> <!-- 예약 상태 -->
+						<col> <!-- 예약 인원 -->
+						<col> <!-- 주문 금액 -->
+					</colgroup>
+					<thead>
+						<tr>
+							<th class="no is-center">No</th>
+							<th data-lan-eng="Product Name">상품명</th>
+							<th data-lan-eng="Reservation date">예약일</th>
+							<th data-lan-eng="Travel start date">여행 시작일</th>
+							<th data-lan-eng="Reservation Status">예약 상태</th>
+							<th data-lan-eng="Number of people for reservation">예약 인원</th>
+							<th data-lan-eng="Order Amount (₱)">주문 금액 (₱)</th>
+						</tr>
+					</thead>
+					<tbody id="bookings-tbody">
+						<tr>
+							<td colspan="7" class="is-center">로딩 중...</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<div class="jw-pagebox" id="bookings-pagination" role="navigation" aria-label="페이지네이션">
+					<!-- 페이지네이션은 JavaScript에서 동적으로 생성 -->
+				</div>
+
+			</div>
+
+			<h2 class="section-title jw-mgt32" data-lan-eng="">Inquiry</h2>
+			<div class="card-panel jw-mgt16">
+				<table class="jw-tableA">
+					<colgroup>
+						<col class="col-60"> <!-- No -->
+						<col> <!-- 문의 유형 -->
+						<col> <!-- 문의 제목 (auto) -->
+						<col> <!-- 작성일 -->
+						<col> <!-- 답변 여부 -->
+						<col> <!-- 처리 상태 -->
+					</colgroup>
+					<thead>
+						<tr>
+							<th class="no is-center">No</th>
+							<th data-lan-eng="Inquiry type">문의 유형</th>
+							<th data-lan-eng="Inquiry Title">문의 제목</th>
+							<th data-lan-eng="Date created">작성일</th>
+							<th data-lan-eng="Response status">답변 여부</th>
+							<th data-lan-eng="Processing status">처리 상태</th>
+						</tr>
+					</thead>
+					<tbody id="inquiries-tbody">
+						<tr>
+							<td colspan="6" class="is-center">로딩 중...</td>
+						</tr>
+					</tbody>
+				</table>
+
+				
+				<div class="jw-pagebox" id="inquiries-pagination" role="navigation" aria-label="페이지네이션">
+					<!-- 페이지네이션은 JavaScript에서 동적으로 생성 -->
+				</div>
+
+			</div>
+
+		</section>
+
+	</main>
+
+	<!-- 기본 스크립트 -->
+	<script src="../js/default.js"></script>
+	<script src="../js/agent.js"></script>
+	<script src="../js/passport-photo.js"></script>
+	<script src="../js/multi-editor.js"></script>
+	<script src="../js/agent-customer-detail.js"></script>
+	<script>
+		init({
+			headerUrl: '../inc/header.html',
+			navUrl: '../inc/nav_agent.html'
+		});
+	</script>
+</body>
+
+</html>

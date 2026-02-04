@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>SMART TRAVEL ADMIN</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="layout-main">
+		<!-- nav 들어올 자리 -->
+		<nav class="layout-nav"></nav>
+
+		<section class="layout-content">
+			<time class="page-date" id="current-date" datetime=""></time>
+
+			<h1 class="page-title" data-lan-eng="Operating Status">Operating Status</h1>
+				
+
+			<div class="overview-card-grid jw-mgt32">
+				<!-- Payment Status -->
+				<article class="card" style="grid-column: span 2;">
+					<div>
+						<h2 class="card-title" data-lan-eng="Payment Status">Payment Status</h2>
+						<a href="reservation-list.html" class="card-link">See All →</a>
+					</div>
+					<div>
+						<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px;">
+
+							<!-- Down Payment Wait -->
+							<div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #f59e0b;">
+								<div style="width: 48px; height: 48px; background: #f59e0b; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center;">
+									<span style="font-size: 20px;">💰</span>
+								</div>
+								<p style="font-size: 13px; color: #92400e; font-weight: 500; margin-bottom: 8px;">Down Payment</p>
+								<p style="font-size: 28px; font-weight: 700; color: #b45309;" id="down_payment_wait_count">0</p>
+								<p style="font-size: 12px; color: #a16207;">Awaiting</p>
+							</div>
+
+							<!-- Advance Payment Wait -->
+							<div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #3b82f6;">
+								<div style="width: 48px; height: 48px; background: #3b82f6; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center;">
+									<span style="font-size: 20px;">📋</span>
+								</div>
+								<p style="font-size: 13px; color: #1e40af; font-weight: 500; margin-bottom: 8px;">Advance Payment</p>
+								<p style="font-size: 28px; font-weight: 700; color: #1d4ed8;" id="advance_payment_wait_count">0</p>
+								<p style="font-size: 12px; color: #1e40af;">Awaiting</p>
+							</div>
+
+							<!-- Balance Wait -->
+							<div style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid #22c55e;">
+								<div style="width: 48px; height: 48px; background: #22c55e; border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center;">
+									<span style="font-size: 20px;">✅</span>
+								</div>
+								<p style="font-size: 13px; color: #166534; font-weight: 500; margin-bottom: 8px;">Balance</p>
+								<p style="font-size: 28px; font-weight: 700; color: #16a34a;" id="balance_wait_count">0</p>
+								<p style="font-size: 12px; color: #166534;">Awaiting</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+
+			
+			<div class="card-panel jw-mgt68">
+				<h2 class="card-title" data-lan-eng="Today's Travel Itinerary">Today's Travel Itinerary</h2>
+				<p class="card-subtitle"><strong>0</strong></p>
+
+				<div class="tableA-scroll">
+					<div class="jw-tableA typeB">
+						<table>
+							<colgroup>
+								<col style="width:60px;"><!-- No -->
+								<col><!-- 상품명 -->
+								<col style="width:220px;"><!-- 여행 기간 -->
+								<col style="width:120px;"><!-- 고객 유형 -->
+								<col style="width:100px;"><!-- 인원 수 -->
+								<col style="width:140px;"><!-- 배정 가이드 -->
+							</colgroup>
+							<thead>
+								<tr>
+									<th>No</th>
+									<th data-lan-eng="Product Name">Product Name</th>
+									<th data-lan-eng="Travel period">Travel Period</th>
+									<th data-lan-eng="Customer Type">Customer Type</th>
+									<th data-lan-eng="Number of people">Travelers</th>
+									<th data-lan-eng="Assignment Guide">Assigned Guide</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- 데이터는 JavaScript에서 동적으로 로드됩니다 -->
+								<tr>
+									<td colspan="6" class="is-center" data-lan-eng="No travel itineraries for today.">No travel itineraries for today.</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+			</div>
+
+
+
+		</section>
+
+	</main>
+
+	<!-- 기본 스크립트 -->
+	<script src="../js/default.js"></script>
+	<script src="../js/agent.js"></script>
+	<script src="../js/agent-overview.js"></script>
+	<script>
+		init({
+			headerUrl: '../inc/header.html',
+			navUrl: '../inc/nav_agent.html'
+		});
+	</script>
+</body>
+
+</html>

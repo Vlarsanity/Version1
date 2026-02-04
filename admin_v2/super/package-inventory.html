@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html id="html-lang" lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Package Inventory Management - SMART TRAVEL ADMIN</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+
+	<style>
+		/* 재고 관리 캘린더 스타일 */
+		.inventory-calendar {
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			gap: 8px;
+			margin-top: 24px;
+		}
+
+		.inventory-calendar-header {
+			display: contents;
+		}
+
+		.inventory-calendar-header .day-name {
+			text-align: center;
+			font-weight: bold;
+			font-size: 14px;
+			color: #666;
+			padding: 12px 0;
+			border-bottom: 2px solid #D4E7FF;
+		}
+
+		.inventory-calendar-header .day-name:first-child {
+			color: #E1322E;
+		}
+
+		.inventory-calendar-header .day-name:last-child {
+			color: #0065F8;
+		}
+
+		.inventory-day {
+			min-height: 120px;
+			border: 1px solid #EAEAEA;
+			border-radius: 12px;
+			padding: 8px;
+			background: #fff;
+			transition: all 0.2s;
+		}
+
+		.inventory-day:hover {
+			border-color: #0065F8;
+			box-shadow: 0 2px 8px rgba(0, 101, 248, 0.15);
+		}
+
+		.inventory-day.inactive {
+			background: #F9F9F9;
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		.inventory-day.past {
+			background: #F5F5F5;
+		}
+
+		.inventory-day .day-number {
+			font-size: 16px;
+			font-weight: bold;
+			color: #121212;
+			margin-bottom: 8px;
+		}
+
+		.inventory-day.sunday .day-number {
+			color: #E1322E;
+		}
+
+		.inventory-day.saturday .day-number {
+			color: #0065F8;
+		}
+
+		.inventory-day .day-info {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+		}
+
+		.inventory-day .info-row {
+			display: flex;
+			align-items: center;
+			gap: 4px;
+			font-size: 12px;
+		}
+
+		.inventory-day .info-label {
+			color: #666;
+			min-width: 40px;
+		}
+
+		.inventory-day .info-value {
+			font-weight: 500;
+			color: #121212;
+		}
+
+		.inventory-day .status-badge {
+			display: inline-block;
+			padding: 2px 8px;
+			border-radius: 4px;
+			font-size: 11px;
+			font-weight: 500;
+		}
+
+		.inventory-day .status-badge.open {
+			background: #D4E7FF;
+			color: #0065F8;
+		}
+
+		.inventory-day .status-badge.closed {
+			background: #FFD6D6;
+			color: #E1322E;
+		}
+
+		.inventory-day .edit-btn {
+			margin-top: 8px;
+			width: 100%;
+			padding: 6px 0;
+			background: #F7FAFF;
+			border: 1px solid #D4E7FF;
+			border-radius: 6px;
+			font-size: 12px;
+			font-weight: 500;
+			color: #0065F8;
+			cursor: pointer;
+			transition: all 0.2s;
+		}
+
+		.inventory-day .edit-btn:hover {
+			background: #D4E7FF;
+		}
+
+		/* 캘린더 네비게이션 */
+		.calendar-navigation {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 24px;
+			margin-bottom: 24px;
+		}
+
+		.calendar-navigation .month-display {
+			font-size: 24px;
+			font-weight: bold;
+			color: #121212;
+			min-width: 200px;
+			text-align: center;
+		}
+
+		.calendar-navigation .nav-btn {
+			width: 44px;
+			height: 44px;
+			border: 1px solid #D4D4D4;
+			border-radius: 12px;
+			background: #fff;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.2s;
+		}
+
+		.calendar-navigation .nav-btn:hover {
+			background: #F7FAFF;
+			border-color: #0065F8;
+		}
+
+		/* 선택된 상품 정보 카드 */
+		.selected-product-card {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+			padding: 16px 24px;
+			background: #F7FAFF;
+			border: 1px solid #D4E7FF;
+			border-radius: 12px;
+			margin-bottom: 24px;
+		}
+
+		.selected-product-card .product-name {
+			flex: 1;
+			font-size: 18px;
+			font-weight: bold;
+			color: #121212;
+		}
+
+		.selected-product-card .product-price {
+			font-size: 18px;
+			font-weight: bold;
+			color: #0065F8;
+		}
+
+		.selected-product-card .change-btn {
+			padding: 8px 16px;
+			background: #fff;
+			border: 1px solid #D4D4D4;
+			border-radius: 8px;
+			font-size: 14px;
+			font-weight: 500;
+			color: #121212;
+			cursor: pointer;
+			transition: all 0.2s;
+		}
+
+		.selected-product-card .change-btn:hover {
+			border-color: #0065F8;
+			color: #0065F8;
+		}
+
+		/* 범례 */
+		.calendar-legend {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+			margin-bottom: 16px;
+			padding: 12px 16px;
+			background: #F9F9F9;
+			border-radius: 8px;
+		}
+
+		.calendar-legend .legend-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 13px;
+			color: #666;
+		}
+
+		.calendar-legend .legend-dot {
+			width: 12px;
+			height: 12px;
+			border-radius: 3px;
+		}
+
+		.calendar-legend .legend-dot.open {
+			background: #D4E7FF;
+		}
+
+		.calendar-legend .legend-dot.closed {
+			background: #FFD6D6;
+		}
+
+		.calendar-legend .legend-dot.past {
+			background: #EAEAEA;
+		}
+
+		/* 일괄 수정 버튼 영역 */
+		.bulk-actions {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 24px;
+		}
+
+		/* 날짜 편집 모달 추가 스타일 */
+		.edit-form-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 16px;
+		}
+
+		.edit-form-grid .form-group {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+
+		.edit-form-grid .form-group.full-width {
+			grid-column: span 2;
+		}
+
+		.edit-form-grid .form-label {
+			font-size: 14px;
+			font-weight: 600;
+			color: #121212;
+		}
+
+		.edit-form-grid .form-control {
+			height: 46px;
+			border: 1px solid #D4D4D4;
+			border-radius: 10px;
+			padding: 0 16px;
+			font-size: 14px;
+		}
+
+		.edit-form-grid .form-control:focus {
+			border-color: #0065F8;
+			outline: none;
+		}
+
+		.edit-form-grid select.form-control {
+			display: block !important;
+			width: 100%;
+			cursor: pointer;
+			-webkit-appearance: auto;
+			-moz-appearance: auto;
+			appearance: auto;
+			background: #fff;
+		}
+
+		/* 빈 상태 */
+		.empty-state {
+			text-align: center;
+			padding: 80px 24px;
+			color: #666;
+		}
+
+		.empty-state .icon {
+			font-size: 48px;
+			margin-bottom: 16px;
+		}
+
+		.empty-state .title {
+			font-size: 20px;
+			font-weight: bold;
+			color: #121212;
+			margin-bottom: 8px;
+		}
+
+		.empty-state .description {
+			font-size: 14px;
+			color: #666;
+			margin-bottom: 24px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="layout-main">
+		<!-- nav 들어올 자리 -->
+		<nav class="layout-nav"></nav>
+
+		<section class="layout-content">
+			<div class="jw-cols jw-between">
+				<h1 class="page-title" data-lan-eng="Package Inventory Management">날짜별 재고/가격 관리</h1>
+				<div class="jw-center jw-gap8">
+					<button type="button" class="jw-button typeB" id="saveAllBtn" style="display: none;">
+						<img src="../image/buttonB.svg" alt="">
+						<span data-lan-eng="Save All Changes">변경사항 저장</span>
+					</button>
+				</div>
+			</div>
+
+			<!-- 상품 선택 영역 -->
+			<div class="card-panel jw-mgt32">
+				<h2 class="section-title" data-lan-eng="Select Product">상품 선택</h2>
+
+				<div id="no-product-selected" class="empty-state">
+					<div class="icon">📦</div>
+					<div class="title" data-lan-eng="No product selected">상품이 선택되지 않았습니다</div>
+					<div class="description" data-lan-eng="Please select a product to manage inventory">재고를 관리할 상품을 선택해주세요</div>
+					<button type="button" id="select-product-btn" class="jw-button typeB" onclick="openProductSearchModal()">
+						<img src="../image/search2.svg" alt="">
+						<span data-lan-eng="Select Product">상품 선택</span>
+					</button>
+				</div>
+
+				<div id="selected-product-info" class="selected-product-card" style="display: none;">
+					<div class="product-name" id="selected-product-name">-</div>
+					<div class="product-price" id="selected-product-price">-</div>
+					<button type="button" class="change-btn" onclick="openProductSearchModal()" data-lan-eng="Change Product">상품 변경</button>
+				</div>
+			</div>
+
+			<!-- 캘린더 영역 -->
+			<div class="card-panel jw-mgt32" id="calendar-section" style="display: none;">
+				<div class="jw-cols jw-between jw-mgb16">
+					<h2 class="section-title" data-lan-eng="Inventory Calendar">재고 캘린더</h2>
+					<div class="bulk-actions">
+						<button type="button" class="jw-button typeA" id="bulkEditBtn" onclick="openBulkEditModal()">
+							<span data-lan-eng="Bulk Edit">일괄 수정</span>
+						</button>
+					</div>
+				</div>
+
+				<!-- 캘린더 네비게이션 -->
+				<div class="calendar-navigation">
+					<button type="button" class="nav-btn" id="prev-month-btn" onclick="changeMonth(-1)">
+						<img src="../image/arrow4.svg" alt="Previous">
+					</button>
+					<div class="month-display" id="month-display">2025년 1월</div>
+					<button type="button" class="nav-btn" id="next-month-btn" onclick="changeMonth(1)">
+						<img src="../image/arrow4.svg" alt="Next" style="transform: rotate(180deg);">
+					</button>
+				</div>
+
+				<!-- 범례 -->
+				<div class="calendar-legend">
+					<div class="legend-item">
+						<div class="legend-dot open"></div>
+						<span data-lan-eng="Open (Available)">오픈 (예약가능)</span>
+					</div>
+					<div class="legend-item">
+						<div class="legend-dot closed"></div>
+						<span data-lan-eng="Closed (Not Available)">마감 (예약불가)</span>
+					</div>
+					<div class="legend-item">
+						<div class="legend-dot past"></div>
+						<span data-lan-eng="Past Date">지난 날짜</span>
+					</div>
+				</div>
+
+				<!-- 캘린더 그리드 -->
+				<div class="inventory-calendar" id="inventory-calendar">
+					<div class="inventory-calendar-header">
+						<div class="day-name" data-lan-eng="Sun">일</div>
+						<div class="day-name" data-lan-eng="Mon">월</div>
+						<div class="day-name" data-lan-eng="Tue">화</div>
+						<div class="day-name" data-lan-eng="Wed">수</div>
+						<div class="day-name" data-lan-eng="Thu">목</div>
+						<div class="day-name" data-lan-eng="Fri">금</div>
+						<div class="day-name" data-lan-eng="Sat">토</div>
+					</div>
+					<!-- 캘린더 셀은 JavaScript로 동적 생성 -->
+				</div>
+
+				<!-- 로딩 상태 -->
+				<div id="calendar-loading" class="empty-state" style="display: none;">
+					<div class="description" data-lan-eng="Loading...">로딩 중...</div>
+				</div>
+
+				<!-- 데이터 없음 상태 -->
+				<div id="calendar-empty" class="empty-state" style="display: none;">
+					<div class="icon">📅</div>
+					<div class="title" data-lan-eng="No availability data">등록된 가용 날짜가 없습니다</div>
+					<div class="description" data-lan-eng="Availability dates are created when the product is registered">상품 등록 시 자동으로 생성됩니다</div>
+				</div>
+			</div>
+
+		</section>
+
+	</main>
+
+	<!-- 상품 검색 모달 -->
+	<div id="product-search-modal" class="modal" style="display: none;">
+		<div class="modal-content modal-large">
+			<div class="modal-header">
+				<h3 data-lan-eng="Product Search">상품 검색</h3>
+				<button type="button" class="modal-close" onclick="closeModal('product-search-modal')">
+					<img src="../image/button-close2.svg" alt="">
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="search-box">
+					<input type="text" id="product-search-input" class="form-control" placeholder="상품명 검색" data-lan-eng-placeholder="Enter product name">
+					<button type="button" id="product-search-submit" class="jw-button typeA" onclick="searchProducts()" data-lan-eng="Search">검색</button>
+				</div>
+				<div class="search-results" id="product-search-results">
+					<!-- 검색 결과가 여기에 표시됩니다 -->
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="jw-button typeB" onclick="confirmProductSelection()" data-lan-eng="Confirm">확인</button>
+				<button type="button" class="jw-button typeD" onclick="closeModal('product-search-modal')" data-lan-eng="Cancel">취소</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 날짜 편집 모달 -->
+	<div id="date-edit-modal" class="modal" style="display: none;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 id="edit-modal-title" data-lan-eng="Edit Date">날짜 수정</h3>
+				<button type="button" class="modal-close" onclick="closeModal('date-edit-modal')">
+					<img src="../image/button-close2.svg" alt="">
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="edit-form-grid">
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Date">날짜</label>
+						<input type="text" id="edit-date" class="form-control" readonly>
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Status">상태</label>
+						<select id="edit-status" class="form-control">
+							<option value="open" data-lan-eng="Open">오픈</option>
+							<option value="closed" data-lan-eng="Closed">마감</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Capacity">수용 인원</label>
+						<input type="number" id="edit-capacity" class="form-control" min="0" placeholder="수용 인원">
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Price (₱)">가격 (₱)</label>
+						<input type="number" id="edit-price" class="form-control" min="0" step="0.01" placeholder="가격">
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Child Price (₱)">아동 가격 (₱)</label>
+						<input type="number" id="edit-child-price" class="form-control" min="0" step="0.01" placeholder="미입력시 성인가격의 80%">
+					</div>
+					<div class="form-group full-width">
+						<label class="form-label" data-lan-eng="Single Room Price (₱)">싱글룸 가격 (₱)</label>
+						<input type="number" id="edit-single-price" class="form-control" min="0" step="0.01" placeholder="미입력시 기본 10,000페소">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="jw-button typeB" onclick="saveDateEdit()" data-lan-eng="Save">저장</button>
+				<button type="button" class="jw-button typeD" onclick="closeModal('date-edit-modal')" data-lan-eng="Cancel">취소</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 일괄 수정 모달 -->
+	<div id="bulk-edit-modal" class="modal" style="display: none;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 data-lan-eng="Bulk Edit">일괄 수정</h3>
+				<button type="button" class="modal-close" onclick="closeModal('bulk-edit-modal')">
+					<img src="../image/button-close2.svg" alt="">
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="edit-form-grid">
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Start Date">시작일</label>
+						<input type="date" id="bulk-start-date" class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="End Date">종료일</label>
+						<input type="date" id="bulk-end-date" class="form-control">
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Status">상태</label>
+						<select id="bulk-status" class="form-control">
+							<option value="" data-lan-eng="No Change">변경 안함</option>
+							<option value="open" data-lan-eng="Open">오픈</option>
+							<option value="closed" data-lan-eng="Closed">마감</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Capacity">수용 인원</label>
+						<input type="number" id="bulk-capacity" class="form-control" min="0" placeholder="변경 안함">
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Price (₱)">가격 (₱)</label>
+						<input type="number" id="bulk-price" class="form-control" min="0" step="0.01" placeholder="변경 안함">
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Child Price (₱)">아동 가격 (₱)</label>
+						<input type="number" id="bulk-child-price" class="form-control" min="0" step="0.01" placeholder="변경 안함">
+					</div>
+					<div class="form-group">
+						<label class="form-label" data-lan-eng="Single Room Price (₱)">싱글룸 가격 (₱)</label>
+						<input type="number" id="bulk-single-price" class="form-control" min="0" step="0.01" placeholder="변경 안함">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="jw-button typeB" onclick="applyBulkEdit()" data-lan-eng="Apply">적용</button>
+				<button type="button" class="jw-button typeD" onclick="closeModal('bulk-edit-modal')" data-lan-eng="Cancel">취소</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 기본 스크립트 -->
+	<script src="../js/default.js"></script>
+	<script src="../js/super.js"></script>
+	<script src="../js/super-package-inventory.js"></script>
+
+	<script>
+		init({
+			headerUrl: '../inc/header.html',
+			navUrl: '../inc/nav_super.html'
+		});
+	</script>
+</body>
+
+</html>

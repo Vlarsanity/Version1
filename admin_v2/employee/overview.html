@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>SMART TRAVEL ADMIN</title>
+
+	<!-- 공통 스타일 -->
+	<link rel="shortcut icon" href="../image/favicon.ico">
+	<link rel="stylesheet" href="../css/a_reset.css">
+	<link rel="stylesheet" href="../css/a_variables.css">
+	<link rel="stylesheet" href="../css/a_components.css">
+	<link rel="stylesheet" href="../css/a_contents.css">
+</head>
+
+<body>
+
+	<!-- header 들어올 자리 -->
+	<header class="layout-header"></header>
+
+	<!-- 본문 영역 -->
+	<main class="layout-main">
+		<!-- nav 들어올 자리 -->
+		<nav class="layout-nav"></nav>
+
+		<section class="layout-content">
+			<time class="page-date" id="current-date" datetime=""></time>
+
+			<h1 class="page-title" data-lan-eng="Operating Status">운영현황</h1>
+
+
+			<div class="overview-card-grid jw-mgt32">
+				<!-- 예약 현황 -->
+				<article class="card">
+					<div>
+						<h2 class="card-title" data-lan-eng="Reservation Status">예약 현황</h2>
+						<a href="reservation-list.html" class="card-link">See All →</a>
+					</div>
+					<div>
+						<ul class="status-list">
+							<li class="status-item">
+								<i class="dot dot-blue" aria-hidden="true"></i>
+								<span class="label" data-lan-eng="Checking before advance payment">선금 확인 전</span>
+								<strong class="count">0<span data-lan-eng="">건</span></strong>
+							</li>
+							<li class="status-item">
+								<i class="dot dot-green" aria-hidden="true"></i>
+								<span class="label" data-lan-eng="Check remaining balance">잔금 확인 전</span>
+								<strong class="count">0<span data-lan-eng="">건</span></strong>
+							</li>
+						</ul>
+					</div>
+				</article>
+
+				<!-- 문의 현황 -->
+				<article class="card">
+					<div>
+						<h2 class="card-title" data-lan-eng="Inquiry Status">문의 현황</h2>
+						<a href="inquiry-list.html" class="card-link">See All →</a>
+					</div>
+					<div>
+						<ul class="status-list">
+							<li class="status-item">
+								<i class="dot dot-blue" aria-hidden="true"></i>
+								<span class="label" data-lan-eng="Unanswered">미답변</span>
+								<strong class="count">0<span data-lan-eng="">건</span></strong>
+							</li>
+							<li class="status-item">
+								<i class="dot dot-green" aria-hidden="true"></i>
+								<span class="label" data-lan-eng="Processing">처리중</span>
+								<strong class="count">0<span data-lan-eng="">건</span></strong>
+							</li>
+						</ul>
+					</div>
+				</article>
+			</div>
+
+		</section>
+
+	</main>
+
+	<!-- 기본 스크립트 -->
+	<script src="../js/default.js"></script>
+	<script src="../js/employee.js"></script>
+	<script src="../js/employee-overview.js"></script>
+	<script>
+		init({
+			headerUrl: '../inc/header.html',
+			navUrl: '../inc/nav_employee.html'
+		});
+	</script>
+</body>
+
+</html>

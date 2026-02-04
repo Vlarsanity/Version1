@@ -180,7 +180,7 @@ if (!$productFound) {
         'packageDescription' => '',
         'thumbnail_image' => '',
         'product_images' => '[]',
-        'detail_image' => '',
+        'detail_image' => '../'+ '',
         'included_items' => '',
         'excluded_items' => '',
         'meeting_time' => '',
@@ -532,8 +532,8 @@ function formatDuration($startTime, $endTime, $lang = null) {
     <script type="text/javascript" src="../js/slick/slick.min.js" defer></script>
     <script src="../js/slider.js" defer></script>
     <script src="../js/product-detail.js?v=20251226_bookbtnfix2" defer></script>
-    <link rel="stylesheet" href="/css/i18n-boot.css">
-    <script src="/js/i18n-boot.js"></script>
+    <link rel="stylesheet" href="../css/i18n-boot.css">
+    <script src="../js/i18n-boot.js"></script>
     <script src="../js/i18n.js" defer></script>
     <script>
         // Tab sticky shadow effect

@@ -4,3 +4,8 @@ Stack trace: #0 C:\xampp\htdocs\Version1\public\functions\login.php(123): mysqli
 #1 C:\xampp\htdocs\Version1\public\functions\login.php(241): check_existing_session(Object(mysqli), 306, '127.0.0.1')
 #2 {main}
 --------------------------------------------------------------------------------
+[2026-02-04 03:30:52] LOGIN-PROCESS.PHP STARTED
+[2026-02-04 03:30:52] REQUEST METHOD: POST
+[2026-02-04 03:30:52] LOGIN SUCCESS: User testing1 (ID: 303)
+[2026-02-04 03:30:52] CREATING USER_SESSION RECORD: session_id=tls7lhqjkjnoqqpii6g0tm7e07 | accountId=303 | ip=::1
+[2026-02-04 03:30:52] USER_SESSION CREATED SUCCESSFULLY
